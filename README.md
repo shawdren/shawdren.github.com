@@ -1,1 +1,0 @@
-It's my first demo project, I am using it to learn how to create a blog at here.
