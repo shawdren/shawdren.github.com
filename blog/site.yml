@@ -1,17 +1,16 @@
-title: test
-subtitle: test of blog
+title: Dino Liu
+subtitle: Dino Liu of blog
 link: Homepage link
 meta:
   description: Content of description meta tag
   keywords: !!seq
-    - keyword1
-    - keyword2
-    - keyword3
-  author: Content of author meta tag
+    - C#, ASP.NET, ASP.NET MVC, Javascript, SQL Server, HTML, CSS.
+    - English
+  author: Dino Liu (Shawdren) <jl_lsj@163>
 master:
-  name: Your name
-  about: Introduce yourself here
-  email: Your E-mail
+  name: Dino Liu
+  about: Try to do everything.
+  email: jl_lsj@163.com
 rss:
   title: RSS feed title
   desc: RSS feed description
@@ -19,7 +18,7 @@ rss:
   max: 10
 copyright:
   owner: Copyrighter
-  beginYear: 2011
-  endYear: 2013
+  beginYear: 2014
+  endYear: 2014
 theme: default
 codetheme: night
