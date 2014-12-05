@@ -8,17 +8,17 @@
         <meta name="author" content="<%= site.meta.author %>"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
         <title><%= site.title %> - <% include subtitle %></title>
-        <link rel="stylesheet" href="/assets/vendor/normalize.css"/>
-        <link rel="stylesheet" href="/assets/vendor/prettify-<%= site.codetheme %>.css"/>
-        <link rel="stylesheet" href="/assets/themes/<%= site.theme %>/main.css"/>
-        <link rel="shortcut icon" href="/fav.ico"/>
+        <link rel="stylesheet" href="/shawdren/assets/vendor/normalize.css"/>
+        <link rel="stylesheet" href="/shawdren/assets/vendor/prettify-<%= site.codetheme %>.css"/>
+        <link rel="stylesheet" href="/shawdren/assets/themes/<%= site.theme %>/main.css"/>
+        <link rel="shortcut icon" href="/shawdren/fav.ico"/>
         <script type="text/javascript" src="/assets/vendor/prettify.js"></script>
         <% include header_plugin %>
     </head>
     <body onload="prettyPrint()">
     <div id="header">
         <div id="header-inner">
-            <div id="title"><a href="/"><%= site.title %></a></div>
+            <div id="title"><a href="/shawdren/"><%= site.title %></a></div>
             <div id="subtitle"><%= site.subtitle %></div>
         </div>
     </div>
