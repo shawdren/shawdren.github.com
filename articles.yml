@@ -16,3 +16,13 @@
     - 代码
     - 数学公式
   abstract: 展示了一些代码和数学公式显示效果。
+   
+- id: test-my-first-post
+  title: 测试我的一篇文章
+  postedOn: !!str 2013-01-01
+  author: Dino
+  tags:
+    - C#
+    - Test
+    - JS
+  abstract: 测试我的一篇文章

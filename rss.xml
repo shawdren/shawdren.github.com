@@ -4,14 +4,14 @@
         <title>RSS feed title</title>
         <link>Homepage link</link>
         <description>RSS feed description</description>
-        <lastBuildDate>Wed, 20 Aug 2014 16:16:41 +0800</lastBuildDate>
+        <lastBuildDate>Fri, 05 Dec 2014 13:45:52 +0800</lastBuildDate>
         <language>zh-cn</language>
         
         <item>
             <title>Papery快速指南</title>
             <link>Homepage link/articles/papery-quickstart.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
             <guid>Homepage link/articles/papery-quickstart.html</guid>
-            <author>Your E-mail Your name</author>
+            <author>jl_lsj@163.com Dino Liu</author>
             <pubDate>Wed, 02 Jan 2013 00:00:00 +0800</pubDate>
             <description>&lt;p&gt;Papery - create your simple, fast &amp; elegant blog with plain text.&lt;/p&gt;
 &lt;h1 id=&quot;使用说明&quot;&gt;使用说明&lt;/h1&gt;
@@ -268,7 +268,7 @@ THE SOFTWARE.&lt;/p&gt;
             <title>代码与数学公式示例</title>
             <link>Homepage link/articles/code-and-math.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
             <guid>Homepage link/articles/code-and-math.html</guid>
-            <author>Your E-mail Your name</author>
+            <author>jl_lsj@163.com Dino Liu</author>
             <pubDate>Tue, 01 Jan 2013 00:00:00 +0800</pubDate>
             <description>&lt;h1 id=&quot;这是一段代码&quot;&gt;这是一段代码&lt;/h1&gt;
 &lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;#include &lt;stdio.h&gt;
@@ -293,6 +293,20 @@ int main(int argc, char** argv) {
   -1/\sqrt{2}
 \end{pmatrix}\]&lt;/p&gt;
 &lt;p&gt;\[Var(a)=\frac{1}{m}\sum_{i=1}^m{(a_i-\mu)^2}\]&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>测试我的一篇文章</title>
+            <link>Homepage link/articles/test-my-first-post.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/test-my-first-post.html</guid>
+            <author>jl_lsj@163.com Dino Liu</author>
+            <pubDate>Tue, 01 Jan 2013 00:00:00 +0800</pubDate>
+            <description>&lt;p&gt;My first test post &lt;/p&gt;
+&lt;h1 id=&quot;some-text&quot;&gt;some text&lt;/h1&gt;
+&lt;h2 id=&quot;some-text-also&quot;&gt;some text also&lt;/h2&gt;
+&lt;pre class=&quot;prettyprint linenums lang-bash&quot;&gt;safasdfsdf
+&lt;/pre&gt;
 </description>
         </item>
         

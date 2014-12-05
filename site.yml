@@ -1,5 +1,5 @@
 title: Dino Liu
-subtitle: Dino Liu of blog
+subtitle: My blog
 link: Homepage link
 meta:
   description: Content of description meta tag
@@ -9,7 +9,7 @@ meta:
   author: Dino Liu (Shawdren) <jl_lsj@163>
 master:
   name: Dino Liu
-  about: Try to do everything.
+  about: Try to do everything
   email: jl_lsj@163.com
 rss:
   title: RSS feed title

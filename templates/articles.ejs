@@ -3,22 +3,22 @@
     <div id="main-inner">
         <div id="topnav">
             <ul>
-                <li><a href="/">首页</a></li>
+                <li><a href="/shawdren/">首页</a></li>
                 <li class="sep"> | </li>
-                <li><a href="/tag.html">标签</a></li>
+                <li><a href="/shawdren/tag.html">标签</a></li>
                 <% include inc/navbar %>
             </ul>
             <div style="clear:both;"></div>
         </div>
         <div id="article-title">
-            <a href="<%= article.link %>"><%= article.title %></a>
+            <a href="/shawdren/<%= article.link %>"><%= article.title %></a>
         </div>
         <div id="article-meta">
             作者 <%= article.author %> | 发布于 <%= article.postedOn %>
         </div>
         <div id="article-tags">
         <% article.tags.forEach(function (tag) { %>
-        <a class="tag" href="/tag.html#<%= tag %>"><%= tag %></a>
+        <a class="tag" href="/shawdren/tag.html#<%= tag %>"><%= tag %></a>
         <% }); %>
         </div>
         <div id="article-content">
