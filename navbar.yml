@@ -1,7 +1,3 @@
-- label: About Me
-  href:  shawdren/pages/about-me.html
-  target: _self
-
 - label: github
   href: https://github.com/Shawdren
   target: _blank

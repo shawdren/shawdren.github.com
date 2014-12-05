@@ -3,9 +3,11 @@
     <div id="main-inner">
         <div id="topnav">
             <ul>
-                <li><a href="/shawdren/">首页</a></li>
+                <li><a href="/shawdren/">Home</a></li>
                 <li class="sep"> | </li>
-                <li><a href="/shawdren/tag.html">标签</a></li>
+                <li><a href="/shawdren/tag.html">Tags</a></li>
+				<li class="sep"> | </li>
+                <li><a href="/shawdren/pages/about-me.html">About Me</a></li>
                 <% include inc/navbar %>
             </ul>
             <div style="clear:both;"></div>
@@ -21,8 +23,8 @@
             <% articles.forEach(function (ar) { %>
             <div class="article-block">
                 <p class="title"><a href="/shawdren/articles/<%= ar.id %>.html"><%= ar.title %></a></p>
-                <p class="abstract">&lt;摘要&gt;: <%= ar.abstract %></p>
-                <p class="meta">作者 <%= ar.author %> | 发布于 <%= ar.postedOn %> | Tags 
+                <p class="abstract">&lt;Abstract &gt;: <%= ar.abstract %></p>
+                <p class="meta">Author <%= ar.author %> | Publish on <%= ar.postedOn %> | Tags 
                     <% ar.tags.forEach(function (tag) { %>
                     <a class="tag" href="/shawdren/tag.html#<%= tag %>"><%= tag %></a>
                     <% }) %>
