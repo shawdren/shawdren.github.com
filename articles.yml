@@ -1,9 +1,7 @@
-- id: test-my-first-post
-  title: this is my first post
-  postedOn: !!str 2014-12-05
+- id: my-first-post
+  title: My first post
+  postedOn: !!str 2014-12-06
   author: Dino
   tags:
-    - C#
-    - Test
-    - JS
-  abstract: this is my first post
+    - Article
+  abstract: My first post
