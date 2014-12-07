@@ -5,3 +5,11 @@
   tags:
     - Article
   abstract: My first post
+  
+- id: thinking-about-project-management
+  title: Thinking about project management
+  postedOn: !!str 2014-12-07
+  author: Dino
+  tags:
+    - Article,PMP
+  abstract: My first post
