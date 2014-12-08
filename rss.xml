@@ -4,20 +4,50 @@
         <title>RSS feed title</title>
         <link>Homepage link</link>
         <description>RSS feed description</description>
-        <lastBuildDate>Fri, 05 Dec 2014 17:52:14 +0800</lastBuildDate>
+        <lastBuildDate>Mon, 08 Dec 2014 09:53:08 +0800</lastBuildDate>
         <language>zh-cn</language>
         
         <item>
             <title>this is my first post</title>
-            <link>Homepage link/articles/test-my-first-post.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
-            <guid>Homepage link/articles/test-my-first-post.html</guid>
-            <author>jl_lsj@163.com Dino Liu</author>
+            <link>Homepage link/articles/my-first-post.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/my-first-post.html</guid>
+            <author>jl_lsj@outlook.com Dino Liu</author>
             <pubDate>Fri, 05 Dec 2014 00:00:00 +0800</pubDate>
-            <description>&lt;p&gt;My first test post &lt;/p&gt;
-&lt;h1 id=&quot;some-text&quot;&gt;some text&lt;/h1&gt;
-&lt;h2 id=&quot;some-text-also&quot;&gt;some text also&lt;/h2&gt;
-&lt;pre class=&quot;prettyprint linenums lang-bash&quot;&gt;safasdfsdf
-&lt;/pre&gt;
+            <description>&lt;p&gt;My first post&lt;/p&gt;
+&lt;p&gt;Hey, welcome to visit my blog. There is an opportunity know that it could create a personal blog on github several month ago, 
+then I have trying to create a blog, it&#39;s faild. Until someday I had saw a project called Papery which could build blog automatically, cool~
+I am clone codes immediately and try to run it in my local environment. But it does running on nodejs environment, I am a beginner for nodejs
+and related everything. So I am following the article of Papery step by step, it still cannot running on my local environment successfully.
+Cause the time factor, I don&#39;t have researching it. Last week I saw it again when I tiding my folders, I did reset up it again, I have 
+success to run it. So that&#39;s why I have this blog. 
+In this blog, I want to log something regarding to software development and skills what&#39;s I learn. Just for fun, it is very important.
+Rome was not built in a day, keeping learn.&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>Thinking about project management</title>
+            <link>Homepage link/articles/thinking-about-project-management.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/thinking-about-project-management.html</guid>
+            <author>jl_lsj@outlook.com Dino Liu</author>
+            <pubDate>Sun, 07 Dec 2014 00:00:00 +0800</pubDate>
+            <description>&lt;h2 id=&quot;thinking-about-project-management&quot;&gt;Thinking about project management&lt;/h2&gt;
+&lt;p&gt;Today I did read an article regarding to the project management, the topic is about what kinds of  project goes failed which are about
+generic projects. But why generic projects easy to failed? There are tons of reason for this issue, the key reason is that they are not 
+following the SMART principle,  The SMART principle means:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Specific: Great goals are well-defined and focused. &lt;/li&gt;
+&lt;li&gt;Measurable: A goal without a measurable outcome is like a sports competition without a scoreboard or scorekeeper. Numbers are an essential part of business. Put concrete numbers in your goals to know if you��re on track. A goal white board posted in your office can help as a daily reminder to keep yourself and your employee focused on the targeted results you want to attain.&lt;/li&gt;
+&lt;li&gt;Attainable: Far too often, small businesses can set goals beyond reach. No one has ever built a billion dollar business overnight. Venture capitalists and angel investors discard countless business plans of companies with outlandish goals. Dream big and aim for the stars but keep one foot firmly based in reality. Check with your industry association to get a handle on realistic growth in your industry to set smart goals.&lt;/li&gt;
+&lt;li&gt;Relevant: Achievable business goals are based on the current conditions and realities of the business climate. You may desire to have your best year in business or increase revenue by 50%, but if a recession is looming and 3 new competitors opened in your market, then your goals aren��t relevant to the realities of the market.&lt;/li&gt;
+&lt;li&gt;Time-Based: Business goals and objectives just don��t get done when there&#39;s no time frame tied to the goal-setting process. Whether your business goal is to increase revenue by 20% or find 5 new clients, choose a time-frame to accomplish your goal.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I have thinking that as known projects are all have problems, the client did not happy, they are complaint the developing progress did slow than schedule.
+The engineers are not happy, they are complaint that there are so many work need to complete in short time in order to match schedule. &lt;/p&gt;
+&lt;p&gt;That&#39;s why we have such bad situations, the requirements is not clear, even the client does not know what&#39;s they want to do. 
+As a project manager how to avoid these stuff happen, remember that it should have a specific goal, the outcome should measurable, 
+there are relevant project to reference, the objectives have a deadline, to definite a colse date.
+If the requirements are not clear, just reduce it to the small task. Then use SMART principle again. &lt;/p&gt;
 </description>
         </item>
         
