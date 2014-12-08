@@ -4,7 +4,7 @@
         <title>RSS feed title</title>
         <link>Homepage link</link>
         <description>RSS feed description</description>
-        <lastBuildDate>Mon, 08 Dec 2014 09:53:08 +0800</lastBuildDate>
+        <lastBuildDate>Mon, 08 Dec 2014 10:50:15 +0800</lastBuildDate>
         <language>zh-cn</language>
         
         <item>
@@ -48,6 +48,17 @@ The engineers are not happy, they are complaint that there are so many work need
 As a project manager how to avoid these stuff happen, remember that it should have a specific goal, the outcome should measurable, 
 there are relevant project to reference, the objectives have a deadline, to definite a colse date.
 If the requirements are not clear, just reduce it to the small task. Then use SMART principle again. &lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>Some examples for markdown</title>
+            <link>Homepage link/articles/how-to-use-markdown.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/how-to-use-markdown.html</guid>
+            <author>jl_lsj@outlook.com Dino Liu</author>
+            <pubDate>Tue, 09 Dec 2014 00:00:00 +0800</pubDate>
+            <description>&lt;h1 id=&quot;some-examples-to-show-how-to-use-markdown&quot;&gt;Some examples to show how to use markdown&lt;/h1&gt;
+&lt;p&gt;Here I had collect some examples to show how to use markdown.&lt;/p&gt;
 </description>
         </item>
         

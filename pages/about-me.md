@@ -7,8 +7,9 @@ Introduction
 * I have some experience on software development and project management.
 * I have experiences on back-end developing skills, next I want to master front-end developing skills.
 * I am not a perfect one, but always pursuing to be perfect.   
-
+* Much appreciate for [Eric](http://blog.codinglabs.org/) and [Papery](https://github.com/ericzhang-cn/papery) project. 
 Contact
 =======
 * Email: jl_lsj@outlook.com
 * Skype: shawdren
+
