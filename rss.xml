@@ -4,24 +4,55 @@
         <title>RSS feed title</title>
         <link>Homepage link</link>
         <description>RSS feed description</description>
-        <lastBuildDate>Mon, 08 Dec 2014 10:50:15 +0800</lastBuildDate>
+        <lastBuildDate>Wed, 10 Dec 2014 17:46:04 +0800</lastBuildDate>
         <language>zh-cn</language>
         
         <item>
-            <title>this is my first post</title>
-            <link>Homepage link/articles/my-first-post.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
-            <guid>Homepage link/articles/my-first-post.html</guid>
+            <title>Some examples for markdown</title>
+            <link>Homepage link/articles/how-to-use-markdown.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/how-to-use-markdown.html</guid>
             <author>jl_lsj@outlook.com Dino Liu</author>
-            <pubDate>Fri, 05 Dec 2014 00:00:00 +0800</pubDate>
-            <description>&lt;p&gt;My first post&lt;/p&gt;
-&lt;p&gt;Hey, welcome to visit my blog. There is an opportunity know that it could create a personal blog on github several month ago, 
-then I have trying to create a blog, it&#39;s faild. Until someday I had saw a project called Papery which could build blog automatically, cool~
-I am clone codes immediately and try to run it in my local environment. But it does running on nodejs environment, I am a beginner for nodejs
-and related everything. So I am following the article of Papery step by step, it still cannot running on my local environment successfully.
-Cause the time factor, I don&#39;t have researching it. Last week I saw it again when I tiding my folders, I did reset up it again, I have 
-success to run it. So that&#39;s why I have this blog. 
-In this blog, I want to log something regarding to software development and skills what&#39;s I learn. Just for fun, it is very important.
-Rome was not built in a day, keeping learn.&lt;/p&gt;
+            <pubDate>Tue, 09 Dec 2014 00:00:00 +0800</pubDate>
+            <description>&lt;h1 id=&quot;some-examples-to-show-how-to-use-markdown&quot;&gt;Some examples to show how to use markdown&lt;/h1&gt;
+&lt;p&gt;At the beginning, I am not familiar with markdown, so I need practice to understanding it.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;use &#39;====&#39; to show headline like h1&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;use &#39;----&#39; to show subline&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;use &#39;#--######&#39; show h1 -- h6&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol&gt;
+&lt;li&gt;code block&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&quot;prettyprint linenums lang-code&quot;&gt;--use ```` for write code,
+public void main()
+{
+    console.log(&quot;test&quot;);
+}
+&lt;/pre&gt;
+&lt;p&gt;or just format the source code&lt;/p&gt;
+&lt;pre&gt;public void main()
+{
+    console.log(&quot;test&quot;);
+}
+&lt;/pre&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;The order list just use number 1-10&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;unorder list jsut use * &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;for strong word use  &lt;strong&gt;this is a strong sentence&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;for italic word use &lt;em&gt;this this a italic sentence&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;References:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://wowubuntu.com/markdown/index.html&quot;&gt;Introduction of markdown&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.ituring.com.cn/article/23&quot;&gt;how to use markdown&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.ituring.com.cn/article/504&quot;&gt;Markdown grammar expiation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         
@@ -52,13 +83,20 @@ If the requirements are not clear, just reduce it to the small task. Then use SM
         </item>
         
         <item>
-            <title>Some examples for markdown</title>
-            <link>Homepage link/articles/how-to-use-markdown.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
-            <guid>Homepage link/articles/how-to-use-markdown.html</guid>
+            <title>this is my first post</title>
+            <link>Homepage link/articles/my-first-post.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/my-first-post.html</guid>
             <author>jl_lsj@outlook.com Dino Liu</author>
-            <pubDate>Tue, 09 Dec 2014 00:00:00 +0800</pubDate>
-            <description>&lt;h1 id=&quot;some-examples-to-show-how-to-use-markdown&quot;&gt;Some examples to show how to use markdown&lt;/h1&gt;
-&lt;p&gt;Here I had collect some examples to show how to use markdown.&lt;/p&gt;
+            <pubDate>Fri, 05 Dec 2014 00:00:00 +0800</pubDate>
+            <description>&lt;p&gt;My first post&lt;/p&gt;
+&lt;p&gt;Hey, welcome to visit my blog. There is an opportunity know that it could create a personal blog on github several month ago, 
+then I have trying to create a blog, it&#39;s faild. Until someday I had saw a project called Papery which could build blog automatically, cool~
+I am clone codes immediately and try to run it in my local environment. But it does running on nodejs environment, I am a beginner for nodejs
+and related everything. So I am following the article of Papery step by step, it still cannot running on my local environment successfully.
+Cause the time factor, I don&#39;t have researching it. Last week I saw it again when I tiding my folders, I did reset up it again, I have 
+success to run it. So that&#39;s why I have this blog. 
+In this blog, I want to log something regarding to software development and skills what&#39;s I learn. Just for fun, it is very important.
+Rome was not built in a day, keeping learn.&lt;/p&gt;
 </description>
         </item>
         
