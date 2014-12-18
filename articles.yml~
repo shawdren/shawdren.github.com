@@ -6,8 +6,6 @@
     - Ninject
     - Ioc
     - DI
-  abstract: the book notes for reading master Ninject for Dependency injection to learn Ninject.
-
 - id: how-to-use-markdown
   title: Some examples for markdown
   postedOn: !!str 2014-12-09

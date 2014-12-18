@@ -4,8 +4,41 @@
         <title>RSS feed title</title>
         <link>Homepage link</link>
         <description>RSS feed description</description>
-        <lastBuildDate>Wed, 10 Dec 2014 17:46:04 +0800</lastBuildDate>
+        <lastBuildDate>Thu, 18 Dec 2014 15:45:29 +0800</lastBuildDate>
         <language>zh-cn</language>
+        
+        <item>
+            <title>The book notes 1 for learn Ninject</title>
+            <link>Homepage link/articles/book-notes-for-learn-Ninject-1.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/book-notes-for-learn-Ninject-1.html</guid>
+            <author>jl_lsj@outlook.com Dino Liu</author>
+            <pubDate>Thu, 18 Dec 2014 00:00:00 +0800</pubDate>
+            <description>&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Recently, our project needs to add a new feature, the project did use DI tool &lt;a href=&quot;http://www.ninject.org/index.html&quot;&gt;Ninject&lt;/a&gt;, I have reading a book which Mastering Ninject for Dependency Injection to learn it. this article does record my book notes.&lt;/p&gt;
+&lt;p&gt;The book notes of The chapter 1&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&quot;it&#39;s more about a way of thinking and designing code than it is about tools and techniques&quot;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;understanding-dependency-injection&quot;&gt;Understanding Dependency Injection&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Dependency Injection is one of the techniques in software enginerring which improves the maintainability of a software application by managing the dependent components.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;DI or Inversion of Control(IoC)
+Martin Fowler defines Inversion of Control as a style of programming in which the framework takes the conrol of the flow instead of your code. 
+Di is a specific type of IoC, because instad of your components concern about their dependencies, they are provided with the dependencies by the framework.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;IoC is also know as the Hollywood principle: &quot;Don&#39;t call us, we&#39;ll call you&quot;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;The key principle leading to loose coupling is the &quot;Program to an &lt;em&gt;Interface&lt;/em&gt;, not an &lt;em&gt;implementation&lt;/em&gt;&quot;&lt;/li&gt;
+&lt;li&gt;Di Contaainers
+A DI container is an injector object that injects the dependencies into a dependent object.
+the others DI container introdcution from Scott Hanselmen blog &lt;a href=&quot;http://www.hanselman.com/blog/
+ListOfNETDependencyInjectionContainersIOC.aspx&quot;&gt;http://www.hanselman.com/blog/
+ListOfNETDependencyInjectionContainersIOC.aspx&lt;/a&gt; about Unity, Castle Windsor, StructureMap, Spring.NET, and Autofac&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Dependency Injection is a technique to help us produce loosely coupled code by moving the concern of creating the dependencies to another object known as a DI container.&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>Some examples for markdown</title>
