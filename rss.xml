@@ -4,8 +4,70 @@
         <title>RSS feed title</title>
         <link>Homepage link</link>
         <description>RSS feed description</description>
-        <lastBuildDate>Thu, 18 Dec 2014 15:45:29 +0800</lastBuildDate>
+        <lastBuildDate>Mon, 22 Dec 2014 15:08:56 +0800</lastBuildDate>
         <language>zh-cn</language>
+        
+        <item>
+            <title>The book notes 2 for learn Ninject</title>
+            <link>Homepage link/articles/book-notes-for-learn-Ninject-2.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/book-notes-for-learn-Ninject-2.html</guid>
+            <author>jl_lsj@outlook.com Dino Liu</author>
+            <pubDate>Sat, 20 Dec 2014 00:00:00 +0800</pubDate>
+            <description>&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Recently, our project needs to add a new feature, the project did use DI tool &lt;a href=&quot;http://www.ninject.org/index.html&quot;&gt;Ninject&lt;/a&gt;, I have reading a book which Mastering Ninject for Dependency Injection to learn it. this article does record my book notes.&lt;/p&gt;
+&lt;p&gt;The book notes of The chapter 2&lt;/p&gt;
+&lt;h3 id=&quot;hello-ninject&quot;&gt;Hello Ninject&lt;/h3&gt;
+&lt;p&gt;1 Create a hello world project to use Ninject.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create a project in vs2012&lt;/li&gt;
+&lt;li&gt;open Package Manage console window&lt;pre&gt;Install-package Ninject
+&lt;/pre&gt;add Ninject to project.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;2 Create an interface class 
+I had used the classic function code to demo this where I am implements a log function.&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;public interface ILog
+{
+    void WriteLog();
+}
+&lt;/pre&gt;
+&lt;p&gt;Add two implements class base on this interface&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;public class DefaultLog : ILog
+{
+     public void WriteLog()
+     {
+          Console.WriteLine(&quot;[Default log], this log from default log&quot;);
+     }
+}
+public class FileLog : ILog
+{
+     public void WriteLog()
+     {
+          Console.WriteLine(&quot;[File log], this log from file log&quot;);
+     }
+}
+&lt;/pre&gt;
+&lt;p&gt;In the Main method&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;using (var kernel = new Ninject.StandardKernel())
+{
+      kernel.Bind&lt;ILog&gt;().To&lt;FileLog&gt;();
+      var logDefault = kernel.Get&lt;DefaultLog&gt;();
+      var logFile = kernel.Get&lt;FileLog&gt;();
+      logDefault.WriteLog();
+      kernel.Release(logFile);
+      logFile.WriteLog();
+}
+&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It is very simple to use Bind and to method to finish the register.&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;kernel.Bind&lt;ILog&gt;().To&lt;FileLog&gt;();
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;Use get method to get the implemetion class.&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;var logFile = kernel.Get&lt;FileLog&gt;();
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
         
         <item>
             <title>The book notes 1 for learn Ninject</title>
