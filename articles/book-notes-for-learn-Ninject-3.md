@@ -2,7 +2,7 @@ Introduction
 ==
 Recently, our project needs to add a new feature, the project did use DI tool [Ninject](http://www.ninject.org/index.html), I have reading a book which Mastering Ninject for Dependency Injection to learn it. this article does record my book notes.
 
-In article [book notes for learn Ninject - 2](book-notes-for-learn-Ninject-2.html), there is a basic useage of Ninject. Ninject also could register module to container.
+In article [book notes for learn Ninject - 2](book-notes-for-learn-Ninject-2.html), there is a basic usage of Ninject. Ninject also could register module to container.
 
 ```c
 public class LogHandlerModule : NinjectModule
@@ -64,4 +64,4 @@ using (var kernel = new StandardKernel(new LogHandlerModule()))
     log.WriteLog();
 }
 ```
-
+ 

@@ -4,7 +4,7 @@
         <title>RSS feed title</title>
         <link>Homepage link</link>
         <description>RSS feed description</description>
-        <lastBuildDate>Mon, 22 Dec 2014 15:47:07 +0800</lastBuildDate>
+        <lastBuildDate>Mon, 22 Dec 2014 16:44:51 +0800</lastBuildDate>
         <language>zh-cn</language>
         
         <item>
@@ -15,7 +15,7 @@
             <pubDate>Mon, 22 Dec 2014 00:00:00 +0800</pubDate>
             <description>&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;Recently, our project needs to add a new feature, the project did use DI tool &lt;a href=&quot;http://www.ninject.org/index.html&quot;&gt;Ninject&lt;/a&gt;, I have reading a book which Mastering Ninject for Dependency Injection to learn it. this article does record my book notes.&lt;/p&gt;
-&lt;p&gt;In article &lt;a href=&quot;book-notes-for-learn-Ninject-2.html&quot;&gt;book notes for learn Ninject - 2&lt;/a&gt;, there is a basic useage of Ninject. Ninject also could register module to container.&lt;/p&gt;
+&lt;p&gt;In article &lt;a href=&quot;book-notes-for-learn-Ninject-2.html&quot;&gt;book notes for learn Ninject - 2&lt;/a&gt;, there is a basic usage of Ninject. Ninject also could register module to container.&lt;/p&gt;
 &lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;public class LogHandlerModule : NinjectModule
 {
     public override void Load()
