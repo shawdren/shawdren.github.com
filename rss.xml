@@ -4,8 +4,76 @@
         <title>RSS feed title</title>
         <link>Homepage link</link>
         <description>RSS feed description</description>
-        <lastBuildDate>Mon, 22 Dec 2014 15:08:56 +0800</lastBuildDate>
+        <lastBuildDate>Mon, 22 Dec 2014 15:47:07 +0800</lastBuildDate>
         <language>zh-cn</language>
+        
+        <item>
+            <title>The book notes 3 for learn Ninject</title>
+            <link>Homepage link/articles/book-notes-for-learn-Ninject-3.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/book-notes-for-learn-Ninject-3.html</guid>
+            <author>jl_lsj@outlook.com Dino Liu</author>
+            <pubDate>Mon, 22 Dec 2014 00:00:00 +0800</pubDate>
+            <description>&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Recently, our project needs to add a new feature, the project did use DI tool &lt;a href=&quot;http://www.ninject.org/index.html&quot;&gt;Ninject&lt;/a&gt;, I have reading a book which Mastering Ninject for Dependency Injection to learn it. this article does record my book notes.&lt;/p&gt;
+&lt;p&gt;In article &lt;a href=&quot;book-notes-for-learn-Ninject-2.html&quot;&gt;book notes for learn Ninject - 2&lt;/a&gt;, there is a basic useage of Ninject. Ninject also could register module to container.&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;public class LogHandlerModule : NinjectModule
+{
+    public override void Load()
+    {
+         Bind&lt;Program.ILog&gt;().To&lt;DefaultLog&gt;();
+    }
+}
+public class FileLogHandlerModule : NinjectModule
+{
+    public override void Load()
+    {
+         Bind&lt;Program.ILog&gt;().To&lt;FileLog&gt;();
+    }
+}
+static void Main(string[] args)
+{
+     using (var kernel = new StandardKernel(new LogHandlerModule()))
+     {
+         var log = kernel.Get&lt;Program.ILog&gt;();
+         log.WriteLog();
+     }
+     using (var kernel = new StandardKernel(new FileLogHandlerModule()))
+     {
+         var log = kernel.Get&lt;Program.ILog&gt;();
+         log.WriteLog();
+     }
+         Console.ReadLine();
+}
+
+public interface ILog
+{
+      void WriteLog();
+}
+publie class DefaultLog : ILog
+{
+      public void WriteLog()
+      {
+           Console.WriteLine(&quot;[Default log], this log from default log&quot;);
+      }
+}
+public class FileLog : ILog
+{
+      public void WriteLog()
+      {
+           Console.WriteLine(&quot;[File log], this log from file log&quot;);
+      }
+}
+&lt;/pre&gt;
+&lt;p&gt;Here I had create class &lt;strong&gt;LogHandlerModule&lt;/strong&gt; and &lt;strong&gt;FileLogHandlerModule&lt;/strong&gt; inherits from &lt;strong&gt;NinjectModule&lt;/strong&gt; , in the override method Load() use &#39;bind&#39; and &#39;to&#39; method to register module to Ninject.&lt;/p&gt;
+&lt;p&gt;when get the concrte class that just need new &lt;strong&gt;LogHandlerModule&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;using (var kernel = new StandardKernel(new LogHandlerModule()))
+{
+    var log = kernel.Get&lt;ILog&gt;();
+    log.WriteLog();
+}
+&lt;/pre&gt;
+</description>
+        </item>
         
         <item>
             <title>The book notes 2 for learn Ninject</title>
