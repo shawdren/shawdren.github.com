@@ -4,8 +4,99 @@
         <title>RSS feed title</title>
         <link>Homepage link</link>
         <description>RSS feed description</description>
-        <lastBuildDate>Mon, 22 Dec 2014 16:44:51 +0800</lastBuildDate>
+        <lastBuildDate>Tue, 23 Dec 2014 13:53:11 +0800</lastBuildDate>
         <language>zh-cn</language>
+        
+        <item>
+            <title>The book notes 4 for learn Ninject</title>
+            <link>Homepage link/articles/book-notes-for-learn-Ninject-4.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/book-notes-for-learn-Ninject-4.html</guid>
+            <author>jl_lsj@outlook.com Dino Liu</author>
+            <pubDate>Tue, 23 Dec 2014 00:00:00 +0800</pubDate>
+            <description>&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Recently, our project needs to add a new feature, the project did use DI tool &lt;a href=&quot;http://www.ninject.org/index.html&quot;&gt;Ninject&lt;/a&gt;, I have reading a book which Mastering Ninject for Dependency Injection to learn it. this article does record my book notes.&lt;/p&gt;
+&lt;p&gt;In Ninject it also could manage object lifetime. It allows create temporary object and full life object.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Transient scope
+In Transient scope, the object lifetime is not managed by Ninject. Whenever we
+request an instance of a type, a new one will be created. Ninject does not take care of
+keeping the created instance or disposing of it in this scope. This is the default object
+scope in Ninject. If no scope is explicitly specified, they are transient-scoped. In the
+previous code, both ConsoleLogger and MailService were treated in the Transient
+scope because the object scope was not specified.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Singleton scope &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There are two approaches to achieve this. The first one
+is using one of the Singleton patterns:&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;class ConsoleLogger:ILogger
+{
+public static readonly ConsoleLogger Instance = new ConsoleLogger();
+ private static ConsoleLogger()
+ {
+   // Hiding constructor
+ }
+  public void Log(string message)
+  {
+    Console.WriteLine(&quot;{0}: {1}&quot;, DateTime.Now, message);
+  }
+}
+&lt;/pre&gt;
+&lt;p&gt;And instructing the binding to always use the provided instance rather than every
+time creating a new instance of ConsoleLogger. We can achieve this by using the
+ToConstant method:&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;kernel.Bind&lt;ILogger&gt;().ToConstant(ConsoleLogger.Instance);
+&lt;/pre&gt;
+&lt;p&gt;This way is inconvenece to test, there is another way to do this&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;kernel.Bind&lt;ILogger&gt;().To&lt;ConsoleLogger&gt;().InSingletonScope();
+&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Thread scope &lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;[Test]
+public void ReturnsTheSameInstancesInOneThread()
+{
+   using (var kernel = new StandardKernel())
+   {
+        kernel.Bind&lt;object&gt;().ToSelf().InThreadScope();
+    var instance1 = kernel.Get&lt;object&gt;();
+    var instance2 = kernel.Get&lt;object&gt;();
+    Assert.AreEqual(instance1, instance2);
+    }
+}
+&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Request scope &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Request scope is useful in web applications when we need to get a single instance
+of a type from Ninject as long as we are handling the same request. Once the request
+is processed and a new request arrives, Ninject creates a new instance of the type
+and keeps it until the end of the request processing. Note that Request scope behaves
+like Transient scope outside of a web request (for example, during startup) or in
+non-web applications.&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;kernel.Bind&lt;MailServerConfig&gt;().ToSelf().InRequestScope();
+&lt;/pre&gt;
+&lt;p&gt;The InRequestScope method is not available unless we add a reference to the
+Ninject.Web.Common library, which makes sense only in web applications.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Custom scope &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Custom scope lets us define our own scopes in which to keep an instance of a type
+unique.&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;kernel.Bind&lt;object&gt;().ToSelf().InScope(ctx=&gt;Thread.CurrentThread);
+
+kernel.Bind&lt;object&gt;().ToSelf().InScope(ctx=&gt;HttpContext.Current);
+&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Dispose an object &lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;var myObject = kernel.Get&lt;MyService&gt;();
+
+kernel.Release(myObject);
+&lt;/pre&gt;
+</description>
+        </item>
         
         <item>
             <title>The book notes 3 for learn Ninject</title>

@@ -1,3 +1,12 @@
+- id: book-notes-for-learn-Ninject-4
+  title: The book notes 4 for learn Ninject
+  postedOn: !!str 2014-12-23
+  author: Dino
+  tags:
+    - Ninject
+    - Ioc
+    - DI
+  abstract: the book notes for reading master Ninject for Dependency injection to learn Ninject.
 - id: book-notes-for-learn-Ninject-3
   title: The book notes 3 for learn Ninject
   postedOn: !!str 2014-12-22
