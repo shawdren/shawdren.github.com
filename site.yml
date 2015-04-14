@@ -1,0 +1,24 @@
+title: Dino L.
+subtitle: Rome was not built in a day
+link: Homepage link
+meta:
+  description: The technonlogy blog of Dino L (Shawdren) 
+  keywords: !!seq
+    - C#, ASP.NET, ASP.NET MVC, Javascript, SQL Server, HTML, CSS.
+    - English
+  author: Dino Liu (Shawdren) <jl_lsj@outlook.com>
+master:
+  name: Dino Liu
+  about: 
+  email: jl_lsj@outlook.com
+rss:
+  title: RSS feed title
+  desc: RSS feed description
+  lang: zh-cn
+  max: 10
+copyright:
+  owner: Dino L.
+  beginYear: 2014
+  endYear: 2014
+theme: default
+codetheme: night

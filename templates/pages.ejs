@@ -1,0 +1,19 @@
+<% include inc/header %>
+<div id="main">
+    <div id="main-inner">
+        <div id="topnav">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li class="sep"> | </li>
+                <li><a href="/tag.html">Tags</a></li>
+				<li class="sep"> | </li>
+                <li><a href="/pages/about-me.html">About Me</a></li>
+                <% include inc/navbar %>
+            </ul>
+            <div style="clear:both;"></div>
+        </div>
+        <h1><%= page.title %></h1>
+        <div id="page-content"><%- page.content %></div>
+    </div>
+</div>
+<% include inc/footer %>

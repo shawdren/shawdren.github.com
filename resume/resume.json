@@ -1,0 +1,18 @@
+{
+"name":"My name",
+"gender':"man",
+"birth":"1985-5-1",
+"email":"jl_lsj@163.com",
+"work experience":[
+{"company name":"company A",
+ "hire date":"2007.1.1",
+ "leave date";"2008.1.1",
+ "position":"Senior development",
+ "work description":""},
+{"company name":"company B",
+ "hire date":"2007.1.1",
+ "leave date";"2008.1.1",
+ "position":"Senior development",
+ "work description":""}
+]
+}

@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>RSS feed title</title>
+        <link>Homepage link</link>
+        <description>RSS feed description</description>
+        <lastBuildDate>Tue, 14 Apr 2015 15:55:31 +0800</lastBuildDate>
+        <language>zh-cn</language>
+        
+        <item>
+            <title>The book notes 4 for learn Ninject</title>
+            <link>Homepage link/articles/book-notes-for-learn-Ninject-4.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/book-notes-for-learn-Ninject-4.html</guid>
+            <author>jl_lsj@outlook.com Dino Liu</author>
+            <pubDate>Tue, 23 Dec 2014 00:00:00 +0800</pubDate>
+            <description>&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Recently, our project needs to add a new feature, the project did use DI tool &lt;a href=&quot;http://www.ninject.org/index.html&quot;&gt;Ninject&lt;/a&gt;, I have reading a book which Mastering Ninject for Dependency Injection to learn it. this article does record my book notes.&lt;/p&gt;
+&lt;p&gt;In Ninject it also could manage object lifetime. It allows create temporary object and full life object.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Transient scope
+In Transient scope, the object lifetime is not managed by Ninject. Whenever we
+request an instance of a type, a new one will be created. Ninject does not take care of
+keeping the created instance or disposing of it in this scope. This is the default object
+scope in Ninject. If no scope is explicitly specified, they are transient-scoped. In the
+previous code, both ConsoleLogger and MailService were treated in the Transient
+scope because the object scope was not specified.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Singleton scope &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There are two approaches to achieve this. The first one
+is using one of the Singleton patterns:&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;class ConsoleLogger:ILogger
+{
+public static readonly ConsoleLogger Instance = new ConsoleLogger();
+ private static ConsoleLogger()
+ {
+   // Hiding constructor
+ }
+  public void Log(string message)
+  {
+    Console.WriteLine(&quot;{0}: {1}&quot;, DateTime.Now, message);
+  }
+}
+&lt;/pre&gt;
+&lt;p&gt;And instructing the binding to always use the provided instance rather than every
+time creating a new instance of ConsoleLogger. We can achieve this by using the
+ToConstant method:&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;kernel.Bind&lt;ILogger&gt;().ToConstant(ConsoleLogger.Instance);
+&lt;/pre&gt;
+&lt;p&gt;This way is inconvenece to test, there is another way to do this&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;kernel.Bind&lt;ILogger&gt;().To&lt;ConsoleLogger&gt;().InSingletonScope();
+&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Thread scope &lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;[Test]
+public void ReturnsTheSameInstancesInOneThread()
+{
+   using (var kernel = new StandardKernel())
+   {
+        kernel.Bind&lt;object&gt;().ToSelf().InThreadScope();
+    var instance1 = kernel.Get&lt;object&gt;();
+    var instance2 = kernel.Get&lt;object&gt;();
+    Assert.AreEqual(instance1, instance2);
+    }
+}
+&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Request scope &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Request scope is useful in web applications when we need to get a single instance
+of a type from Ninject as long as we are handling the same request. Once the request
+is processed and a new request arrives, Ninject creates a new instance of the type
+and keeps it until the end of the request processing. Note that Request scope behaves
+like Transient scope outside of a web request (for example, during startup) or in
+non-web applications.&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;kernel.Bind&lt;MailServerConfig&gt;().ToSelf().InRequestScope();
+&lt;/pre&gt;
+&lt;p&gt;The InRequestScope method is not available unless we add a reference to the
+Ninject.Web.Common library, which makes sense only in web applications.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Custom scope &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Custom scope lets us define our own scopes in which to keep an instance of a type
+unique.&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;kernel.Bind&lt;object&gt;().ToSelf().InScope(ctx=&gt;Thread.CurrentThread);
+
+kernel.Bind&lt;object&gt;().ToSelf().InScope(ctx=&gt;HttpContext.Current);
+&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Dispose an object &lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;var myObject = kernel.Get&lt;MyService&gt;();
+
+kernel.Release(myObject);
+&lt;/pre&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>The book notes 3 for learn Ninject</title>
+            <link>Homepage link/articles/book-notes-for-learn-Ninject-3.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/book-notes-for-learn-Ninject-3.html</guid>
+            <author>jl_lsj@outlook.com Dino Liu</author>
+            <pubDate>Mon, 22 Dec 2014 00:00:00 +0800</pubDate>
+            <description>&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Recently, our project needs to add a new feature, the project did use DI tool &lt;a href=&quot;http://www.ninject.org/index.html&quot;&gt;Ninject&lt;/a&gt;, I have reading a book which Mastering Ninject for Dependency Injection to learn it. this article does record my book notes.&lt;/p&gt;
+&lt;p&gt;In article &lt;a href=&quot;book-notes-for-learn-Ninject-2.html&quot;&gt;book notes for learn Ninject - 2&lt;/a&gt;, there is a basic usage of Ninject. Ninject also could register module to container.&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;public class LogHandlerModule : NinjectModule
+{
+    public override void Load()
+    {
+         Bind&lt;Program.ILog&gt;().To&lt;DefaultLog&gt;();
+    }
+}
+public class FileLogHandlerModule : NinjectModule
+{
+    public override void Load()
+    {
+         Bind&lt;Program.ILog&gt;().To&lt;FileLog&gt;();
+    }
+}
+static void Main(string[] args)
+{
+     using (var kernel = new StandardKernel(new LogHandlerModule()))
+     {
+         var log = kernel.Get&lt;Program.ILog&gt;();
+         log.WriteLog();
+     }
+     using (var kernel = new StandardKernel(new FileLogHandlerModule()))
+     {
+         var log = kernel.Get&lt;Program.ILog&gt;();
+         log.WriteLog();
+     }
+         Console.ReadLine();
+}
+
+public interface ILog
+{
+      void WriteLog();
+}
+publie class DefaultLog : ILog
+{
+      public void WriteLog()
+      {
+           Console.WriteLine(&quot;[Default log], this log from default log&quot;);
+      }
+}
+public class FileLog : ILog
+{
+      public void WriteLog()
+      {
+           Console.WriteLine(&quot;[File log], this log from file log&quot;);
+      }
+}
+&lt;/pre&gt;
+&lt;p&gt;Here I had create class &lt;strong&gt;LogHandlerModule&lt;/strong&gt; and &lt;strong&gt;FileLogHandlerModule&lt;/strong&gt; inherits from &lt;strong&gt;NinjectModule&lt;/strong&gt; , in the override method Load() use &#39;bind&#39; and &#39;to&#39; method to register module to Ninject.&lt;/p&gt;
+&lt;p&gt;when get the concrte class that just need new &lt;strong&gt;LogHandlerModule&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;using (var kernel = new StandardKernel(new LogHandlerModule()))
+{
+    var log = kernel.Get&lt;ILog&gt;();
+    log.WriteLog();
+}
+&lt;/pre&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>The book notes 2 for learn Ninject</title>
+            <link>Homepage link/articles/book-notes-for-learn-Ninject-2.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/book-notes-for-learn-Ninject-2.html</guid>
+            <author>jl_lsj@outlook.com Dino Liu</author>
+            <pubDate>Sat, 20 Dec 2014 00:00:00 +0800</pubDate>
+            <description>&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Recently, our project needs to add a new feature, the project did use DI tool &lt;a href=&quot;http://www.ninject.org/index.html&quot;&gt;Ninject&lt;/a&gt;, I have reading a book which Mastering Ninject for Dependency Injection to learn it. this article does record my book notes.&lt;/p&gt;
+&lt;p&gt;The book notes of The chapter 2&lt;/p&gt;
+&lt;h3 id=&quot;hello-ninject&quot;&gt;Hello Ninject&lt;/h3&gt;
+&lt;p&gt;1 Create a hello world project to use Ninject.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create a project in vs2012&lt;/li&gt;
+&lt;li&gt;open Package Manage console window&lt;pre&gt;Install-package Ninject
+&lt;/pre&gt;add Ninject to project.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;2 Create an interface class 
+I had used the classic function code to demo this where I am implements a log function.&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;public interface ILog
+{
+    void WriteLog();
+}
+&lt;/pre&gt;
+&lt;p&gt;Add two implements class base on this interface&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;public class DefaultLog : ILog
+{
+     public void WriteLog()
+     {
+          Console.WriteLine(&quot;[Default log], this log from default log&quot;);
+     }
+}
+public class FileLog : ILog
+{
+     public void WriteLog()
+     {
+          Console.WriteLine(&quot;[File log], this log from file log&quot;);
+     }
+}
+&lt;/pre&gt;
+&lt;p&gt;In the Main method&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;using (var kernel = new Ninject.StandardKernel())
+{
+      kernel.Bind&lt;ILog&gt;().To&lt;FileLog&gt;();
+      var logDefault = kernel.Get&lt;DefaultLog&gt;();
+      var logFile = kernel.Get&lt;FileLog&gt;();
+      logDefault.WriteLog();
+      kernel.Release(logFile);
+      logFile.WriteLog();
+}
+&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It is very simple to use Bind and to method to finish the register.&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;kernel.Bind&lt;ILog&gt;().To&lt;FileLog&gt;();
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;Use get method to get the implemetion class.&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;var logFile = kernel.Get&lt;FileLog&gt;();
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>The book notes 1 for learn Ninject</title>
+            <link>Homepage link/articles/book-notes-for-learn-Ninject-1.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/book-notes-for-learn-Ninject-1.html</guid>
+            <author>jl_lsj@outlook.com Dino Liu</author>
+            <pubDate>Thu, 18 Dec 2014 00:00:00 +0800</pubDate>
+            <description>&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Recently, our project needs to add a new feature, the project did use DI tool &lt;a href=&quot;http://www.ninject.org/index.html&quot;&gt;Ninject&lt;/a&gt;, I have reading a book which Mastering Ninject for Dependency Injection to learn it. this article does record my book notes.&lt;/p&gt;
+&lt;p&gt;The book notes of The chapter 1&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&quot;it&#39;s more about a way of thinking and designing code than it is about tools and techniques&quot;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;understanding-dependency-injection&quot;&gt;Understanding Dependency Injection&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Dependency Injection is one of the techniques in software enginerring which improves the maintainability of a software application by managing the dependent components.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;DI or Inversion of Control(IoC)
+Martin Fowler defines Inversion of Control as a style of programming in which the framework takes the conrol of the flow instead of your code. 
+Di is a specific type of IoC, because instad of your components concern about their dependencies, they are provided with the dependencies by the framework.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;IoC is also know as the Hollywood principle: &quot;Don&#39;t call us, we&#39;ll call you&quot;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;The key principle leading to loose coupling is the &quot;Program to an &lt;em&gt;Interface&lt;/em&gt;, not an &lt;em&gt;implementation&lt;/em&gt;&quot;&lt;/li&gt;
+&lt;li&gt;Di Contaainers
+A DI container is an injector object that injects the dependencies into a dependent object.
+the others DI container introdcution from Scott Hanselmen blog &lt;a href=&quot;http://www.hanselman.com/blog/
+ListOfNETDependencyInjectionContainersIOC.aspx&quot;&gt;http://www.hanselman.com/blog/
+ListOfNETDependencyInjectionContainersIOC.aspx&lt;/a&gt; about Unity, Castle Windsor, StructureMap, Spring.NET, and Autofac&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Dependency Injection is a technique to help us produce loosely coupled code by moving the concern of creating the dependencies to another object known as a DI container.&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>Some examples for markdown</title>
+            <link>Homepage link/articles/how-to-use-markdown.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/how-to-use-markdown.html</guid>
+            <author>jl_lsj@outlook.com Dino Liu</author>
+            <pubDate>Tue, 09 Dec 2014 00:00:00 +0800</pubDate>
+            <description>&lt;h1 id=&quot;some-examples-to-show-how-to-use-markdown&quot;&gt;Some examples to show how to use markdown&lt;/h1&gt;
+&lt;p&gt;At the beginning, I am not familiar with markdown, so I need practice to understanding it.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;use &#39;====&#39; to show headline like h1&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;use &#39;----&#39; to show subline&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;use &#39;#--######&#39; show h1 -- h6&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol&gt;
+&lt;li&gt;code block&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&quot;prettyprint linenums lang-code&quot;&gt;--use ```` for write code,
+public void main()
+{
+    console.log(&quot;test&quot;);
+}
+&lt;/pre&gt;
+&lt;p&gt;or just format the source code&lt;/p&gt;
+&lt;pre&gt;public void main()
+{
+    console.log(&quot;test&quot;);
+}
+&lt;/pre&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;The order list just use number 1-10&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;unorder list jsut use * &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;for strong word use  &lt;strong&gt;this is a strong sentence&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;for italic word use &lt;em&gt;this this a italic sentence&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;References:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://wowubuntu.com/markdown/index.html&quot;&gt;Introduction of markdown&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.ituring.com.cn/article/23&quot;&gt;how to use markdown&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.ituring.com.cn/article/504&quot;&gt;Markdown grammar expiation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>Thinking about project management</title>
+            <link>Homepage link/articles/thinking-about-project-management.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/thinking-about-project-management.html</guid>
+            <author>jl_lsj@outlook.com Dino Liu</author>
+            <pubDate>Sun, 07 Dec 2014 00:00:00 +0800</pubDate>
+            <description>&lt;h2 id=&quot;thinking-about-project-management&quot;&gt;Thinking about project management&lt;/h2&gt;
+&lt;p&gt;Today I did read an article regarding to the project management, the topic is about what kinds of  project goes failed which are about
+generic projects. But why generic projects easy to failed? There are tons of reason for this issue, the key reason is that they are not 
+following the SMART principle,  The SMART principle means:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Specific: Great goals are well-defined and focused. &lt;/li&gt;
+&lt;li&gt;Measurable: A goal without a measurable outcome is like a sports competition without a scoreboard or scorekeeper. Numbers are an essential part of business. Put concrete numbers in your goals to know if you��re on track. A goal white board posted in your office can help as a daily reminder to keep yourself and your employee focused on the targeted results you want to attain.&lt;/li&gt;
+&lt;li&gt;Attainable: Far too often, small businesses can set goals beyond reach. No one has ever built a billion dollar business overnight. Venture capitalists and angel investors discard countless business plans of companies with outlandish goals. Dream big and aim for the stars but keep one foot firmly based in reality. Check with your industry association to get a handle on realistic growth in your industry to set smart goals.&lt;/li&gt;
+&lt;li&gt;Relevant: Achievable business goals are based on the current conditions and realities of the business climate. You may desire to have your best year in business or increase revenue by 50%, but if a recession is looming and 3 new competitors opened in your market, then your goals aren��t relevant to the realities of the market.&lt;/li&gt;
+&lt;li&gt;Time-Based: Business goals and objectives just don��t get done when there&#39;s no time frame tied to the goal-setting process. Whether your business goal is to increase revenue by 20% or find 5 new clients, choose a time-frame to accomplish your goal.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I have thinking that as known projects are all have problems, the client did not happy, they are complaint the developing progress did slow than schedule.
+The engineers are not happy, they are complaint that there are so many work need to complete in short time in order to match schedule. &lt;/p&gt;
+&lt;p&gt;That&#39;s why we have such bad situations, the requirements is not clear, even the client does not know what&#39;s they want to do. 
+As a project manager how to avoid these stuff happen, remember that it should have a specific goal, the outcome should measurable, 
+there are relevant project to reference, the objectives have a deadline, to definite a colse date.
+If the requirements are not clear, just reduce it to the small task. Then use SMART principle again. &lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>this is my first post</title>
+            <link>Homepage link/articles/my-first-post.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/my-first-post.html</guid>
+            <author>jl_lsj@outlook.com Dino Liu</author>
+            <pubDate>Fri, 05 Dec 2014 00:00:00 +0800</pubDate>
+            <description>&lt;p&gt;My first post&lt;/p&gt;
+&lt;p&gt;Hey, welcome to visit my blog. There is an opportunity know that it could create a personal blog on github several month ago, 
+then I have trying to create a blog, it&#39;s faild. Until someday I had saw a project called Papery which could build blog automatically, cool~
+I am clone codes immediately and try to run it in my local environment. But it does running on nodejs environment, I am a beginner for nodejs
+and related everything. So I am following the article of Papery step by step, it still cannot running on my local environment successfully.
+Cause the time factor, I don&#39;t have researching it. Last week I saw it again when I tiding my folders, I did reset up it again, I have 
+success to run it. So that&#39;s why I have this blog. 
+In this blog, I want to log something regarding to software development and skills what&#39;s I learn. Just for fun, it is very important.
+Rome was not built in a day, keeping learn.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
