@@ -3,11 +3,11 @@
     <div id="main-inner">
         <div id="topnav">
             <ul>
-                <li><a href="/shawdren/">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li class="sep"> | </li>
-                <li><a href="/shawdren/tag.html">Tags</a></li>
+                <li><a href="/tag.html">Tags</a></li>
 				<li class="sep"> | </li>
-                <li><a href="/shawdren/pages/about-me.html">About Me</a></li>
+                <li><a href="/pages/about-me.html">About Me</a></li>
                 <% include inc/navbar %>
             </ul>
             <div style="clear:both;"></div>
@@ -15,18 +15,18 @@
         <div id="aboutme"><p><%- site.master.about %></p></div>
         <div id="tag-cloud">
             <% coreTags.forEach(function (tag) { %>
-            <a href="/shawdren/tag.html#<%= tag.label %>"><%= tag.label %><span class="count">×<%= tag.count %></span></a>
+            <a href="/tag.html#<%= tag.label %>"><%= tag.label %><span class="count">×<%= tag.count %></span></a>
             <% }) %>
             <div style="clear:both;"></div>
         </div>
         <div id="article-blocks">
             <% articles.forEach(function (ar) { %>
             <div class="article-block">
-                <p class="title"><a href="/shawdren/articles/<%= ar.id %>.html"><%= ar.title %></a></p>
+                <p class="title"><a href="/articles/<%= ar.id %>.html"><%= ar.title %></a></p>
                 <p class="abstract">&lt;Abstract &gt;: <%= ar.abstract %></p>
                 <p class="meta">Author <%= ar.author %> | Publish on <%= ar.postedOn %> | Tags 
                     <% ar.tags.forEach(function (tag) { %>
-                    <a class="tag" href="/shawdren/tag.html#<%= tag %>"><%= tag %></a>
+                    <a class="tag" href="/tag.html#<%= tag %>"><%= tag %></a>
                     <% }) %>
                 </p>
             </div>

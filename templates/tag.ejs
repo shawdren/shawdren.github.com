@@ -3,25 +3,25 @@
     <div id="main-inner">
         <div id="topnav">
             <ul>
-                <li><a href="/shawdren/">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li class="sep"> | </li>
-                <li><a href="/shawdren/tag.html">Tags</a></li>
+                <li><a href="/tag.html">Tags</a></li>
 				<li class="sep"> | </li>
-                <li><a href="/shawdren/pages/about-me.html">About Me</a></li>
+                <li><a href="/pages/about-me.html">About Me</a></li>
                 <% include inc/navbar %>
             </ul>
             <div style="clear:both;"></div>
         </div>
         <div id="tag-cloud">
         <% tags.forEach(function (tag) { %>
-        <a href="/shawdren/tag.html#<%= tag.label %>"><%= tag.label %><span class="count">×<%= tag.count %></span></a>
+        <a href="/tag.html#<%= tag.label %>"><%= tag.label %><span class="count">×<%= tag.count %></span></a>
         <% }) %>
         <div style="clear:both;"></div></div>
         <div id="tag-index">
         <% tags.forEach(function (tag) { %>
             <h1><a name="<%= tag.label %>"><%= tag.label %></a></h1>
             <% tag.articles.forEach(function (ar) { %>
-            <p><a href="/shawdren/articles/<%= ar.id %>.html"><%= ar.title %></a></p>
+            <p><a href="/articles/<%= ar.id %>.html"><%= ar.title %></a></p>
             <% }) %>
         <% }) %>
         </div>

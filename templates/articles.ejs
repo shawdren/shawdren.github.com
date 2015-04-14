@@ -3,24 +3,24 @@
     <div id="main-inner">
         <div id="topnav">
             <ul>
-                <li><a href="/shawdren/">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li class="sep"> | </li>
-                <li><a href="/shawdren/tag.html">Tags</a></li>
+                <li><a href="/tag.html">Tags</a></li>
 				<li class="sep"> | </li>
-                <li><a href="/shawdren/pages/about-me.html">About Me</a></li>
+                <li><a href="/pages/about-me.html">About Me</a></li>
                 <% include inc/navbar %>
             </ul>
             <div style="clear:both;"></div>
         </div>
         <div id="article-title">
-            <a href="/shawdren/<%= article.link %>"><%= article.title %></a>
+            <a href="/<%= article.link %>"><%= article.title %></a>
         </div>
         <div id="article-meta">
             Author <%= article.author %> | Published on <%= article.postedOn %>
         </div>
         <div id="article-tags">
         <% article.tags.forEach(function (tag) { %>
-        <a class="tag" href="/shawdren/tag.html#<%= tag %>"><%= tag %></a>
+        <a class="tag" href="/tag.html#<%= tag %>"><%= tag %></a>
         <% }); %>
         </div>
         <div id="article-content">
