@@ -23,8 +23,8 @@
             <% articles.forEach(function (ar) { %>
             <div class="article-block">
                 <p class="title"><a href="/articles/<%= ar.id %>.html"><%= ar.title %></a></p>
-                <p class="abstract">&lt;Abstract &gt;: <%= ar.abstract %></p>
-                <p class="meta">Author <%= ar.author %> | Publish on <%= ar.postedOn %> | Tags 
+                <p class="abstract">&lt;摘要&gt;: <%= ar.abstract %></p>
+                <p class="meta">作者 <%= ar.author %> | 发布于 <%= ar.postedOn %> | Tags 
                     <% ar.tags.forEach(function (tag) { %>
                     <a class="tag" href="/tag.html#<%= tag %>"><%= tag %></a>
                     <% }) %>

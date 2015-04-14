@@ -14,11 +14,11 @@ master:
 rss:
   title: RSS feed title
   desc: RSS feed description
-  lang: zh-cn
+  lang: en
   max: 10
 copyright:
   owner: Dino L.
   beginYear: 2014
-  endYear: 2014
+  endYear: 2015
 theme: default
 codetheme: night
