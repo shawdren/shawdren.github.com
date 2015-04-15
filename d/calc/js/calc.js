@@ -24,7 +24,7 @@ $(function(){
 			'click li': 'select'
 		},
 		select: function(e){
-			//this.undelegateEvents(); 
+			this.undelegateEvents();
 			switch(e.toElement.innerHTML){
 				case 'Live time':
 					this.model.set({'page': 1});
@@ -46,16 +46,15 @@ $(function(){
             el: $('.doc'),
             events: {
                 'click .back': 'backToStart',
+                'click .calc':'onCalc'
             },
             backToStart: function(){
                 this.undelegateEvents();
                 this.model.set({'page': 0});
             },
-            setTime: function(time){
-                var m = Math.floor(time/(60*1000)), s = Math.floor((time-m*60*1000)/1000);
-                this.$el.find('.time-prac').html(m+'分'+s+'秒');
+            onCalc:function(e){
+                alert($('day'));
             }
-            
         });
 		
 	var AppView = Backbone.View.extend({

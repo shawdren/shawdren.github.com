@@ -24,14 +24,18 @@
 	
 	<script type="text/mustache-tmpl" id="tmpl_livetime">
 	<h2>Live Time</h2> 
-	<ul class="choose">
-		 <li>year</li>
-		 <li>month</li>
-		 <li>day</li>
-	</ul>	
-	<input type='button' value='back' class='back'>
+	<ul class="choose-item">
+		 <li>Month <input type="month" name="month" value="2015"></li>
+		 <li>Day <input type="number" max="31" min="1" value="1" name="day"/></li>
+		 <li>
+		    <input type='button' value='Calc' class='calc'>
+	    </li>
+        <li>
+            Result:
+        </li>
+	</ul>
+    <input type='button' value='back' class='back'>
 	</script>
-
 
 	<script src="js/zepto.js"></script>
 	<script src="js/event.js"></script>
