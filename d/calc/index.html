@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" /> 
+    <link rel="apple-touch-icon" href="images/favicon.png" />
+    <link rel="apple-touch-startup-image" href="images/startup.png" />
+	<link rel="stylesheet" href="main.css" />
+	<title>Calculation</title>
+</head>
+<body> 
+    <section class="doc"></section>
+
+    <script type="text/mustache-tmpl" id="tmpl_start">
+        <h2>Choose Calculation</h2> 
+		<ul class="choose">
+			{{#calc}}
+			<li class='label'>{{calc}}</li>
+			{{/calc}}
+		</ul>		
+	</script>
+	
+	<script type="text/mustache-tmpl" id="tmpl_livetime">
+	<h2>Live Time</h2> 
+	<ul class="choose">
+		 <li>year</li>
+		 <li>month</li>
+		 <li>day</li>
+	</ul>	
+	<input type='button' value='back' class='back'>
+	</script>
+
+
+	<script src="js/zepto.js"></script>
+	<script src="js/event.js"></script>
+	<script src="js/underscore.js"></script>
+	<script src="js/backbone.js"></script>
+	<script src="js/mustache.js"></script>
+	<script src="js/calc.js"></script>
+	 
+</body>
+</html>

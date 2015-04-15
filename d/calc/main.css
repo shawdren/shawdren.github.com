@@ -1,0 +1,29 @@
+body{
+	font-family: Helvetica,Arial,sans-serif;background-color:gray;
+}
+section{
+	width: 320px;
+	height: 460px;
+	margin: 0 auto;
+	position: relative;
+	background-color:white;
+	text-align: center;
+	overflow: hidden;
+}
+section p, section .button{
+	margin: 0px;
+}
+section h2{
+	font-size: 18px;
+	padding: 10px;
+} 
+ 
+.choose{ 
+	list-style:none;
+	float:left; 
+}
+.label{
+	border:none;
+	line-height:30px; 
+	align:left;
+}
