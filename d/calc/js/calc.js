@@ -24,15 +24,14 @@ $(function(){
 			'click li': 'select'
 		},
 		select: function(e){
-			this.undelegateEvents(); 
+			//this.undelegateEvents(); 
 			switch(e.toElement.innerHTML){
 				case 'Live time':
 					this.model.set({'page': 1});
 				break;
 				default:
                   this.model.set({'page': 0});
-			}
-            
+			} 
 		},
 		initialize: function(){
 			this.$el.html(Mustache.to_html($('#tmpl_start').html(), data));
