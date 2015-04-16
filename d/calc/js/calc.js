@@ -27,13 +27,16 @@ $(function(){
 				case 'Live time':
 					this.model.set({'page': 1});
 				break;
+                case 'BMI':
+                    this.model.set({'page': 2});
+                    break;
 				default:
                   this.model.set({'page': 0});
 			} 
 		},
 		initialize: function(){
 			this.$el.html(Mustache.to_html($('#tmpl_start').html(), data));
-		},
+		}
 	});
 	
 	var liveTimView = Backbone.View.extend({
@@ -102,7 +105,7 @@ $(function(){
                         new liveTimView({model: model});
                         break;
                         case 2:
-                        new BMIView({model: model});
+                        new bmiView({model: model});
                         break;
                         default:
                         new StartView({model: model});
