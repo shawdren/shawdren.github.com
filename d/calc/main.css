@@ -23,7 +23,8 @@ section h2{
 .choose{ 
 	list-style:none;
 	float:left;
-    cursor:pointer
+    cursor:pointer;
+    text-align: left;
 }
 .choose-item{
     list-style:none;

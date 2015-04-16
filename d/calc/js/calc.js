@@ -44,17 +44,56 @@ $(function(){
             el: $('.doc'),
             events: {
                 'click .back': 'backToStart',
-                'click .calc':'onCalc'
+                'click .calc':'onCalc',
+                'click .reset':'onReset'
             },
             backToStart: function(){
                 this.undelegateEvents();
                 this.model.set({'page': 0});
             },
             onCalc:function(e){
-                document.getElementById('result').innerHTML = document.getElementById('birthday').value;
+                var days = this.calcAge($('#birthday').val())
+                $('#result').val(days);
+            },
+            onReset:function(){
+                $('#birthday').val('');
+                $('#result').val('');
+            },
+            calcAge:function(birthday){
+                var birthday = +new Date(birthday);
+                return ~~((Date.now() - birthday) / (31557600000));
             }
         });
-		
+    var bmiView = Backbone.View.extend({
+        initialize: function(){
+            var resultJson = {};
+            this.$el.html(Mustache.to_html($('#tmpl_bmi').html(), resultJson));
+        },
+        el: $('.doc'),
+        events: {
+            'click .back': 'backToStart',
+            'click .height':'onCalc',
+            'click .reset':'onReset'
+        },
+        backToStart: function(){
+            this.undelegateEvents();
+            this.model.set({'page': 0});
+        },
+        onCalc:function(e){
+            var days = this.calcAge($('#birthday').val())
+            $('#result').val(days);
+        },
+        onReset:function(){
+            $('#birthday').val('');
+            $('#result').val('');
+        },
+        calcAge:function(birthday){
+            var birthday = +new Date(birthday);
+            return ~~((Date.now() - birthday) / (31557600000));
+        }
+    });
+
+
 	var AppView = Backbone.View.extend({
             initialize: function(){
                 this.model.on('change:page', function(model, page){
