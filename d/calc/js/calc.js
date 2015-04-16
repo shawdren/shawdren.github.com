@@ -9,11 +9,9 @@ $(function(){
 	
 	var calcModel = Backbone.Model.extend({
 		defaults: {
-			testTime: 10,
-			picIndex: 0,
-			shadowIndex: 0,
+			birthday: null,
+			result: null,
 			page: 0,
-			canvasData: '',
 		},
 	});
 
@@ -53,7 +51,7 @@ $(function(){
                 this.model.set({'page': 0});
             },
             onCalc:function(e){
-                alert($('day'));
+                document.getElementById('result').innerHTML = document.getElementById('birthday').value;
             }
         });
 		
