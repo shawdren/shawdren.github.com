@@ -1,3 +1,10 @@
+- id: learn-frontend-resources
+  title: The resources of learn front end
+  postedOn: !!str 2015-4-16
+  author: Dino
+  tags:
+    - frontend
+    - javascript 
 - id: book-notes-for-learn-Ninject-4
   title: The book notes 4 for learn Ninject
   postedOn: !!str 2014-12-23

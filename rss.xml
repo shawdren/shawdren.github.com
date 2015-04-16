@@ -4,8 +4,24 @@
         <title>RSS feed title</title>
         <link>Homepage link</link>
         <description>RSS feed description</description>
-        <lastBuildDate>Tue, 14 Apr 2015 17:10:44 +0800</lastBuildDate>
+        <lastBuildDate>Thu, 16 Apr 2015 13:42:30 +0800</lastBuildDate>
         <language>en</language>
+        
+        <item>
+            <title>The resources of learn front end</title>
+            <link>Homepage link/articles/learn-frontend-resources.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/learn-frontend-resources.html</guid>
+            <author>jl_lsj@outlook.com Dino Liu</author>
+            <pubDate>Thu, 16 Apr 2015 00:00:00 +0800</pubDate>
+            <description>&lt;h1 id=&quot;javascritp-resources&quot;&gt;Javascritp resources&lt;/h1&gt;
+&lt;h2 id=&quot;framework&quot;&gt;framework&lt;/h2&gt;
+&lt;h3 id=&quot;zeptojs-a-href-http-zeptojscom-http-zeptojscom-a-&quot;&gt;Zeptojs(&lt;a href=&quot;http://zeptojs.com/&quot;&gt;http://zeptojs.com/&lt;/a&gt;)&lt;/h3&gt;
+&lt;h3 id=&quot;backbonejs-a-href-http-backbonejsorg-http-backbonejsorg-a-&quot;&gt;Backbonejs(&lt;a href=&quot;http://backbonejs.org/&quot;&gt;http://backbonejs.org/&lt;/a&gt;)&lt;/h3&gt;
+&lt;h3 id=&quot;nativescript-a-href-https-wwwnativescriptorg-https-wwwnativescriptorg-a-&quot;&gt;Nativescript(&lt;a href=&quot;https://www.nativescript.org/&quot;&gt;https://www.nativescript.org/&lt;/a&gt;)&lt;/h3&gt;
+&lt;h1 id=&quot;html&quot;&gt;HTML&lt;/h1&gt;
+&lt;h2 id=&quot;-a-href-https-htmlspecwhatwgorg-multipage-introductionhtml-is-this-html5-https-htmlspecwhatwgorg-multipage-introductionhtml-is-this-html5-a-&quot;&gt;&lt;a href=&quot;https://html.spec.whatwg.org/multipage/introduction.html#is-this-html5?&quot;&gt;https://html.spec.whatwg.org/multipage/introduction.html#is-this-html5?&lt;/a&gt;&lt;/h2&gt;
+</description>
+        </item>
         
         <item>
             <title>The book notes 4 for learn Ninject</title>
