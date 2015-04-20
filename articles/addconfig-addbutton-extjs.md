@@ -41,8 +41,6 @@ another way could be passed the handler parameter
                     Config: config,
                     disabled: true
                 }, config.handler ? config.handler : this.onButtonClick, this);
-				
-
 ...,
 onButtonClick:function(){
 	fireEvent('still needs fire Event for trigger click event');

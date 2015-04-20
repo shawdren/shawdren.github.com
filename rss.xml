@@ -4,7 +4,7 @@
         <title>RSS feed title</title>
         <link>Homepage link</link>
         <description>RSS feed description</description>
-        <lastBuildDate>Mon, 20 Apr 2015 17:38:15 +0800</lastBuildDate>
+        <lastBuildDate>Mon, 20 Apr 2015 17:40:39 +0800</lastBuildDate>
         <language>en</language>
         
         <item>
@@ -49,8 +49,6 @@ one is just add handler in the config&lt;/p&gt;
                     Config: config,
                     disabled: true
                 }, config.handler ? config.handler : this.onButtonClick, this);
-
-
 ...,
 onButtonClick:function(){
     fireEvent(&#39;still needs fire Event for trigger click event&#39;);
@@ -73,7 +71,7 @@ onButtonClick:function(){
 &lt;h1 id=&quot;html&quot;&gt;HTML&lt;/h1&gt;
 &lt;h2 id=&quot;-a-href-https-htmlspecwhatwgorg-multipage-introductionhtml-is-this-html5-https-htmlspecwhatwgorg-multipage-introductionhtml-is-this-html5-a-&quot;&gt;&lt;a href=&quot;https://html.spec.whatwg.org/multipage/introduction.html#is-this-html5?&quot;&gt;https://html.spec.whatwg.org/multipage/introduction.html#is-this-html5?&lt;/a&gt;&lt;/h2&gt;
 &lt;h2 id=&quot;tools&quot;&gt;tools&lt;/h2&gt;
-&lt;h1 id=&quot;jslint-a-href-http-wwwjslintcom-http-wwwjslintcom-a-&quot;&gt;JSLint(&lt;a href=&quot;http://www.jslint.com/&quot;&gt;http://www.jslint.com/&lt;/a&gt;)&lt;/h1&gt;
+&lt;h3 id=&quot;jslint-a-href-http-wwwjslintcom-http-wwwjslintcom-a-&quot;&gt;JSLint(&lt;a href=&quot;http://www.jslint.com/&quot;&gt;http://www.jslint.com/&lt;/a&gt;)&lt;/h3&gt;
 </description>
         </item>
         
