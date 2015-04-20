@@ -4,8 +4,60 @@
         <title>RSS feed title</title>
         <link>Homepage link</link>
         <description>RSS feed description</description>
-        <lastBuildDate>Thu, 16 Apr 2015 13:42:30 +0800</lastBuildDate>
+        <lastBuildDate>Mon, 20 Apr 2015 17:38:15 +0800</lastBuildDate>
         <language>en</language>
+        
+        <item>
+            <title>A way to set config for addbutton of Panel in Extjs</title>
+            <link>Homepage link/articles/addconfig-addbutton-extjs.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/addconfig-addbutton-extjs.html</guid>
+            <author>jl_lsj@outlook.com Dino Liu</author>
+            <pubDate>Mon, 20 Apr 2015 00:00:00 +0800</pubDate>
+            <description>&lt;h2 id=&quot;a-way-to-set-config-for-addbutton-of-panel-in-extjs&quot;&gt;A way to set config for addbutton of Panel in Extjs&lt;/h2&gt;
+&lt;p&gt;Via read source code of addButton(&lt;a href=&quot;http://docs.sencha.com/extjs/3.4.0/source/Panel.html#Ext-Panel-method-addButton&quot;&gt;http://docs.sencha.com/extjs/3.4.0/source/Panel.html#Ext-Panel-method-addButton&lt;/a&gt;), we can found out that there is a 
+handler parameter could be passed by outside or in the config itself.&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-javascript&quot;&gt;    addButton : function(config, handler, scope){
+        if(!this.fbar){
+            this.createFbar([]);
+        }
+        if(handler){
+            if(Ext.isString(config)){
+                config = {text: config};
+            }
+            config = Ext.apply({
+                handler: handler,
+                scope: scope
+            }, config);
+        }
+        return this.fbar.add(config);
+    },
+&lt;/pre&gt;
+&lt;p&gt;so their are 2 ways to set the handler for buttons on the pannel.
+one is just add handler in the config&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-javascript&quot;&gt; this.addButton({
+                    text: Label,
+                    Config: config,
+                    disabled: true,
+                    handler:function(){
+                        fireEvent(&#39;do event&#39;);
+                    }
+                }, null, this);
+&lt;/pre&gt;
+&lt;p&gt;another way could be passed the handler parameter&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-javascript&quot;&gt; this.addButton({
+                    text: config.Label,
+                    Config: config,
+                    disabled: true
+                }, config.handler ? config.handler : this.onButtonClick, this);
+
+
+...,
+onButtonClick:function(){
+    fireEvent(&#39;still needs fire Event for trigger click event&#39;);
+}
+&lt;/pre&gt;
+</description>
+        </item>
         
         <item>
             <title>The resources of learn front end</title>
@@ -20,6 +72,8 @@
 &lt;h3 id=&quot;nativescript-a-href-https-wwwnativescriptorg-https-wwwnativescriptorg-a-&quot;&gt;Nativescript(&lt;a href=&quot;https://www.nativescript.org/&quot;&gt;https://www.nativescript.org/&lt;/a&gt;)&lt;/h3&gt;
 &lt;h1 id=&quot;html&quot;&gt;HTML&lt;/h1&gt;
 &lt;h2 id=&quot;-a-href-https-htmlspecwhatwgorg-multipage-introductionhtml-is-this-html5-https-htmlspecwhatwgorg-multipage-introductionhtml-is-this-html5-a-&quot;&gt;&lt;a href=&quot;https://html.spec.whatwg.org/multipage/introduction.html#is-this-html5?&quot;&gt;https://html.spec.whatwg.org/multipage/introduction.html#is-this-html5?&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;tools&quot;&gt;tools&lt;/h2&gt;
+&lt;h1 id=&quot;jslint-a-href-http-wwwjslintcom-http-wwwjslintcom-a-&quot;&gt;JSLint(&lt;a href=&quot;http://www.jslint.com/&quot;&gt;http://www.jslint.com/&lt;/a&gt;)&lt;/h1&gt;
 </description>
         </item>
         

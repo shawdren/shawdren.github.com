@@ -7,7 +7,7 @@
         <meta name="keywords" content="C#, ASP.NET, ASP.NET MVC, Javascript, SQL Server, HTML, CSS.,English"/>
         <meta name="author" content="Dino Liu (Shawdren) &lt;jl_lsj@outlook.com&gt;"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-        <title>Dino L. - The resources of learn front end
+        <title>Dino L. - A way to set config for addbutton of Panel in Extjs
 </title>
         <link rel="stylesheet" href="/assets/vendor/normalize.css"/>
         <link rel="stylesheet" href="/assets/vendor/prettify-night.css"/>
@@ -42,28 +42,62 @@
             <div style="clear:both;"></div>
         </div>
         <div id="article-title">
-            <a href="/articles/learn-frontend-resources.html">The resources of learn front end</a>
+            <a href="/articles/addconfig-addbutton-extjs.html">A way to set config for addbutton of Panel in Extjs</a>
         </div>
         <div id="article-meta">
-            Dino | published on 2015-4-16
+            Dino | published on 2015-4-20
         </div>
         <div id="article-tags">
         
-        <a class="tag" href="/tag.html#frontend">frontend</a>
+        <a class="tag" href="/tag.html#Extjs">Extjs</a>
         
         <a class="tag" href="/tag.html#javascript">javascript</a>
         
         </div>
         <div id="article-content">
-            <h1 id="javascritp-resources">Javascritp resources</h1>
-<h2 id="framework">framework</h2>
-<h3 id="zeptojs-a-href-http-zeptojscom-http-zeptojscom-a-">Zeptojs(<a href="http://zeptojs.com/">http://zeptojs.com/</a>)</h3>
-<h3 id="backbonejs-a-href-http-backbonejsorg-http-backbonejsorg-a-">Backbonejs(<a href="http://backbonejs.org/">http://backbonejs.org/</a>)</h3>
-<h3 id="nativescript-a-href-https-wwwnativescriptorg-https-wwwnativescriptorg-a-">Nativescript(<a href="https://www.nativescript.org/">https://www.nativescript.org/</a>)</h3>
-<h1 id="html">HTML</h1>
-<h2 id="-a-href-https-htmlspecwhatwgorg-multipage-introductionhtml-is-this-html5-https-htmlspecwhatwgorg-multipage-introductionhtml-is-this-html5-a-"><a href="https://html.spec.whatwg.org/multipage/introduction.html#is-this-html5?">https://html.spec.whatwg.org/multipage/introduction.html#is-this-html5?</a></h2>
-<h2 id="tools">tools</h2>
-<h1 id="jslint-a-href-http-wwwjslintcom-http-wwwjslintcom-a-">JSLint(<a href="http://www.jslint.com/">http://www.jslint.com/</a>)</h1>
+            <h2 id="a-way-to-set-config-for-addbutton-of-panel-in-extjs">A way to set config for addbutton of Panel in Extjs</h2>
+<p>Via read source code of addButton(<a href="http://docs.sencha.com/extjs/3.4.0/source/Panel.html#Ext-Panel-method-addButton">http://docs.sencha.com/extjs/3.4.0/source/Panel.html#Ext-Panel-method-addButton</a>), we can found out that there is a 
+handler parameter could be passed by outside or in the config itself.</p>
+<pre class="prettyprint linenums lang-javascript">    addButton : function(config, handler, scope){
+        if(!this.fbar){
+            this.createFbar([]);
+        }
+        if(handler){
+            if(Ext.isString(config)){
+                config = {text: config};
+            }
+            config = Ext.apply({
+                handler: handler,
+                scope: scope
+            }, config);
+        }
+        return this.fbar.add(config);
+    },
+</pre>
+<p>so their are 2 ways to set the handler for buttons on the pannel.
+one is just add handler in the config</p>
+<pre class="prettyprint linenums lang-javascript"> this.addButton({
+                    text: Label,
+                    Config: config,
+                    disabled: true,
+                    handler:function(){
+                        fireEvent(&#39;do event&#39;);
+                    }
+                }, null, this);
+</pre>
+<p>another way could be passed the handler parameter</p>
+<pre class="prettyprint linenums lang-javascript"> this.addButton({
+                    text: config.Label,
+                    Config: config,
+                    disabled: true
+                }, config.handler ? config.handler : this.onButtonClick, this);
+
+
+...,
+onButtonClick:function(){
+    fireEvent(&#39;still needs fire Event for trigger click event&#39;);
+}
+</pre>
 
         </div>
         

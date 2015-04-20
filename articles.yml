@@ -1,3 +1,10 @@
+- id: addconfig-addbutton-extjs
+  title: A way to set config for addbutton of Panel in Extjs
+  postedOn: !!str 2015-4-20
+  author: Dino
+  tags:
+    - Extjs
+    - javascript 
 - id: learn-frontend-resources
   title: The resources of learn front end
   postedOn: !!str 2015-4-16
