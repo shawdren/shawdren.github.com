@@ -16,7 +16,7 @@
             <a href="<%= article.link %>"><%= article.title %></a>
         </div>
         <div id="article-meta">
-            <%= article.author %> | published on <%= article.postedOn %>
+           By <%= article.author %>, updated <%= article.postedOn %>
         </div>
         <div id="article-tags">
         <% article.tags.forEach(function (tag) { %>

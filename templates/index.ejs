@@ -24,7 +24,7 @@
             <div class="article-block">
                 <p class="title"><a href="/articles/<%= ar.id %>.html"><%= ar.title %></a></p>
                 <p class="abstract">&lt; abstract &gt;: <%= ar.abstract %></p>
-                <p class="meta"> <%= ar.author %> | published on <%= ar.postedOn %> | Tags 
+                <p class="meta"> By <%= ar.author %>, updated <%= ar.postedOn %> | Tags 
                     <% ar.tags.forEach(function (tag) { %>
                     <a class="tag" href="/tag.html#<%= tag %>"><%= tag %></a>
                     <% }) %>

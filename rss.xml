@@ -4,7 +4,7 @@
         <title>RSS feed title</title>
         <link>Homepage link</link>
         <description>RSS feed description</description>
-        <lastBuildDate>Mon, 20 Apr 2015 17:40:39 +0800</lastBuildDate>
+        <lastBuildDate>Tue, 21 Apr 2015 09:28:41 +0800</lastBuildDate>
         <language>en</language>
         
         <item>
@@ -32,14 +32,14 @@ handler parameter could be passed by outside or in the config itself.&lt;/p&gt;
         return this.fbar.add(config);
     },
 &lt;/pre&gt;
-&lt;p&gt;so their are 2 ways to set the handler for buttons on the pannel.
+&lt;p&gt;so there are 2 ways to set the handler for buttons on the pannel.
 one is just add handler in the config&lt;/p&gt;
 &lt;pre class=&quot;prettyprint linenums lang-javascript&quot;&gt; this.addButton({
                     text: Label,
                     Config: config,
                     disabled: true,
                     handler:function(){
-                        fireEvent(&#39;do event&#39;);
+                        fireEvent(&#39;to do event&#39;);
                     }
                 }, null, this);
 &lt;/pre&gt;

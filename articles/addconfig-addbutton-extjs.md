@@ -20,7 +20,7 @@ handler parameter could be passed by outside or in the config itself.
     },
 
 ````
-so their are 2 ways to set the handler for buttons on the pannel.
+so there are 2 ways to set the handler for buttons on the pannel.
 one is just add handler in the config
 ````javascript
  this.addButton({
@@ -28,7 +28,7 @@ one is just add handler in the config
                     Config: config,
                     disabled: true,
 					handler:function(){
-						fireEvent('do event');
+						fireEvent('to do event');
 					}
                 }, null, this);
 ````

@@ -45,7 +45,7 @@
             <a href="/articles/addconfig-addbutton-extjs.html">A way to set config for addbutton of Panel in Extjs</a>
         </div>
         <div id="article-meta">
-            Dino | published on 2015-4-20
+           By Dino, updated 2015-4-20
         </div>
         <div id="article-tags">
         
@@ -74,14 +74,14 @@ handler parameter could be passed by outside or in the config itself.</p>
         return this.fbar.add(config);
     },
 </pre>
-<p>so their are 2 ways to set the handler for buttons on the pannel.
+<p>so there are 2 ways to set the handler for buttons on the pannel.
 one is just add handler in the config</p>
 <pre class="prettyprint linenums lang-javascript"> this.addButton({
                     text: Label,
                     Config: config,
                     disabled: true,
                     handler:function(){
-                        fireEvent(&#39;do event&#39;);
+                        fireEvent(&#39;to do event&#39;);
                     }
                 }, null, this);
 </pre>
