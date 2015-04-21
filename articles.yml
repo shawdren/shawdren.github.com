@@ -1,3 +1,13 @@
+- id: develop-hybird-webapp-on-cloud
+  title: Learn how to develop hybird webapp on cloud
+  postedOn: !!str 2015-4-21
+  author: Dino
+  tags:
+    - Nitrous.IO
+    - Ionic
+    - PhoneGap
+    - Firebase
+  abstract: learn how to develop hybird webapp on cloud environments
 - id: addconfig-addbutton-extjs
   title: A way to set config for addbutton of Panel in Extjs
   postedOn: !!str 2015-4-20

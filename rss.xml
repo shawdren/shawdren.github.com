@@ -4,8 +4,26 @@
         <title>RSS feed title</title>
         <link>Homepage link</link>
         <description>RSS feed description</description>
-        <lastBuildDate>Tue, 21 Apr 2015 09:28:41 +0800</lastBuildDate>
+        <lastBuildDate>Tue, 21 Apr 2015 16:08:12 +0800</lastBuildDate>
         <language>en</language>
+        
+        <item>
+            <title>Learn how to develop hybird webapp on cloud</title>
+            <link>Homepage link/articles/develop-hybird-webapp-on-cloud.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/develop-hybird-webapp-on-cloud.html</guid>
+            <author>jl_lsj@outlook.com Dino Liu</author>
+            <pubDate>Tue, 21 Apr 2015 00:00:00 +0800</pubDate>
+            <description>&lt;p&gt;The road map of how to learn develp hybird webapp on cloud environments&lt;/p&gt;
+&lt;h2 id=&quot;nitrousio&quot;&gt;Nitrous.io&lt;/h2&gt;
+&lt;p&gt;Nitrous.io[&lt;a href=&quot;https://www.nitrous.io&quot;&gt;https://www.nitrous.io&lt;/a&gt;] &lt;/p&gt;
+&lt;h2 id=&quot;ionic&quot;&gt;Ionic&lt;/h2&gt;
+&lt;p&gt;Ionic [&lt;a href=&quot;http://ionicframework.com/&quot;&gt;http://ionicframework.com/&lt;/a&gt;]&lt;/p&gt;
+&lt;h2 id=&quot;phonegap&quot;&gt;PhoneGap&lt;/h2&gt;
+&lt;p&gt;PhoneGap [&lt;a href=&quot;http://phonegap.com/&quot;&gt;http://phonegap.com/&lt;/a&gt;]&lt;/p&gt;
+&lt;h2 id=&quot;firebase&quot;&gt;Firebase&lt;/h2&gt;
+&lt;p&gt;Firebase [&lt;a href=&quot;https://www.firebase.com&quot;&gt;https://www.firebase.com&lt;/a&gt;]&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>A way to set config for addbutton of Panel in Extjs</title>
