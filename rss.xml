@@ -4,7 +4,7 @@
         <title>RSS feed title</title>
         <link>Homepage link</link>
         <description>RSS feed description</description>
-        <lastBuildDate>Tue, 21 Apr 2015 16:08:12 +0800</lastBuildDate>
+        <lastBuildDate>Tue, 21 Apr 2015 22:11:17 +0800</lastBuildDate>
         <language>en</language>
         
         <item>
@@ -22,6 +22,10 @@
 &lt;p&gt;PhoneGap [&lt;a href=&quot;http://phonegap.com/&quot;&gt;http://phonegap.com/&lt;/a&gt;]&lt;/p&gt;
 &lt;h2 id=&quot;firebase&quot;&gt;Firebase&lt;/h2&gt;
 &lt;p&gt;Firebase [&lt;a href=&quot;https://www.firebase.com&quot;&gt;https://www.firebase.com&lt;/a&gt;]&lt;/p&gt;
+&lt;h2 id=&quot;angularjs&quot;&gt;Angularjs&lt;/h2&gt;
+&lt;h3 id=&quot;-a-href-https-angular-uigithubio-bootstrap-ui-bootstrps-a-&quot;&gt;&lt;a href=&quot;https://angular-ui.github.io/bootstrap/&quot;&gt;UI Bootstrps&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;-a-href-http-getbootstrapcom-getting-started-download-bootstrap-get-start-a-&quot;&gt;&lt;a href=&quot;http://getbootstrap.com/getting-started/#download&quot;&gt;Bootstrap get start&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;-a-href-http-wwww3schoolscom-angular-defaultasp-w3c-school-learn-angular-js-a-&quot;&gt;&lt;a href=&quot;http://www.w3schools.com/angular/default.asp&quot;&gt;w3c school learn angular js&lt;/a&gt;&lt;/h3&gt;
 </description>
         </item>
         
