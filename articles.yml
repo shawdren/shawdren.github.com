@@ -1,3 +1,10 @@
+- id: get-values-keys-from-object
+  title: How to get keys or values from object
+  postedOn: !!str 2015-5-22
+  author: Dino
+  tags:
+    - JS
+  abstract: The tips of js that how to get keys or values from object
 - id: develop-hybird-webapp-on-cloud
   title: Learn how to develop hybird webapp on cloud
   postedOn: !!str 2015-4-21

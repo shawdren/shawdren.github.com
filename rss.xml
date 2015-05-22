@@ -4,8 +4,36 @@
         <title>RSS feed title</title>
         <link>Homepage link</link>
         <description>RSS feed description</description>
-        <lastBuildDate>Thu, 21 May 2015 13:21:45 +0800</lastBuildDate>
+        <lastBuildDate>Fri, 22 May 2015 14:41:03 +0800</lastBuildDate>
         <language>en</language>
+        
+        <item>
+            <title>How to get keys or values from object</title>
+            <link>Homepage link/articles/get-values-keys-from-object.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/get-values-keys-from-object.html</guid>
+            <author>jl_lsj@outlook.com Dino Liu</author>
+            <pubDate>Fri, 22 May 2015 00:00:00 +0800</pubDate>
+            <description>&lt;h2 id=&quot;js-tips-how-to-get-keys-or-values-from-object&quot;&gt;JS tips how to get keys or values from object&lt;/h2&gt;
+&lt;p&gt;below code is how to get keys from object&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-javascript&quot;&gt;function getObjectValues(object) 
+{
+    var values = [];
+    for (var property in object)
+      values.push(object[property]);
+    return values;
+}
+&lt;/pre&gt;
+&lt;p&gt;below code is how to get values from object &lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-javascript&quot;&gt;function getObjectValues(object) 
+{
+    var values = [];
+    for (var property in object)
+      values.push(object[property]);
+    return values;
+}
+&lt;/pre&gt;
+</description>
+        </item>
         
         <item>
             <title>Learn how to develop hybird webapp on cloud</title>
@@ -430,24 +458,6 @@ The engineers are not happy, they are complaint that there are so many work need
 As a project manager how to avoid these stuff happen, remember that it should have a specific goal, the outcome should measurable, 
 there are relevant project to reference, the objectives have a deadline, to definite a colse date.
 If the requirements are not clear, just reduce it to the small task. Then use SMART principle again. &lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>this is my first post</title>
-            <link>Homepage link/articles/my-first-post.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
-            <guid>Homepage link/articles/my-first-post.html</guid>
-            <author>jl_lsj@outlook.com Dino Liu</author>
-            <pubDate>Fri, 05 Dec 2014 00:00:00 +0800</pubDate>
-            <description>&lt;p&gt;My first post&lt;/p&gt;
-&lt;p&gt;Hey, welcome to visit my blog. There is an opportunity know that it could create a personal blog on github several month ago, 
-then I have trying to create a blog, it&#39;s faild. Until someday I had saw a project called Papery which could build blog automatically, cool~
-I am clone codes immediately and try to run it in my local environment. But it does running on nodejs environment, I am a beginner for nodejs
-and related everything. So I am following the article of Papery step by step, it still cannot running on my local environment successfully.
-Cause the time factor, I don&#39;t have researching it. Last week I saw it again when I tiding my folders, I did reset up it again, I have 
-success to run it. So that&#39;s why I have this blog. 
-In this blog, I want to log something regarding to software development and skills what&#39;s I learn. Just for fun, it is very important.
-Rome was not built in a day, keeping learn.&lt;/p&gt;
 </description>
         </item>
         
