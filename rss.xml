@@ -4,8 +4,62 @@
         <title>RSS feed title</title>
         <link>Homepage link</link>
         <description>RSS feed description</description>
-        <lastBuildDate>Fri, 22 May 2015 14:41:03 +0800</lastBuildDate>
+        <lastBuildDate>Mon, 25 May 2015 15:55:45 +0800</lastBuildDate>
         <language>en</language>
+        
+        <item>
+            <title>How to filter data for comboBox in extjs</title>
+            <link>Homepage link/articles/set-filter-data-for-combo-in-extjs.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/set-filter-data-for-combo-in-extjs.html</guid>
+            <author>jl_lsj@outlook.com Dino Liu</author>
+            <pubDate>Mon, 25 May 2015 00:00:00 +0800</pubDate>
+            <description>&lt;h3 id=&quot;backgournd&quot;&gt;Backgournd&lt;/h3&gt;
+&lt;p&gt;Here is a common function that in the maintenance from which has a comboBox field and a data grid, once add a new record and pick up a value from
+comboBox to the grid, then the data of comboBox should be changed that the selected one should be removed out from comboBox.&lt;/p&gt;
+&lt;h3 id=&quot;what-39-s-issue&quot;&gt;What&#39;s issue&lt;/h3&gt;
+&lt;p&gt;if I would be use the filter by function of comboBox in extjs, that could be only filter data for initial time, once I try to add some new records, 
+the filter by function didn&#39;t work, because it&#39;s load data from cache data. &lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-javascript&quot;&gt;var comboStore = new Ext.data.ArrayStore({
+    fields: [&#39;value&#39;],
+    data : filterValidateFiled()
+});
+
+comboStore.filterBy(function(record){
+    console.log(record.get(&#39;value&#39;));
+    var isTrue= true;
+    if(record.get(&#39;value&#39;) === d.fieldName || record.data.value === d.subFieldName){
+        isTrue = false;
+    }
+    return isTrue;
+}, this);
+&lt;/pre&gt;
+&lt;p&gt;I was use another way to filter data, that was maintain a data source on the form, if the comboBox items did changed, then reload the comboBox again, 
+It has encounter issue which the data structure is complex, that is not easy to do filter data.&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-javascript&quot;&gt;//the filed name and sub filed name are all from one comboBox
+var gridStore = new Ext.data.ArrayStore({
+    data:[],
+    fields: [
+       { name: &#39;fieldName&#39;, mapping: &#39;fieldName&#39; },
+       { name: &#39;subFieldName&#39;, mapping: &#39;subFieldName&#39; }
+    ]
+});
+&lt;/pre&gt;
+&lt;p&gt;At last I did use recursive way to filter data, once do add, edit or delete operation.&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-javascript&quot;&gt;function deleteDuplicationItems(filterData){
+     Ext.each(filterData, function(d){
+     var index = arguments[1];
+     Ext.each(data, function(item){ 
+              if(d &amp;&amp; (d[0] === item.fieldName || d[0] === item.subFieldName)){
+                  filterData.splice(index,1);
+                  deleteDuplicateItems(filterData);
+              } 
+         }, d);
+      });
+    return filterData;
+}
+&lt;/pre&gt;
+</description>
+        </item>
         
         <item>
             <title>How to get keys or values from object</title>
@@ -432,32 +486,6 @@ public void main()
 &lt;li&gt;&lt;a href=&quot;http://www.ituring.com.cn/article/23&quot;&gt;how to use markdown&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.ituring.com.cn/article/504&quot;&gt;Markdown grammar expiation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>Thinking about project management</title>
-            <link>Homepage link/articles/thinking-about-project-management.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
-            <guid>Homepage link/articles/thinking-about-project-management.html</guid>
-            <author>jl_lsj@outlook.com Dino Liu</author>
-            <pubDate>Sun, 07 Dec 2014 00:00:00 +0800</pubDate>
-            <description>&lt;h2 id=&quot;thinking-about-project-management&quot;&gt;Thinking about project management&lt;/h2&gt;
-&lt;p&gt;Today I did read an article regarding to the project management, the topic is about what kinds of  project goes failed which are about
-generic projects. But why generic projects easy to failed? There are tons of reason for this issue, the key reason is that they are not 
-following the SMART principle,  The SMART principle means:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Specific: Great goals are well-defined and focused. &lt;/li&gt;
-&lt;li&gt;Measurable: A goal without a measurable outcome is like a sports competition without a scoreboard or scorekeeper. Numbers are an essential part of business. Put concrete numbers in your goals to know if you��re on track. A goal white board posted in your office can help as a daily reminder to keep yourself and your employee focused on the targeted results you want to attain.&lt;/li&gt;
-&lt;li&gt;Attainable: Far too often, small businesses can set goals beyond reach. No one has ever built a billion dollar business overnight. Venture capitalists and angel investors discard countless business plans of companies with outlandish goals. Dream big and aim for the stars but keep one foot firmly based in reality. Check with your industry association to get a handle on realistic growth in your industry to set smart goals.&lt;/li&gt;
-&lt;li&gt;Relevant: Achievable business goals are based on the current conditions and realities of the business climate. You may desire to have your best year in business or increase revenue by 50%, but if a recession is looming and 3 new competitors opened in your market, then your goals aren��t relevant to the realities of the market.&lt;/li&gt;
-&lt;li&gt;Time-Based: Business goals and objectives just don��t get done when there&#39;s no time frame tied to the goal-setting process. Whether your business goal is to increase revenue by 20% or find 5 new clients, choose a time-frame to accomplish your goal.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;I have thinking that as known projects are all have problems, the client did not happy, they are complaint the developing progress did slow than schedule.
-The engineers are not happy, they are complaint that there are so many work need to complete in short time in order to match schedule. &lt;/p&gt;
-&lt;p&gt;That&#39;s why we have such bad situations, the requirements is not clear, even the client does not know what&#39;s they want to do. 
-As a project manager how to avoid these stuff happen, remember that it should have a specific goal, the outcome should measurable, 
-there are relevant project to reference, the objectives have a deadline, to definite a colse date.
-If the requirements are not clear, just reduce it to the small task. Then use SMART principle again. &lt;/p&gt;
 </description>
         </item>
         

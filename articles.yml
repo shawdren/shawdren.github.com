@@ -1,3 +1,10 @@
+- id: set-filter-data-for-combo-in-extjs
+  title: How to filter data for comboBox in extjs
+  postedOn: !!str 2015-5-25
+  author: Dino
+  tags:
+    - extjs
+  abstract: The tips of how to filter data for comboBox in extjs
 - id: get-values-keys-from-object
   title: How to get keys or values from object
   postedOn: !!str 2015-5-22
@@ -20,7 +27,7 @@
   postedOn: !!str 2015-4-20
   author: Dino
   tags:
-    - Extjs
+    - extjs
     - javascript 
   abstract: The tips of using addbutton function in panel
 - id: learn-frontend-resources

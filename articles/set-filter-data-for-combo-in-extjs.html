@@ -7,7 +7,7 @@
         <meta name="keywords" content="C#, ASP.NET, ASP.NET MVC, Javascript, SQL Server, HTML, CSS.,English"/>
         <meta name="author" content="Dino Liu (Shawdren) &lt;jl_lsj@outlook.com&gt;"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-        <title>Dino L. - A way to set config for addbutton of Panel in Extjs
+        <title>Dino L. - How to filter data for comboBox in extjs
 </title>
         <link rel="stylesheet" href="/assets/vendor/normalize.css"/>
         <link rel="stylesheet" href="/assets/vendor/prettify-night.css"/>
@@ -42,58 +42,60 @@
             <div style="clear:both;"></div>
         </div>
         <div id="article-title">
-            <a href="/articles/addconfig-addbutton-extjs.html">A way to set config for addbutton of Panel in Extjs</a>
+            <a href="/articles/set-filter-data-for-combo-in-extjs.html">How to filter data for comboBox in extjs</a>
         </div>
         <div id="article-meta">
-           By Dino, updated 2015-4-20
+           By Dino, updated 2015-5-25
         </div>
         <div id="article-tags">
         
         <a class="tag" href="/tag.html#extjs">extjs</a>
         
-        <a class="tag" href="/tag.html#javascript">javascript</a>
-        
         </div>
         <div id="article-content">
-            <h2 id="a-way-to-set-config-for-addbutton-of-panel-in-extjs">A way to set config for addbutton of Panel in Extjs</h2>
-<p>Via read source code of addButton(<a href="http://docs.sencha.com/extjs/3.4.0/source/Panel.html#Ext-Panel-method-addButton">http://docs.sencha.com/extjs/3.4.0/source/Panel.html#Ext-Panel-method-addButton</a>), we can found out that there is a 
-handler parameter could be passed by outside or in the config itself.</p>
-<pre class="prettyprint linenums lang-javascript">    addButton : function(config, handler, scope){
-        if(!this.fbar){
-            this.createFbar([]);
-        }
-        if(handler){
-            if(Ext.isString(config)){
-                config = {text: config};
-            }
-            config = Ext.apply({
-                handler: handler,
-                scope: scope
-            }, config);
-        }
-        return this.fbar.add(config);
-    },
+            <h3 id="backgournd">Backgournd</h3>
+<p>Here is a common function that in the maintenance from which has a comboBox field and a data grid, once add a new record and pick up a value from
+comboBox to the grid, then the data of comboBox should be changed that the selected one should be removed out from comboBox.</p>
+<h3 id="what-39-s-issue">What&#39;s issue</h3>
+<p>if I would be use the filter by function of comboBox in extjs, that could be only filter data for initial time, once I try to add some new records, 
+the filter by function didn&#39;t work, because it&#39;s load data from cache data. </p>
+<pre class="prettyprint linenums lang-javascript">var comboStore = new Ext.data.ArrayStore({
+    fields: [&#39;value&#39;],
+    data : filterValidateFiled()
+});
+
+comboStore.filterBy(function(record){
+    console.log(record.get(&#39;value&#39;));
+    var isTrue= true;
+    if(record.get(&#39;value&#39;) === d.fieldName || record.data.value === d.subFieldName){
+        isTrue = false;
+    }
+    return isTrue;
+}, this);
 </pre>
-<p>so there are 2 ways to set the handler for buttons on the pannel.
-one is just add handler in the config</p>
-<pre class="prettyprint linenums lang-javascript"> this.addButton({
-                    text: Label,
-                    Config: config,
-                    disabled: true,
-                    handler:function(){
-                        fireEvent(&#39;to do event&#39;);
-                    }
-                }, null, this);
+<p>I was use another way to filter data, that was maintain a data source on the form, if the comboBox items did changed, then reload the comboBox again, 
+It has encounter issue which the data structure is complex, that is not easy to do filter data.</p>
+<pre class="prettyprint linenums lang-javascript">//the filed name and sub filed name are all from one comboBox
+var gridStore = new Ext.data.ArrayStore({
+    data:[],
+    fields: [
+       { name: &#39;fieldName&#39;, mapping: &#39;fieldName&#39; },
+       { name: &#39;subFieldName&#39;, mapping: &#39;subFieldName&#39; }
+    ]
+});
 </pre>
-<p>another way could be passed the handler parameter</p>
-<pre class="prettyprint linenums lang-javascript"> this.addButton({
-                    text: config.Label,
-                    Config: config,
-                    disabled: true
-                }, config.handler ? config.handler : this.onButtonClick, this);
-...,
-onButtonClick:function(){
-    fireEvent(&#39;still needs fire Event for trigger click event&#39;);
+<p>At last I did use recursive way to filter data, once do add, edit or delete operation.</p>
+<pre class="prettyprint linenums lang-javascript">function deleteDuplicationItems(filterData){
+     Ext.each(filterData, function(d){
+     var index = arguments[1];
+     Ext.each(data, function(item){ 
+              if(d &amp;&amp; (d[0] === item.fieldName || d[0] === item.subFieldName)){
+                  filterData.splice(index,1);
+                  deleteDuplicateItems(filterData);
+              } 
+         }, d);
+      });
+    return filterData;
 }
 </pre>
 
