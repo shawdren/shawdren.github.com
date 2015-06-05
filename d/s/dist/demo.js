@@ -19,25 +19,6 @@ app.run(function($transform) {
   window.$transform = $transform;
 });
 
-
-angular.module('app', ['ngRoute'])
-    .config(function ($routeProvider, $locationProvider) {
-        //configure the routing rules here
-        $routeProvider.when('/backend/:type/:id', {
-            controller: 'PagesCtrl'
-        });
-
-        //routing DOESN'T work without html5Mode
-        $locationProvider.html5Mode(true);
-    })
-    .controller('PagesCtrl', function ($rootScope, $scope, $routeParams, $route) {
-        //If you want to use URL attributes before the website is loaded
-        $rootScope.$on('$routeChangeSuccess', function () {
-            console.log($routeParams.id);
-            console.log($routeParams.type)
-        });
-    });
-
 // 
 // You can configure ngRoute as always, but to take advantage of SharedState location
 // feature (i.e. close sidebar on backbutton) you should setup 'reloadOnSearch: false' 
