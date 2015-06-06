@@ -20,7 +20,7 @@
                  placeholder="Enter email">
 				 B: i'd like banana
 		  </a> -->
-		<button ng-repeat="item in testCtrl.testItem.answer" ng-click="testCtrl.chooseAnwser()" class="form-control">
+		<button ng-repeat="item in testCtrl.testItem.answer" ng-click="testCtrl.chooseAnwser(item,testCtrl.testItem)" class="form-control">
 			{{ item }}
         </button>
         </div>
