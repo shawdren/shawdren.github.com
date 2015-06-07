@@ -58,7 +58,7 @@ app.controller('TestController', function($rootScope, $scope, $routeParams){
       {id: 10, question: '意大利有一座被活火山活埋的城市，叫什么？', answer: ['庞贝', '圣彼得堡'],right:'庞贝'},
   ];
   self.index = 0;
-  self.result = 0;
+  self.result = 1;
   self.chooseAnwser = function(x,y,z){
       console.log(x);
       console.log(y);
@@ -66,13 +66,14 @@ app.controller('TestController', function($rootScope, $scope, $routeParams){
       if(x == y.right){
           self.result++;
       }
-      if(self.index === scrollItems.length){
-
+      if(self.index === scrollItems.length-1){
+          window.alert('正确回答'+self.result+'题');
       }
       self.index++;
       self.testItem = scrollItems[self.index];
+;
   };
-  console.log($routeParams.id);
+    self.testItem = scrollItems[self.index]
     // Needed for the loading screen
   $rootScope.$on('$routeChangeStart', function(){
     $rootScope.loading = true;
