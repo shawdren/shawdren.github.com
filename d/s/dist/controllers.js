@@ -22,13 +22,13 @@ app.controller('ListController', function($rootScope, $scope, $routeParams){
   ];
   
   if($routeParams.type === '1'){
-    self.titleContent = '综合题';
+    self.titleContent = '刷题';
   }
   if($routeParams.type === '2'){
-    self.titleContent = '英语题';
+    self.titleContent = '出题';
   }
   if($routeParams.type === '3'){
-    self.titleContent = '历史题';
+    self.titleContent = '设置';
   }
   self.scrollItems = scrollItems;
   $scope.scrollItems = scrollItems;
@@ -42,7 +42,7 @@ app.controller('ListController', function($rootScope, $scope, $routeParams){
   });
 });
 
-app.controller('TestController', function($rootScope, $scope, $routeParams){
+app.controller('TestController', function($rootScope, $scope, $routeParams, $location){
   var self = this;
   self.titleContent = '请选择一个答案';  
   var scrollItems = [ 
@@ -60,20 +60,17 @@ app.controller('TestController', function($rootScope, $scope, $routeParams){
   self.index = 0;
   self.result = 1;
   self.chooseAnwser = function(x,y,z){
-      console.log(x);
-      console.log(y);
-      console.log(z);
       if(x == y.right){
           self.result++;
       }
       if(self.index === scrollItems.length-1){
-          window.alert('正确回答'+self.result+'题');
+          //window.alert('正确回答'+self.result+'题');
+		  $location.path('result');
       }
       self.index++;
       self.testItem = scrollItems[self.index];
-;
-  };
-    self.testItem = scrollItems[self.index]
+   };
+   self.testItem = scrollItems[self.index]
     // Needed for the loading screen
   $rootScope.$on('$routeChangeStart', function(){
     $rootScope.loading = true;
@@ -87,9 +84,8 @@ app.controller('TestController', function($rootScope, $scope, $routeParams){
 
 app.controller('ResultController', function($rootScope, $scope, $routeParams){
     var self = this;
-
-    self.result = {total: 8}
-    console.log($routeParams);
+    //self.result = {total: 8}
+   
     // Needed for the loading screen
     $rootScope.$on('$routeChangeStart', function(){
         $rootScope.loading = true;
