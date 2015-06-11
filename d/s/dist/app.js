@@ -1,7 +1,8 @@
 var app = angular.module('laiShuaTiApp', [
   'ngRoute',
   'mobile-angular-ui',
-  'mobile-angular-ui.gestures'
+  'mobile-angular-ui.gestures',
+  'mobile-angular-ui.core.sharedState'
 ]);
 app.run(function($transform) {
   window.$transform = $transform;

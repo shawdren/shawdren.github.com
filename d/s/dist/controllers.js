@@ -42,7 +42,7 @@ app.controller('ListController', function($rootScope, $scope, $routeParams){
   });
 });
 
-app.controller('TestController', function($rootScope, $scope, $routeParams, $location){
+app.controller('TestController', function($rootScope, $scope, $routeParams, $location, SharedState){
   var self = this;
   self.titleContent = '请选择一个答案';  
   var scrollItems = [ 
@@ -65,6 +65,9 @@ app.controller('TestController', function($rootScope, $scope, $routeParams, $loc
       }
       if(self.index === scrollItems.length-1){
           //window.alert('正确回答'+self.result+'题');
+		  SharedState.initialize($scope, 'name');
+		  SharedState.initialize($scope, 'score');
+		  SharedState.setMany({name:'dino', score: 8});
 		  $location.path('result');
       }
       self.index++;
@@ -82,10 +85,13 @@ app.controller('TestController', function($rootScope, $scope, $routeParams, $loc
 });
 
 
-app.controller('ResultController', function($rootScope, $scope, $routeParams){
+app.controller('ResultController', function($rootScope, $scope, $routeParams, $location, SharedState){
     var self = this;
-    //self.result = {total: 8}
-   
+    self.result = {total: 8}
+    
+	self.continuePlay = function(){
+	    $location.path('/test/1/');
+	};
     // Needed for the loading screen
     $rootScope.$on('$routeChangeStart', function(){
         $rootScope.loading = true;

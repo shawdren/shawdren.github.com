@@ -6,17 +6,13 @@
     <fieldset>
       <legend>成绩</legend>
         <div class="form-group has-success has-feedback">
-          <label>Email</label>
-          <input type="email"
-                 ng-model="email"
-                 class="form-control"
-                 placeholder="Enter email">
+          <label>您共答对 {{resultCtrl.result.total}} 题</label>
         </div>
     </fieldset>
     <hr>
-    <div ui-content-for="navbarAction">
-      <a class='btn' ng-click=''>继续</a>
-    </div>
+	<button ng-click="resultCtrl.continuePlay()" class="form-control">
+	    继续答题
+    </button>
 
  </div>
 </div>
