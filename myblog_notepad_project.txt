@@ -1,0 +1,914 @@
+<NotepadPlus>
+    <Project name="blog">
+        <Folder name="articles">
+            <File name="articles\addconfig-addbutton-extjs.html" />
+            <File name="articles\addconfig-addbutton-extjs.md" />
+            <File name="articles\book-notes-for-learn-Ninject-1.html" />
+            <File name="articles\book-notes-for-learn-Ninject-1.md" />
+            <File name="articles\book-notes-for-learn-Ninject-1.md~" />
+            <File name="articles\book-notes-for-learn-Ninject-2.html" />
+            <File name="articles\book-notes-for-learn-Ninject-2.md" />
+            <File name="articles\book-notes-for-learn-Ninject-3.html" />
+            <File name="articles\book-notes-for-learn-Ninject-3.md" />
+            <File name="articles\book-notes-for-learn-Ninject-3.md~" />
+            <File name="articles\book-notes-for-learn-Ninject-4.html" />
+            <File name="articles\book-notes-for-learn-Ninject-4.md" />
+            <File name="articles\book-notes-for-learn-Ninject-4.md~" />
+            <File name="articles\code-and-math.html" />
+            <File name="articles\code-and-math.md" />
+            <File name="articles\develop-hybird-webapp-on-cloud.html" />
+            <File name="articles\develop-hybird-webapp-on-cloud.md" />
+            <File name="articles\get-values-keys-from-object.html" />
+            <File name="articles\get-values-keys-from-object.md" />
+            <File name="articles\how-to-use-markdown.html" />
+            <File name="articles\how-to-use-markdown.md" />
+            <File name="articles\learn-frontend-resources.html" />
+            <File name="articles\learn-frontend-resources.md" />
+            <File name="articles\my-first-post.html" />
+            <File name="articles\my-first-post.md" />
+            <File name="articles\papery-quickstart.html" />
+            <File name="articles\papery-quickstart.md" />
+            <File name="articles\set-filter-data-for-combo-in-extjs.html" />
+            <File name="articles\set-filter-data-for-combo-in-extjs.md" />
+            <File name="articles\test-my-first-post.html" />
+            <File name="articles\test-my-first-post.md" />
+            <File name="articles\thinking-about-project-management.html" />
+            <File name="articles\thinking-about-project-management.md" />
+        </Folder>
+        <Folder name="assets">
+            <Folder name="themes">
+                <Folder name="default">
+                    <File name="assets\themes\default\main.css" />
+                </Folder>
+            </Folder>
+            <Folder name="vendor">
+                <File name="assets\vendor\normalize.css" />
+                <File name="assets\vendor\prettify-light.css" />
+                <File name="assets\vendor\prettify-night.css" />
+                <File name="assets\vendor\prettify.js" />
+            </Folder>
+        </Folder>
+        <Folder name="d">
+            <Folder name="calc">
+                <Folder name="js">
+                    <File name="d\calc\js\ajax.js" />
+                    <File name="d\calc\js\assets.js" />
+                    <File name="d\calc\js\backbone.js" />
+                    <File name="d\calc\js\calc.js" />
+                    <File name="d\calc\js\data.js" />
+                    <File name="d\calc\js\detect.js" />
+                    <File name="d\calc\js\event.js" />
+                    <File name="d\calc\js\form.js" />
+                    <File name="d\calc\js\fx.js" />
+                    <File name="d\calc\js\fx_methods.js" />
+                    <File name="d\calc\js\gesture.js" />
+                    <File name="d\calc\js\mustache.js" />
+                    <File name="d\calc\js\polyfill.js" />
+                    <File name="d\calc\js\touch.js" />
+                    <File name="d\calc\js\underscore.js" />
+                    <File name="d\calc\js\zepto.js" />
+                </Folder>
+                <File name="d\calc\index.html" />
+                <File name="d\calc\main.css" />
+            </Folder>
+            <Folder name="eye">
+                <Folder name="css">
+                    <File name="d\eye\css\normalize.css" />
+                    <File name="d\eye\css\typo.css" />
+                </Folder>
+                <Folder name="images">
+                    <File name="d\eye\images\background.png" />
+                    <File name="d\eye\images\bgmusic.mp3" />
+                    <File name="d\eye\images\end.png" />
+                    <File name="d\eye\images\favicon.png" />
+                    <File name="d\eye\images\lower1.png" />
+                    <File name="d\eye\images\lower2.png" />
+                    <File name="d\eye\images\lower3.png" />
+                    <File name="d\eye\images\setting.png" />
+                    <File name="d\eye\images\startup.png" />
+                    <File name="d\eye\images\upper1.png" />
+                    <File name="d\eye\images\upper2.png" />
+                    <File name="d\eye\images\upper3.png" />
+                </Folder>
+                <Folder name="js">
+                    <File name="d\eye\js\ajax.js" />
+                    <File name="d\eye\js\assets.js" />
+                    <File name="d\eye\js\backbone.js" />
+                    <File name="d\eye\js\data.js" />
+                    <File name="d\eye\js\detect.js" />
+                    <File name="d\eye\js\event.js" />
+                    <File name="d\eye\js\form.js" />
+                    <File name="d\eye\js\fx.js" />
+                    <File name="d\eye\js\fx_methods.js" />
+                    <File name="d\eye\js\gesture.js" />
+                    <File name="d\eye\js\mustache.js" />
+                    <File name="d\eye\js\polyfill.js" />
+                    <File name="d\eye\js\touch.js" />
+                    <File name="d\eye\js\underscore.js" />
+                    <File name="d\eye\js\zepto.js" />
+                </Folder>
+                <File name="d\eye\ieye.manifest" />
+                <File name="d\eye\index.html" />
+                <File name="d\eye\index_orig.html" />
+            </Folder>
+            <Folder name="p">
+                <Folder name="demo">
+                    <Folder name="img">
+                        <File name="d\p\demo\img\1.jpg" />
+                        <File name="d\p\demo\img\2.jpg" />
+                        <File name="d\p\demo\img\3.jpg" />
+                        <File name="d\p\demo\img\4.jpg" />
+                        <File name="d\p\demo\img\5.jpg" />
+                    </Folder>
+                    <File name="d\p\demo\accordion.html" />
+                    <File name="d\p\demo\carousel.html" />
+                    <File name="d\p\demo\drag.html" />
+                    <File name="d\p\demo\drag2.html" />
+                    <File name="d\p\demo\dropdown.html" />
+                    <File name="d\p\demo\favicon.png" />
+                    <File name="d\p\demo\forms.html" />
+                    <File name="d\p\demo\home.html" />
+                    <File name="d\p\demo\index.html" />
+                    <File name="d\p\demo\modal1.html" />
+                    <File name="d\p\demo\modal2.html" />
+                    <File name="d\p\demo\overlay.html" />
+                    <File name="d\p\demo\scroll.html" />
+                    <File name="d\p\demo\sidebar.html" />
+                    <File name="d\p\demo\sidebarRight.html" />
+                    <File name="d\p\demo\swipe.html" />
+                    <File name="d\p\demo\tabs.html" />
+                    <File name="d\p\demo\toggle.html" />
+                    <File name="d\p\demo\touch.html" />
+                </Folder>
+                <Folder name="dist">
+                    <Folder name="css">
+                        <File name="d\p\dist\css\mobile-angular-ui-base.css" />
+                        <File name="d\p\dist\css\mobile-angular-ui-base.min.css" />
+                        <File name="d\p\dist\css\mobile-angular-ui-desktop.css" />
+                        <File name="d\p\dist\css\mobile-angular-ui-desktop.min.css" />
+                        <File name="d\p\dist\css\mobile-angular-ui-hover.css" />
+                        <File name="d\p\dist\css\mobile-angular-ui-hover.min.css" />
+                        <File name="d\p\dist\css\mobile-angular-ui-migrate.css" />
+                        <File name="d\p\dist\css\mobile-angular-ui-migrate.min.css" />
+                    </Folder>
+                    <Folder name="fonts">
+                        <File name="d\p\dist\fonts\fontawesome-webfont.eot" />
+                        <File name="d\p\dist\fonts\fontawesome-webfont.svg" />
+                        <File name="d\p\dist\fonts\fontawesome-webfont.ttf" />
+                        <File name="d\p\dist\fonts\fontawesome-webfont.woff" />
+                    </Folder>
+                    <Folder name="js">
+                        <File name="d\p\dist\js\mobile-angular-ui.core.js" />
+                        <File name="d\p\dist\js\mobile-angular-ui.core.min.js" />
+                        <File name="d\p\dist\js\mobile-angular-ui.core.min.js.map" />
+                        <File name="d\p\dist\js\mobile-angular-ui.gestures.js" />
+                        <File name="d\p\dist\js\mobile-angular-ui.gestures.min.js" />
+                        <File name="d\p\dist\js\mobile-angular-ui.gestures.min.js.map" />
+                        <File name="d\p\dist\js\mobile-angular-ui.js" />
+                        <File name="d\p\dist\js\mobile-angular-ui.migrate.js" />
+                        <File name="d\p\dist\js\mobile-angular-ui.migrate.min.js" />
+                        <File name="d\p\dist\js\mobile-angular-ui.migrate.min.js.map" />
+                        <File name="d\p\dist\js\mobile-angular-ui.min.js" />
+                        <File name="d\p\dist\js\mobile-angular-ui.min.js.map" />
+                    </Folder>
+                    <File name="d\p\dist\demo.css" />
+                    <File name="d\p\dist\demo.js" />
+                </Folder>
+                <Folder name="examples">
+                    <File name="d\p\examples\clock.html" />
+                    <File name="d\p\examples\drag.html" />
+                    <File name="d\p\examples\lightbulb.html" />
+                    <File name="d\p\examples\tabs.html" />
+                </Folder>
+                <Folder name="src">
+                    <Folder name="js">
+                        <Folder name="components">
+                            <File name="d\p\src\js\components\modals.js" />
+                            <File name="d\p\src\js\components\navbars.js" />
+                            <File name="d\p\src\js\components\scrollable.js" />
+                            <File name="d\p\src\js\components\sidebars.js" />
+                            <File name="d\p\src\js\components\switch.js" />
+                        </Folder>
+                        <Folder name="core">
+                            <File name="d\p\src\js\core\activeLinks.js" />
+                            <File name="d\p\src\js\core\capture.js" />
+                            <File name="d\p\src\js\core\fastclick.js" />
+                            <File name="d\p\src\js\core\outerClick.js" />
+                            <File name="d\p\src\js\core\sharedState.js" />
+                            <File name="d\p\src\js\core\touchmoveDefaults.js" />
+                        </Folder>
+                        <Folder name="gestures">
+                            <File name="d\p\src\js\gestures\drag.js" />
+                            <File name="d\p\src\js\gestures\swipe.js" />
+                            <File name="d\p\src\js\gestures\touch.js" />
+                            <File name="d\p\src\js\gestures\transform.js" />
+                        </Folder>
+                        <Folder name="migrate">
+                            <File name="d\p\src\js\migrate\carousel.js" />
+                            <File name="d\p\src\js\migrate\disabled.js" />
+                            <File name="d\p\src\js\migrate\forms.js" />
+                            <File name="d\p\src\js\migrate\namespaceAliases.js" />
+                            <File name="d\p\src\js\migrate\overlay.js" />
+                            <File name="d\p\src\js\migrate\panels.js" />
+                            <File name="d\p\src\js\migrate\switch.js" />
+                            <File name="d\p\src\js\migrate\toggle.js" />
+                        </Folder>
+                        <File name="d\p\src\js\mobile-angular-ui.components.js" />
+                        <File name="d\p\src\js\mobile-angular-ui.core.js" />
+                        <File name="d\p\src\js\mobile-angular-ui.gestures.js" />
+                        <File name="d\p\src\js\mobile-angular-ui.js" />
+                        <File name="d\p\src\js\mobile-angular-ui.migrate.js" />
+                    </Folder>
+                    <Folder name="less">
+                        <Folder name="lib">
+                            <File name="d\p\src\less\lib\app.less" />
+                            <File name="d\p\src\less\lib\buttons.less" />
+                            <File name="d\p\src\less\lib\carousel.less" />
+                            <File name="d\p\src\less\lib\dropdown.less" />
+                            <File name="d\p\src\less\lib\forms.less" />
+                            <File name="d\p\src\less\lib\globals.less" />
+                            <File name="d\p\src\less\lib\justified.less" />
+                            <File name="d\p\src\less\lib\layout.less" />
+                            <File name="d\p\src\less\lib\list-groups.less" />
+                            <File name="d\p\src\less\lib\modal.less" />
+                            <File name="d\p\src\less\lib\navbars.less" />
+                            <File name="d\p\src\less\lib\normalize.less" />
+                            <File name="d\p\src\less\lib\panel.less" />
+                            <File name="d\p\src\less\lib\scrollable.less" />
+                            <File name="d\p\src\less\lib\sections.less" />
+                            <File name="d\p\src\less\lib\sidebar.less" />
+                            <File name="d\p\src\less\lib\switch.less" />
+                            <File name="d\p\src\less\lib\validations.less" />
+                        </Folder>
+                        <Folder name="migrate">
+                            <File name="d\p\src\less\migrate\overlay.less" />
+                        </Folder>
+                        <File name="d\p\src\less\mobile-angular-ui-base.less" />
+                        <File name="d\p\src\less\mobile-angular-ui-desktop.less" />
+                        <File name="d\p\src\less\mobile-angular-ui-migrate.less" />
+                        <File name="d\p\src\less\sm-grid.less" />
+                        <File name="d\p\src\less\variables.less" />
+                    </Folder>
+                </Folder>
+                <Folder name="test">
+                    <Folder name="components">
+                        <File name="d\p\test\components\scrollable.test.html" />
+                        <File name="d\p\test\components\switch-swipe.test.html" />
+                        <File name="d\p\test\components\switch.test.html" />
+                    </Folder>
+                    <Folder name="core">
+                        <File name="d\p\test\core\capture.test.html" />
+                        <File name="d\p\test\core\sharedstate-interpolation.test.html" />
+                        <File name="d\p\test\core\sharedstate-ui-cond.test.html" />
+                        <File name="d\p\test\core\sharedstate.test.html" />
+                    </Folder>
+                    <Folder name="gestures">
+                        <File name="d\p\test\gestures\drag.test.html" />
+                        <File name="d\p\test\gestures\swipe.test.html" />
+                        <File name="d\p\test\gestures\touch.test.html" />
+                        <File name="d\p\test\gestures\transform.test.html" />
+                    </Folder>
+                    <Folder name="manual">
+                        <File name="d\p\test\manual\fastclick.html" />
+                    </Folder>
+                    <File name="d\p\test\all.conf.js" />
+                    <File name="d\p\test\chrome.conf.js" />
+                    <File name="d\p\test\firefox.conf.js" />
+                    <File name="d\p\test\htmlTests.js" />
+                    <File name="d\p\test\iphone5.conf.js" />
+                    <File name="d\p\test\layout.html" />
+                    <File name="d\p\test\onprepare.js" />
+                    <File name="d\p\test\server.js" />
+                </Folder>
+                <File name="d\p\.gitignore" />
+                <File name="d\p\bower.json" />
+                <File name="d\p\CHANGELOG.md" />
+                <File name="d\p\gulpfile.js" />
+                <File name="d\p\LICENSE" />
+                <File name="d\p\package.json" />
+                <File name="d\p\README.md" />
+                <File name="d\p\ROADMAP.tasks" />
+            </Folder>
+            <Folder name="s">
+                <Folder name="dist">
+                    <Folder name="css">
+                        <File name="d\s\dist\css\mobile-angular-ui-base.css" />
+                        <File name="d\s\dist\css\mobile-angular-ui-base.min.css" />
+                        <File name="d\s\dist\css\mobile-angular-ui-desktop.css" />
+                        <File name="d\s\dist\css\mobile-angular-ui-desktop.min.css" />
+                        <File name="d\s\dist\css\mobile-angular-ui-hover.css" />
+                        <File name="d\s\dist\css\mobile-angular-ui-hover.min.css" />
+                        <File name="d\s\dist\css\mobile-angular-ui-migrate.css" />
+                        <File name="d\s\dist\css\mobile-angular-ui-migrate.min.css" />
+                    </Folder>
+                    <Folder name="fonts">
+                        <File name="d\s\dist\fonts\fontawesome-webfont.eot" />
+                        <File name="d\s\dist\fonts\fontawesome-webfont.svg" />
+                        <File name="d\s\dist\fonts\fontawesome-webfont.ttf" />
+                        <File name="d\s\dist\fonts\fontawesome-webfont.woff" />
+                    </Folder>
+                    <Folder name="js">
+                        <File name="d\s\dist\js\mobile-angular-ui.core.js" />
+                        <File name="d\s\dist\js\mobile-angular-ui.core.min.js" />
+                        <File name="d\s\dist\js\mobile-angular-ui.core.min.js.map" />
+                        <File name="d\s\dist\js\mobile-angular-ui.gestures.js" />
+                        <File name="d\s\dist\js\mobile-angular-ui.gestures.min.js" />
+                        <File name="d\s\dist\js\mobile-angular-ui.gestures.min.js.map" />
+                        <File name="d\s\dist\js\mobile-angular-ui.js" />
+                        <File name="d\s\dist\js\mobile-angular-ui.migrate.js" />
+                        <File name="d\s\dist\js\mobile-angular-ui.migrate.min.js" />
+                        <File name="d\s\dist\js\mobile-angular-ui.migrate.min.js.map" />
+                        <File name="d\s\dist\js\mobile-angular-ui.min.js" />
+                        <File name="d\s\dist\js\mobile-angular-ui.min.js.map" />
+                    </Folder>
+                    <File name="d\s\dist\demo.css" />
+                    <File name="d\s\dist\demo.js" />
+                    <File name="d\s\dist\app.js" />
+                    <File name="d\s\dist\controllers.js" />
+                    <File name="d\s\dist\services.js" />
+                </Folder>
+                <Folder name="examples">
+                    <File name="d\s\examples\clock.html" />
+                    <File name="d\s\examples\drag.html" />
+                    <File name="d\s\examples\lightbulb.html" />
+                    <File name="d\s\examples\tabs.html" />
+                </Folder>
+                <Folder name="src">
+                    <Folder name="js">
+                        <Folder name="components">
+                            <File name="d\s\src\js\components\modals.js" />
+                            <File name="d\s\src\js\components\navbars.js" />
+                            <File name="d\s\src\js\components\scrollable.js" />
+                            <File name="d\s\src\js\components\sidebars.js" />
+                            <File name="d\s\src\js\components\switch.js" />
+                        </Folder>
+                        <Folder name="core">
+                            <File name="d\s\src\js\core\activeLinks.js" />
+                            <File name="d\s\src\js\core\capture.js" />
+                            <File name="d\s\src\js\core\fastclick.js" />
+                            <File name="d\s\src\js\core\outerClick.js" />
+                            <File name="d\s\src\js\core\sharedState.js" />
+                            <File name="d\s\src\js\core\touchmoveDefaults.js" />
+                        </Folder>
+                        <Folder name="gestures">
+                            <File name="d\s\src\js\gestures\drag.js" />
+                            <File name="d\s\src\js\gestures\swipe.js" />
+                            <File name="d\s\src\js\gestures\touch.js" />
+                            <File name="d\s\src\js\gestures\transform.js" />
+                        </Folder>
+                        <Folder name="migrate">
+                            <File name="d\s\src\js\migrate\carousel.js" />
+                            <File name="d\s\src\js\migrate\disabled.js" />
+                            <File name="d\s\src\js\migrate\forms.js" />
+                            <File name="d\s\src\js\migrate\namespaceAliases.js" />
+                            <File name="d\s\src\js\migrate\overlay.js" />
+                            <File name="d\s\src\js\migrate\panels.js" />
+                            <File name="d\s\src\js\migrate\switch.js" />
+                            <File name="d\s\src\js\migrate\toggle.js" />
+                        </Folder>
+                        <File name="d\s\src\js\mobile-angular-ui.components.js" />
+                        <File name="d\s\src\js\mobile-angular-ui.core.js" />
+                        <File name="d\s\src\js\mobile-angular-ui.gestures.js" />
+                        <File name="d\s\src\js\mobile-angular-ui.js" />
+                        <File name="d\s\src\js\mobile-angular-ui.migrate.js" />
+                    </Folder>
+                    <Folder name="less">
+                        <Folder name="lib">
+                            <File name="d\s\src\less\lib\app.less" />
+                            <File name="d\s\src\less\lib\buttons.less" />
+                            <File name="d\s\src\less\lib\carousel.less" />
+                            <File name="d\s\src\less\lib\dropdown.less" />
+                            <File name="d\s\src\less\lib\forms.less" />
+                            <File name="d\s\src\less\lib\globals.less" />
+                            <File name="d\s\src\less\lib\justified.less" />
+                            <File name="d\s\src\less\lib\layout.less" />
+                            <File name="d\s\src\less\lib\list-groups.less" />
+                            <File name="d\s\src\less\lib\modal.less" />
+                            <File name="d\s\src\less\lib\navbars.less" />
+                            <File name="d\s\src\less\lib\normalize.less" />
+                            <File name="d\s\src\less\lib\panel.less" />
+                            <File name="d\s\src\less\lib\scrollable.less" />
+                            <File name="d\s\src\less\lib\sections.less" />
+                            <File name="d\s\src\less\lib\sidebar.less" />
+                            <File name="d\s\src\less\lib\switch.less" />
+                            <File name="d\s\src\less\lib\validations.less" />
+                        </Folder>
+                        <Folder name="migrate">
+                            <File name="d\s\src\less\migrate\overlay.less" />
+                        </Folder>
+                        <File name="d\s\src\less\mobile-angular-ui-base.less" />
+                        <File name="d\s\src\less\mobile-angular-ui-desktop.less" />
+                        <File name="d\s\src\less\mobile-angular-ui-migrate.less" />
+                        <File name="d\s\src\less\sm-grid.less" />
+                        <File name="d\s\src\less\variables.less" />
+                    </Folder>
+                </Folder>
+                <Folder name="test">
+                    <Folder name="components">
+                        <File name="d\s\test\components\scrollable.test.html" />
+                        <File name="d\s\test\components\switch-swipe.test.html" />
+                        <File name="d\s\test\components\switch.test.html" />
+                    </Folder>
+                    <Folder name="core">
+                        <File name="d\s\test\core\capture.test.html" />
+                        <File name="d\s\test\core\sharedstate-interpolation.test.html" />
+                        <File name="d\s\test\core\sharedstate-ui-cond.test.html" />
+                        <File name="d\s\test\core\sharedstate.test.html" />
+                    </Folder>
+                    <Folder name="gestures">
+                        <File name="d\s\test\gestures\drag.test.html" />
+                        <File name="d\s\test\gestures\swipe.test.html" />
+                        <File name="d\s\test\gestures\touch.test.html" />
+                        <File name="d\s\test\gestures\transform.test.html" />
+                    </Folder>
+                    <Folder name="manual">
+                        <File name="d\s\test\manual\fastclick.html" />
+                    </Folder>
+                    <File name="d\s\test\all.conf.js" />
+                    <File name="d\s\test\chrome.conf.js" />
+                    <File name="d\s\test\firefox.conf.js" />
+                    <File name="d\s\test\htmlTests.js" />
+                    <File name="d\s\test\iphone5.conf.js" />
+                    <File name="d\s\test\layout.html" />
+                    <File name="d\s\test\onprepare.js" />
+                    <File name="d\s\test\server.js" />
+                </Folder>
+                <File name="d\s\.gitignore" />
+                <File name="d\s\bower.json" />
+                <File name="d\s\CHANGELOG.md" />
+                <File name="d\s\LICENSE" />
+                <File name="d\s\package.json" />
+                <File name="d\s\README.md" />
+                <Folder name="views">
+                    <File name="d\s\views\accordion.html" />
+                    <File name="d\s\views\carousel.html" />
+                    <File name="d\s\views\drag.html" />
+                    <File name="d\s\views\drag2.html" />
+                    <File name="d\s\views\dropdown.html" />
+                    <File name="d\s\views\favicon.png" />
+                    <File name="d\s\views\forms.html" />
+                    <File name="d\s\views\home.html" />
+                    <File name="d\s\views\modal1.html" />
+                    <File name="d\s\views\modal2.html" />
+                    <File name="d\s\views\overlay.html" />
+                    <File name="d\s\views\scroll.html" />
+                    <File name="d\s\views\sidebar.html" />
+                    <File name="d\s\views\sidebarRight.html" />
+                    <File name="d\s\views\swipe.html" />
+                    <File name="d\s\views\tabs.html" />
+                    <File name="d\s\views\test.html" />
+                    <File name="d\s\views\toggle.html" />
+                    <File name="d\s\views\touch.html" />
+                </Folder>
+                <File name="d\s\index.html" />
+            </Folder>
+        </Folder>
+        <Folder name="justforfun">
+            <Folder name="css">
+                <File name="justforfun\css\bootstrap-theme.css" />
+                <File name="justforfun\css\bootstrap-theme.min.css" />
+                <File name="justforfun\css\bootstrap.css" />
+                <File name="justforfun\css\bootstrap.min.css" />
+            </Folder>
+            <Folder name="fonts">
+                <File name="justforfun\fonts\glyphicons-halflings-regular.eot" />
+                <File name="justforfun\fonts\glyphicons-halflings-regular.svg" />
+                <File name="justforfun\fonts\glyphicons-halflings-regular.ttf" />
+                <File name="justforfun\fonts\glyphicons-halflings-regular.woff" />
+            </Folder>
+            <Folder name="js">
+                <File name="justforfun\js\bootstrap.js" />
+                <File name="justforfun\js\bootstrap.min.js" />
+                <File name="justforfun\js\jquery.min.js" />
+            </Folder>
+            <File name="justforfun\config.json" />
+            <File name="justforfun\favicon.ico" />
+            <File name="justforfun\index.html" />
+        </Folder>
+        <Folder name="pages">
+            <File name="pages\about-me.html" />
+            <File name="pages\about-me.md" />
+        </Folder>
+        <Folder name="resume">
+            <Folder name="css">
+                <File name="resume\css\bootstrap-theme.css" />
+                <File name="resume\css\bootstrap-theme.min.css" />
+                <File name="resume\css\bootstrap.css" />
+                <File name="resume\css\bootstrap.min.css" />
+            </Folder>
+            <Folder name="fonts">
+                <File name="resume\fonts\glyphicons-halflings-regular.eot" />
+                <File name="resume\fonts\glyphicons-halflings-regular.svg" />
+                <File name="resume\fonts\glyphicons-halflings-regular.ttf" />
+                <File name="resume\fonts\glyphicons-halflings-regular.woff" />
+            </Folder>
+            <Folder name="js">
+                <File name="resume\js\bootstrap.js" />
+                <File name="resume\js\bootstrap.min.js" />
+                <File name="resume\js\jquery.min.js" />
+                <File name="resume\js\jquery.min.map" />
+            </Folder>
+            <File name="resume\config.json" />
+            <File name="resume\favicon.ico" />
+            <File name="resume\index.html" />
+            <File name="resume\resume.json" />
+        </Folder>
+        <Folder name="shawdren.github.com">
+            <Folder name="articles">
+                <File name="shawdren.github.com\articles\addconfig-addbutton-extjs.html" />
+                <File name="shawdren.github.com\articles\addconfig-addbutton-extjs.md" />
+                <File name="shawdren.github.com\articles\book-notes-for-learn-Ninject-1.html" />
+                <File name="shawdren.github.com\articles\book-notes-for-learn-Ninject-1.md" />
+                <File name="shawdren.github.com\articles\book-notes-for-learn-Ninject-1.md~" />
+                <File name="shawdren.github.com\articles\book-notes-for-learn-Ninject-2.html" />
+                <File name="shawdren.github.com\articles\book-notes-for-learn-Ninject-2.md" />
+                <File name="shawdren.github.com\articles\book-notes-for-learn-Ninject-3.html" />
+                <File name="shawdren.github.com\articles\book-notes-for-learn-Ninject-3.md" />
+                <File name="shawdren.github.com\articles\book-notes-for-learn-Ninject-3.md~" />
+                <File name="shawdren.github.com\articles\book-notes-for-learn-Ninject-4.html" />
+                <File name="shawdren.github.com\articles\book-notes-for-learn-Ninject-4.md" />
+                <File name="shawdren.github.com\articles\book-notes-for-learn-Ninject-4.md~" />
+                <File name="shawdren.github.com\articles\code-and-math.html" />
+                <File name="shawdren.github.com\articles\code-and-math.md" />
+                <File name="shawdren.github.com\articles\develop-hybird-webapp-on-cloud.html" />
+                <File name="shawdren.github.com\articles\develop-hybird-webapp-on-cloud.md" />
+                <File name="shawdren.github.com\articles\get-values-keys-from-object.html" />
+                <File name="shawdren.github.com\articles\get-values-keys-from-object.md" />
+                <File name="shawdren.github.com\articles\how-to-use-markdown.html" />
+                <File name="shawdren.github.com\articles\how-to-use-markdown.md" />
+                <File name="shawdren.github.com\articles\learn-frontend-resources.html" />
+                <File name="shawdren.github.com\articles\learn-frontend-resources.md" />
+                <File name="shawdren.github.com\articles\my-first-post.html" />
+                <File name="shawdren.github.com\articles\my-first-post.md" />
+                <File name="shawdren.github.com\articles\papery-quickstart.html" />
+                <File name="shawdren.github.com\articles\papery-quickstart.md" />
+                <File name="shawdren.github.com\articles\set-filter-data-for-combo-in-extjs.html" />
+                <File name="shawdren.github.com\articles\set-filter-data-for-combo-in-extjs.md" />
+                <File name="shawdren.github.com\articles\test-my-first-post.html" />
+                <File name="shawdren.github.com\articles\test-my-first-post.md" />
+                <File name="shawdren.github.com\articles\thinking-about-project-management.html" />
+                <File name="shawdren.github.com\articles\thinking-about-project-management.md" />
+            </Folder>
+            <Folder name="assets">
+                <Folder name="themes">
+                    <Folder name="default">
+                        <File name="shawdren.github.com\assets\themes\default\main.css" />
+                    </Folder>
+                </Folder>
+                <Folder name="vendor">
+                    <File name="shawdren.github.com\assets\vendor\normalize.css" />
+                    <File name="shawdren.github.com\assets\vendor\prettify-light.css" />
+                    <File name="shawdren.github.com\assets\vendor\prettify-night.css" />
+                    <File name="shawdren.github.com\assets\vendor\prettify.js" />
+                </Folder>
+            </Folder>
+            <Folder name="d">
+                <Folder name="calc">
+                    <Folder name="js">
+                        <File name="shawdren.github.com\d\calc\js\ajax.js" />
+                        <File name="shawdren.github.com\d\calc\js\assets.js" />
+                        <File name="shawdren.github.com\d\calc\js\backbone.js" />
+                        <File name="shawdren.github.com\d\calc\js\calc.js" />
+                        <File name="shawdren.github.com\d\calc\js\data.js" />
+                        <File name="shawdren.github.com\d\calc\js\detect.js" />
+                        <File name="shawdren.github.com\d\calc\js\event.js" />
+                        <File name="shawdren.github.com\d\calc\js\form.js" />
+                        <File name="shawdren.github.com\d\calc\js\fx.js" />
+                        <File name="shawdren.github.com\d\calc\js\fx_methods.js" />
+                        <File name="shawdren.github.com\d\calc\js\gesture.js" />
+                        <File name="shawdren.github.com\d\calc\js\mustache.js" />
+                        <File name="shawdren.github.com\d\calc\js\polyfill.js" />
+                        <File name="shawdren.github.com\d\calc\js\touch.js" />
+                        <File name="shawdren.github.com\d\calc\js\underscore.js" />
+                        <File name="shawdren.github.com\d\calc\js\zepto.js" />
+                    </Folder>
+                    <File name="shawdren.github.com\d\calc\index.html" />
+                    <File name="shawdren.github.com\d\calc\main.css" />
+                </Folder>
+                <Folder name="eye">
+                    <Folder name="css">
+                        <File name="shawdren.github.com\d\eye\css\normalize.css" />
+                        <File name="shawdren.github.com\d\eye\css\typo.css" />
+                    </Folder>
+                    <Folder name="images">
+                        <File name="shawdren.github.com\d\eye\images\background.png" />
+                        <File name="shawdren.github.com\d\eye\images\bgmusic.mp3" />
+                        <File name="shawdren.github.com\d\eye\images\end.png" />
+                        <File name="shawdren.github.com\d\eye\images\favicon.png" />
+                        <File name="shawdren.github.com\d\eye\images\lower1.png" />
+                        <File name="shawdren.github.com\d\eye\images\lower2.png" />
+                        <File name="shawdren.github.com\d\eye\images\lower3.png" />
+                        <File name="shawdren.github.com\d\eye\images\setting.png" />
+                        <File name="shawdren.github.com\d\eye\images\startup.png" />
+                        <File name="shawdren.github.com\d\eye\images\upper1.png" />
+                        <File name="shawdren.github.com\d\eye\images\upper2.png" />
+                        <File name="shawdren.github.com\d\eye\images\upper3.png" />
+                    </Folder>
+                    <Folder name="js">
+                        <File name="shawdren.github.com\d\eye\js\ajax.js" />
+                        <File name="shawdren.github.com\d\eye\js\assets.js" />
+                        <File name="shawdren.github.com\d\eye\js\backbone.js" />
+                        <File name="shawdren.github.com\d\eye\js\data.js" />
+                        <File name="shawdren.github.com\d\eye\js\detect.js" />
+                        <File name="shawdren.github.com\d\eye\js\event.js" />
+                        <File name="shawdren.github.com\d\eye\js\form.js" />
+                        <File name="shawdren.github.com\d\eye\js\fx.js" />
+                        <File name="shawdren.github.com\d\eye\js\fx_methods.js" />
+                        <File name="shawdren.github.com\d\eye\js\gesture.js" />
+                        <File name="shawdren.github.com\d\eye\js\mustache.js" />
+                        <File name="shawdren.github.com\d\eye\js\polyfill.js" />
+                        <File name="shawdren.github.com\d\eye\js\touch.js" />
+                        <File name="shawdren.github.com\d\eye\js\underscore.js" />
+                        <File name="shawdren.github.com\d\eye\js\zepto.js" />
+                    </Folder>
+                    <File name="shawdren.github.com\d\eye\ieye.manifest" />
+                    <File name="shawdren.github.com\d\eye\index.html" />
+                    <File name="shawdren.github.com\d\eye\index_orig.html" />
+                </Folder>
+                <Folder name="p">
+                    <Folder name="demo">
+                        <Folder name="img">
+                            <File name="shawdren.github.com\d\p\demo\img\1.jpg" />
+                            <File name="shawdren.github.com\d\p\demo\img\2.jpg" />
+                            <File name="shawdren.github.com\d\p\demo\img\3.jpg" />
+                            <File name="shawdren.github.com\d\p\demo\img\4.jpg" />
+                            <File name="shawdren.github.com\d\p\demo\img\5.jpg" />
+                        </Folder>
+                        <File name="shawdren.github.com\d\p\demo\accordion.html" />
+                        <File name="shawdren.github.com\d\p\demo\carousel.html" />
+                        <File name="shawdren.github.com\d\p\demo\drag.html" />
+                        <File name="shawdren.github.com\d\p\demo\drag2.html" />
+                        <File name="shawdren.github.com\d\p\demo\dropdown.html" />
+                        <File name="shawdren.github.com\d\p\demo\favicon.png" />
+                        <File name="shawdren.github.com\d\p\demo\forms.html" />
+                        <File name="shawdren.github.com\d\p\demo\home.html" />
+                        <File name="shawdren.github.com\d\p\demo\index.html" />
+                        <File name="shawdren.github.com\d\p\demo\modal1.html" />
+                        <File name="shawdren.github.com\d\p\demo\modal2.html" />
+                        <File name="shawdren.github.com\d\p\demo\overlay.html" />
+                        <File name="shawdren.github.com\d\p\demo\scroll.html" />
+                        <File name="shawdren.github.com\d\p\demo\sidebar.html" />
+                        <File name="shawdren.github.com\d\p\demo\sidebarRight.html" />
+                        <File name="shawdren.github.com\d\p\demo\swipe.html" />
+                        <File name="shawdren.github.com\d\p\demo\tabs.html" />
+                        <File name="shawdren.github.com\d\p\demo\toggle.html" />
+                        <File name="shawdren.github.com\d\p\demo\touch.html" />
+                    </Folder>
+                    <Folder name="dist">
+                        <Folder name="css">
+                            <File name="shawdren.github.com\d\p\dist\css\mobile-angular-ui-base.css" />
+                            <File name="shawdren.github.com\d\p\dist\css\mobile-angular-ui-base.min.css" />
+                            <File name="shawdren.github.com\d\p\dist\css\mobile-angular-ui-desktop.css" />
+                            <File name="shawdren.github.com\d\p\dist\css\mobile-angular-ui-desktop.min.css" />
+                            <File name="shawdren.github.com\d\p\dist\css\mobile-angular-ui-hover.css" />
+                            <File name="shawdren.github.com\d\p\dist\css\mobile-angular-ui-hover.min.css" />
+                            <File name="shawdren.github.com\d\p\dist\css\mobile-angular-ui-migrate.css" />
+                            <File name="shawdren.github.com\d\p\dist\css\mobile-angular-ui-migrate.min.css" />
+                        </Folder>
+                        <Folder name="fonts">
+                            <File name="shawdren.github.com\d\p\dist\fonts\fontawesome-webfont.eot" />
+                            <File name="shawdren.github.com\d\p\dist\fonts\fontawesome-webfont.svg" />
+                            <File name="shawdren.github.com\d\p\dist\fonts\fontawesome-webfont.ttf" />
+                            <File name="shawdren.github.com\d\p\dist\fonts\fontawesome-webfont.woff" />
+                        </Folder>
+                        <Folder name="js">
+                            <File name="shawdren.github.com\d\p\dist\js\mobile-angular-ui.core.js" />
+                            <File name="shawdren.github.com\d\p\dist\js\mobile-angular-ui.core.min.js" />
+                            <File name="shawdren.github.com\d\p\dist\js\mobile-angular-ui.core.min.js.map" />
+                            <File name="shawdren.github.com\d\p\dist\js\mobile-angular-ui.gestures.js" />
+                            <File name="shawdren.github.com\d\p\dist\js\mobile-angular-ui.gestures.min.js" />
+                            <File name="shawdren.github.com\d\p\dist\js\mobile-angular-ui.gestures.min.js.map" />
+                            <File name="shawdren.github.com\d\p\dist\js\mobile-angular-ui.js" />
+                            <File name="shawdren.github.com\d\p\dist\js\mobile-angular-ui.migrate.js" />
+                            <File name="shawdren.github.com\d\p\dist\js\mobile-angular-ui.migrate.min.js" />
+                            <File name="shawdren.github.com\d\p\dist\js\mobile-angular-ui.migrate.min.js.map" />
+                            <File name="shawdren.github.com\d\p\dist\js\mobile-angular-ui.min.js" />
+                            <File name="shawdren.github.com\d\p\dist\js\mobile-angular-ui.min.js.map" />
+                        </Folder>
+                        <File name="shawdren.github.com\d\p\dist\demo.css" />
+                        <File name="shawdren.github.com\d\p\dist\demo.js" />
+                    </Folder>
+                    <Folder name="examples">
+                        <File name="shawdren.github.com\d\p\examples\clock.html" />
+                        <File name="shawdren.github.com\d\p\examples\drag.html" />
+                        <File name="shawdren.github.com\d\p\examples\lightbulb.html" />
+                        <File name="shawdren.github.com\d\p\examples\tabs.html" />
+                    </Folder>
+                    <Folder name="src">
+                        <Folder name="js">
+                            <Folder name="components">
+                                <File name="shawdren.github.com\d\p\src\js\components\modals.js" />
+                                <File name="shawdren.github.com\d\p\src\js\components\navbars.js" />
+                                <File name="shawdren.github.com\d\p\src\js\components\scrollable.js" />
+                                <File name="shawdren.github.com\d\p\src\js\components\sidebars.js" />
+                                <File name="shawdren.github.com\d\p\src\js\components\switch.js" />
+                            </Folder>
+                            <Folder name="core">
+                                <File name="shawdren.github.com\d\p\src\js\core\activeLinks.js" />
+                                <File name="shawdren.github.com\d\p\src\js\core\capture.js" />
+                                <File name="shawdren.github.com\d\p\src\js\core\fastclick.js" />
+                                <File name="shawdren.github.com\d\p\src\js\core\outerClick.js" />
+                                <File name="shawdren.github.com\d\p\src\js\core\sharedState.js" />
+                                <File name="shawdren.github.com\d\p\src\js\core\touchmoveDefaults.js" />
+                            </Folder>
+                            <Folder name="gestures">
+                                <File name="shawdren.github.com\d\p\src\js\gestures\drag.js" />
+                                <File name="shawdren.github.com\d\p\src\js\gestures\swipe.js" />
+                                <File name="shawdren.github.com\d\p\src\js\gestures\touch.js" />
+                                <File name="shawdren.github.com\d\p\src\js\gestures\transform.js" />
+                            </Folder>
+                            <Folder name="migrate">
+                                <File name="shawdren.github.com\d\p\src\js\migrate\carousel.js" />
+                                <File name="shawdren.github.com\d\p\src\js\migrate\disabled.js" />
+                                <File name="shawdren.github.com\d\p\src\js\migrate\forms.js" />
+                                <File name="shawdren.github.com\d\p\src\js\migrate\namespaceAliases.js" />
+                                <File name="shawdren.github.com\d\p\src\js\migrate\overlay.js" />
+                                <File name="shawdren.github.com\d\p\src\js\migrate\panels.js" />
+                                <File name="shawdren.github.com\d\p\src\js\migrate\switch.js" />
+                                <File name="shawdren.github.com\d\p\src\js\migrate\toggle.js" />
+                            </Folder>
+                            <File name="shawdren.github.com\d\p\src\js\mobile-angular-ui.components.js" />
+                            <File name="shawdren.github.com\d\p\src\js\mobile-angular-ui.core.js" />
+                            <File name="shawdren.github.com\d\p\src\js\mobile-angular-ui.gestures.js" />
+                            <File name="shawdren.github.com\d\p\src\js\mobile-angular-ui.js" />
+                            <File name="shawdren.github.com\d\p\src\js\mobile-angular-ui.migrate.js" />
+                        </Folder>
+                        <Folder name="less">
+                            <Folder name="lib">
+                                <File name="shawdren.github.com\d\p\src\less\lib\app.less" />
+                                <File name="shawdren.github.com\d\p\src\less\lib\buttons.less" />
+                                <File name="shawdren.github.com\d\p\src\less\lib\carousel.less" />
+                                <File name="shawdren.github.com\d\p\src\less\lib\dropdown.less" />
+                                <File name="shawdren.github.com\d\p\src\less\lib\forms.less" />
+                                <File name="shawdren.github.com\d\p\src\less\lib\globals.less" />
+                                <File name="shawdren.github.com\d\p\src\less\lib\justified.less" />
+                                <File name="shawdren.github.com\d\p\src\less\lib\layout.less" />
+                                <File name="shawdren.github.com\d\p\src\less\lib\list-groups.less" />
+                                <File name="shawdren.github.com\d\p\src\less\lib\modal.less" />
+                                <File name="shawdren.github.com\d\p\src\less\lib\navbars.less" />
+                                <File name="shawdren.github.com\d\p\src\less\lib\normalize.less" />
+                                <File name="shawdren.github.com\d\p\src\less\lib\panel.less" />
+                                <File name="shawdren.github.com\d\p\src\less\lib\scrollable.less" />
+                                <File name="shawdren.github.com\d\p\src\less\lib\sections.less" />
+                                <File name="shawdren.github.com\d\p\src\less\lib\sidebar.less" />
+                                <File name="shawdren.github.com\d\p\src\less\lib\switch.less" />
+                                <File name="shawdren.github.com\d\p\src\less\lib\validations.less" />
+                            </Folder>
+                            <Folder name="migrate">
+                                <File name="shawdren.github.com\d\p\src\less\migrate\overlay.less" />
+                            </Folder>
+                            <File name="shawdren.github.com\d\p\src\less\mobile-angular-ui-base.less" />
+                            <File name="shawdren.github.com\d\p\src\less\mobile-angular-ui-desktop.less" />
+                            <File name="shawdren.github.com\d\p\src\less\mobile-angular-ui-migrate.less" />
+                            <File name="shawdren.github.com\d\p\src\less\sm-grid.less" />
+                            <File name="shawdren.github.com\d\p\src\less\variables.less" />
+                        </Folder>
+                    </Folder>
+                    <Folder name="test">
+                        <Folder name="components">
+                            <File name="shawdren.github.com\d\p\test\components\scrollable.test.html" />
+                            <File name="shawdren.github.com\d\p\test\components\switch-swipe.test.html" />
+                            <File name="shawdren.github.com\d\p\test\components\switch.test.html" />
+                        </Folder>
+                        <Folder name="core">
+                            <File name="shawdren.github.com\d\p\test\core\capture.test.html" />
+                            <File name="shawdren.github.com\d\p\test\core\sharedstate-interpolation.test.html" />
+                            <File name="shawdren.github.com\d\p\test\core\sharedstate-ui-cond.test.html" />
+                            <File name="shawdren.github.com\d\p\test\core\sharedstate.test.html" />
+                        </Folder>
+                        <Folder name="gestures">
+                            <File name="shawdren.github.com\d\p\test\gestures\drag.test.html" />
+                            <File name="shawdren.github.com\d\p\test\gestures\swipe.test.html" />
+                            <File name="shawdren.github.com\d\p\test\gestures\touch.test.html" />
+                            <File name="shawdren.github.com\d\p\test\gestures\transform.test.html" />
+                        </Folder>
+                        <Folder name="manual">
+                            <File name="shawdren.github.com\d\p\test\manual\fastclick.html" />
+                        </Folder>
+                        <File name="shawdren.github.com\d\p\test\all.conf.js" />
+                        <File name="shawdren.github.com\d\p\test\chrome.conf.js" />
+                        <File name="shawdren.github.com\d\p\test\firefox.conf.js" />
+                        <File name="shawdren.github.com\d\p\test\htmlTests.js" />
+                        <File name="shawdren.github.com\d\p\test\iphone5.conf.js" />
+                        <File name="shawdren.github.com\d\p\test\layout.html" />
+                        <File name="shawdren.github.com\d\p\test\onprepare.js" />
+                        <File name="shawdren.github.com\d\p\test\server.js" />
+                    </Folder>
+                    <File name="shawdren.github.com\d\p\.gitignore" />
+                    <File name="shawdren.github.com\d\p\bower.json" />
+                    <File name="shawdren.github.com\d\p\CHANGELOG.md" />
+                    <File name="shawdren.github.com\d\p\gulpfile.js" />
+                    <File name="shawdren.github.com\d\p\LICENSE" />
+                    <File name="shawdren.github.com\d\p\package.json" />
+                    <File name="shawdren.github.com\d\p\README.md" />
+                    <File name="shawdren.github.com\d\p\ROADMAP.tasks" />
+                </Folder>
+            </Folder>
+            <Folder name="justforfun">
+                <Folder name="css">
+                    <File name="shawdren.github.com\justforfun\css\bootstrap-theme.css" />
+                    <File name="shawdren.github.com\justforfun\css\bootstrap-theme.min.css" />
+                    <File name="shawdren.github.com\justforfun\css\bootstrap.css" />
+                    <File name="shawdren.github.com\justforfun\css\bootstrap.min.css" />
+                </Folder>
+                <Folder name="fonts">
+                    <File name="shawdren.github.com\justforfun\fonts\glyphicons-halflings-regular.eot" />
+                    <File name="shawdren.github.com\justforfun\fonts\glyphicons-halflings-regular.svg" />
+                    <File name="shawdren.github.com\justforfun\fonts\glyphicons-halflings-regular.ttf" />
+                    <File name="shawdren.github.com\justforfun\fonts\glyphicons-halflings-regular.woff" />
+                </Folder>
+                <Folder name="js">
+                    <File name="shawdren.github.com\justforfun\js\bootstrap.js" />
+                    <File name="shawdren.github.com\justforfun\js\bootstrap.min.js" />
+                    <File name="shawdren.github.com\justforfun\js\jquery.min.js" />
+                </Folder>
+                <File name="shawdren.github.com\justforfun\config.json" />
+                <File name="shawdren.github.com\justforfun\favicon.ico" />
+                <File name="shawdren.github.com\justforfun\index.html" />
+            </Folder>
+            <Folder name="pages">
+                <File name="shawdren.github.com\pages\about-me.html" />
+                <File name="shawdren.github.com\pages\about-me.md" />
+            </Folder>
+            <Folder name="resume">
+                <Folder name="css">
+                    <File name="shawdren.github.com\resume\css\bootstrap-theme.css" />
+                    <File name="shawdren.github.com\resume\css\bootstrap-theme.min.css" />
+                    <File name="shawdren.github.com\resume\css\bootstrap.css" />
+                    <File name="shawdren.github.com\resume\css\bootstrap.min.css" />
+                </Folder>
+                <Folder name="fonts">
+                    <File name="shawdren.github.com\resume\fonts\glyphicons-halflings-regular.eot" />
+                    <File name="shawdren.github.com\resume\fonts\glyphicons-halflings-regular.svg" />
+                    <File name="shawdren.github.com\resume\fonts\glyphicons-halflings-regular.ttf" />
+                    <File name="shawdren.github.com\resume\fonts\glyphicons-halflings-regular.woff" />
+                </Folder>
+                <Folder name="js">
+                    <File name="shawdren.github.com\resume\js\bootstrap.js" />
+                    <File name="shawdren.github.com\resume\js\bootstrap.min.js" />
+                    <File name="shawdren.github.com\resume\js\jquery.min.js" />
+                    <File name="shawdren.github.com\resume\js\jquery.min.map" />
+                </Folder>
+                <File name="shawdren.github.com\resume\config.json" />
+                <File name="shawdren.github.com\resume\favicon.ico" />
+                <File name="shawdren.github.com\resume\index.html" />
+                <File name="shawdren.github.com\resume\resume.json" />
+            </Folder>
+            <Folder name="templates">
+                <Folder name="inc">
+                    <File name="shawdren.github.com\templates\inc\article_footer_plugin.ejs" />
+                    <File name="shawdren.github.com\templates\inc\footer.ejs" />
+                    <File name="shawdren.github.com\templates\inc\footer_plugin.ejs" />
+                    <File name="shawdren.github.com\templates\inc\header.ejs" />
+                    <File name="shawdren.github.com\templates\inc\header_plugin.ejs" />
+                    <File name="shawdren.github.com\templates\inc\navbar.ejs" />
+                    <File name="shawdren.github.com\templates\inc\subtitle.ejs" />
+                </Folder>
+                <File name="shawdren.github.com\templates\articles.ejs" />
+                <File name="shawdren.github.com\templates\index.ejs" />
+                <File name="shawdren.github.com\templates\pages.ejs" />
+                <File name="shawdren.github.com\templates\rss.ejs" />
+                <File name="shawdren.github.com\templates\tag.ejs" />
+            </Folder>
+            <File name="shawdren.github.com\articles.yml" />
+            <File name="shawdren.github.com\articles.yml~" />
+            <File name="shawdren.github.com\ext.yml" />
+            <File name="shawdren.github.com\fav.ico" />
+            <File name="shawdren.github.com\index.html" />
+            <File name="shawdren.github.com\navbar.yml" />
+            <File name="shawdren.github.com\nodepadproject" />
+            <File name="shawdren.github.com\pages.yml" />
+            <File name="shawdren.github.com\rss.xml" />
+            <File name="shawdren.github.com\site.yml" />
+            <File name="shawdren.github.com\tag.html" />
+        </Folder>
+        <Folder name="templates">
+            <Folder name="inc">
+                <File name="templates\inc\article_footer_plugin.ejs" />
+                <File name="templates\inc\footer.ejs" />
+                <File name="templates\inc\footer_plugin.ejs" />
+                <File name="templates\inc\header.ejs" />
+                <File name="templates\inc\header_plugin.ejs" />
+                <File name="templates\inc\navbar.ejs" />
+                <File name="templates\inc\subtitle.ejs" />
+            </Folder>
+            <File name="templates\articles.ejs" />
+            <File name="templates\index.ejs" />
+            <File name="templates\pages.ejs" />
+            <File name="templates\rss.ejs" />
+            <File name="templates\tag.ejs" />
+        </Folder>
+        <File name="articles.yml" />
+        <File name="articles.yml~" />
+        <File name="ext.yml" />
+        <File name="fav.ico" />
+        <File name="index.html" />
+        <File name="myblog_notepad_project.txt" />
+        <File name="navbar.yml" />
+        <File name="nodepadproject" />
+        <File name="pages.yml" />
+        <File name="rss.xml" />
+        <File name="site.yml" />
+        <File name="tag.html" />
+    </Project>
+</NotepadPlus>
