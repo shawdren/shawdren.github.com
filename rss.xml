@@ -4,8 +4,63 @@
         <title>RSS feed title</title>
         <link>Homepage link</link>
         <description>RSS feed description</description>
-        <lastBuildDate>Thu, 18 Jun 2015 10:22:50 +0800</lastBuildDate>
+        <lastBuildDate>Fri, 03 Jul 2015 17:08:24 +0800</lastBuildDate>
         <language>en</language>
+        
+        <item>
+            <title>How to set checkbox in header column of grid panel</title>
+            <link>Homepage link/articles/extjs-gridpanel-checkbox-checkall.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/extjs-gridpanel-checkbox-checkall.html</guid>
+            <author>jl_lsj@outlook.com Dino Liu</author>
+            <pubDate>Fri, 03 Jul 2015 00:00:00 +0800</pubDate>
+            <description>&lt;p&gt;The tips of how to set checkbox value in header of gridPanel&lt;/p&gt;
+&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;In the grid panel, its has two columns, one is checkbox column and another one is something like name column. There is a 
+requirement which need checked all rows when grid does load end data, but in the gridPanel cannot be checked checkbox in header.
+It&#39;s very weird issue, I cannot find a solution from API documents, through debugging source code, I found that there is
+an event called onHdMouseDown, when click checkbox in header it could be select all rows, and it just add css on that cell,
+the implements code like this &lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-javascript&quot;&gt;onHdMouseDown :function(e, t){
+    if(t.className ==&#39;x-grid3-hd-checker&#39;){
+        e.stopEvent();var hd =Ext.fly(t.parentNode);
+        var isChecked = hd.hasClass(&#39;x-grid3-hd-checker-on&#39;);
+        if(isChecked){                
+            hd.removeClass(&#39;x-grid3-hd-checker-on&#39;);
+            this.clearSelections();
+        }else{ 
+             hd.addClass(&#39;x-grid3-hd-checker-on&#39;);
+            this.selectAll();
+        }
+    }
+}
+&lt;/pre&gt;
+&lt;p&gt;So I could be use the same way to solve my issue, at the end I found a solution on stackoverflow, the background method 
+as below code&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-javascript&quot;&gt;var sm = new Ext.grid.CheckboxSelectionModel({
+    listeners : {
+            selectionchange : function(){
+                var recLen = Ext.getCmp(&#39;grid&#39;).store.getRange().length;
+                var selectedLen = this.selections.items.length;
+                var view   = Ext.getCmp(&#39;grid&#39;).getView();
+                var chkdiv = Ext.fly(view.innerHd).child(&quot;.x-grid3-hd-checker&quot;)
+                if(selectedLen == recLen){
+                    chkdiv.addClass(&quot;x-grid3-hd-checker-on&quot;);
+                } else {
+                    chkdiv.removeClass(&quot;x-grid3-hd-checker-on&quot;);
+                }
+            }
+            ,rowdeselect : function ( sm ,rowIndex ,record) {
+                var view   = Ext.getCmp(&#39;grid&#39;).getView();
+                var chkdiv = Ext.fly(view.innerHd).child(&quot;.x-grid3-hd-checker&quot;)
+                chkdiv.removeClass(&#39;x-grid3-hd-checker-on&#39;);
+            }
+    }
+ });
+&lt;/pre&gt;
+&lt;p&gt;It could be solve my issue perfectly. 
+the reference link is &lt;a href=&quot;http://stackoverflow.com/questions/7969607/extjs-checkboxselection-header-not-updating&quot;&gt;http://stackoverflow.com/questions/7969607/extjs-checkboxselection-header-not-updating&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>How to filter data for comboBox in extjs</title>
@@ -437,55 +492,6 @@ ListOfNETDependencyInjectionContainersIOC.aspx&quot;&gt;http://www.hanselman.com
 ListOfNETDependencyInjectionContainersIOC.aspx&lt;/a&gt; about Unity, Castle Windsor, StructureMap, Spring.NET, and Autofac&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Dependency Injection is a technique to help us produce loosely coupled code by moving the concern of creating the dependencies to another object known as a DI container.&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>Some examples for markdown</title>
-            <link>Homepage link/articles/how-to-use-markdown.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
-            <guid>Homepage link/articles/how-to-use-markdown.html</guid>
-            <author>jl_lsj@outlook.com Dino Liu</author>
-            <pubDate>Tue, 09 Dec 2014 00:00:00 +0800</pubDate>
-            <description>&lt;h1 id=&quot;some-examples-to-show-how-to-use-markdown&quot;&gt;Some examples to show how to use markdown&lt;/h1&gt;
-&lt;p&gt;At the beginning, I am not familiar with markdown, so I need practice to understanding it.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;use &#39;====&#39; to show headline like h1&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;use &#39;----&#39; to show subline&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;use &#39;#--######&#39; show h1 -- h6&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ol&gt;
-&lt;li&gt;code block&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre class=&quot;prettyprint linenums lang-code&quot;&gt;--use ```` for write code,
-public void main()
-{
-    console.log(&quot;test&quot;);
-}
-&lt;/pre&gt;
-&lt;p&gt;or just format the source code&lt;/p&gt;
-&lt;pre&gt;public void main()
-{
-    console.log(&quot;test&quot;);
-}
-&lt;/pre&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;The order list just use number 1-10&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;unorder list jsut use * &lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;for strong word use  &lt;strong&gt;this is a strong sentence&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;for italic word use &lt;em&gt;this this a italic sentence&lt;/em&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;References:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://wowubuntu.com/markdown/index.html&quot;&gt;Introduction of markdown&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.ituring.com.cn/article/23&quot;&gt;how to use markdown&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.ituring.com.cn/article/504&quot;&gt;Markdown grammar expiation&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </description>
         </item>
         

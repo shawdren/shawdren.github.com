@@ -1,3 +1,10 @@
+- id: extjs-gridpanel-checkbox-checkall
+  title: How to set checkbox in header column of grid panel
+  postedOn: !!str 2015-7-3
+  author: Dino
+  tags:
+    - extjs
+  abstract: The tips of how to set select all checkbox in header of grid panel
 - id: set-filter-data-for-combo-in-extjs
   title: How to filter data for comboBox in extjs
   postedOn: !!str 2015-5-25
