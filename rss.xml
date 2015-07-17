@@ -4,8 +4,41 @@
         <title>RSS feed title</title>
         <link>Homepage link</link>
         <description>RSS feed description</description>
-        <lastBuildDate>Fri, 03 Jul 2015 17:08:24 +0800</lastBuildDate>
+        <lastBuildDate>Fri, 17 Jul 2015 11:47:02 +0800</lastBuildDate>
         <language>en</language>
+        
+        <item>
+            <title>The tip of unescape html code in JS</title>
+            <link>Homepage link/articles/unescape-html-code.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/unescape-html-code.html</guid>
+            <author>jl_lsj@outlook.com Dino Liu</author>
+            <pubDate>Fri, 17 Jul 2015 00:00:00 +0800</pubDate>
+            <description>&lt;h1 id=&quot;the-tips-of-js-development&quot;&gt;The tips of js development&lt;/h1&gt;
+&lt;p&gt;In some case there is html code to display in textbox or label, it&#39;s not human world, so that&#39;s need unescape the html code,
+and some JS libraries are include this function, such as string.js and underscore.js.&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-javascript&quot;&gt;this.unescapeHTML = function(str) {
+  var escapeChars = { lt: &#39;&lt;&#39;, gt: &#39;&gt;&#39;, quot: &#39;&quot;&#39;, apos: &quot;&#39;&quot;, amp: &#39;&amp;&#39; };
+  return str.replace(/\&amp;([^;]+);/g, function(entity, entityCode) {
+      var match;
+      if ( entityCode in escapeChars) {
+          return escapeChars[entityCode];
+      } else if ( match = entityCode.match(/^#x([\da-fA-F]+)$/)) {
+          return String.fromCharCode(parseInt(match[1], 16));
+      } else if ( match = entityCode.match(/^#(\d+)$/)) {
+          return String.fromCharCode(~~match[1]);
+      } else {
+          return entity;
+      }
+  });
+};
+&lt;/pre&gt;
+&lt;p&gt;some test code&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-javascript&quot;&gt;console.log(this.unescapeHTML(&#39;&amp;amp&#39;));
+=&gt; &amp;
+&lt;/pre&gt;
+&lt;p&gt;Its reference from stackoverflow: &lt;a href=&quot;http://stackoverflow.com/questions/17678694/replace-html-entities-e-g-8217-with-character-equivalents-when-parsing-an&quot;&gt;http://stackoverflow.com/questions/17678694/replace-html-entities-e-g-8217-with-character-equivalents-when-parsing-an&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>How to set checkbox in header column of grid panel</title>
@@ -459,39 +492,6 @@ public class FileLog : ILog
 &lt;/pre&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>The book notes 1 for learn Ninject</title>
-            <link>Homepage link/articles/book-notes-for-learn-Ninject-1.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
-            <guid>Homepage link/articles/book-notes-for-learn-Ninject-1.html</guid>
-            <author>jl_lsj@outlook.com Dino Liu</author>
-            <pubDate>Thu, 18 Dec 2014 00:00:00 +0800</pubDate>
-            <description>&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;Recently, our project needs to add a new feature, the project did use DI tool &lt;a href=&quot;http://www.ninject.org/index.html&quot;&gt;Ninject&lt;/a&gt;, I have reading a book which Mastering Ninject for Dependency Injection to learn it. this article does record my book notes.&lt;/p&gt;
-&lt;p&gt;The book notes of The chapter 1&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&quot;it&#39;s more about a way of thinking and designing code than it is about tools and techniques&quot;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;understanding-dependency-injection&quot;&gt;Understanding Dependency Injection&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Dependency Injection is one of the techniques in software enginerring which improves the maintainability of a software application by managing the dependent components.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;DI or Inversion of Control(IoC)
-Martin Fowler defines Inversion of Control as a style of programming in which the framework takes the conrol of the flow instead of your code. 
-Di is a specific type of IoC, because instad of your components concern about their dependencies, they are provided with the dependencies by the framework.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;IoC is also know as the Hollywood principle: &quot;Don&#39;t call us, we&#39;ll call you&quot;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;The key principle leading to loose coupling is the &quot;Program to an &lt;em&gt;Interface&lt;/em&gt;, not an &lt;em&gt;implementation&lt;/em&gt;&quot;&lt;/li&gt;
-&lt;li&gt;Di Contaainers
-A DI container is an injector object that injects the dependencies into a dependent object.
-the others DI container introdcution from Scott Hanselmen blog &lt;a href=&quot;http://www.hanselman.com/blog/
-ListOfNETDependencyInjectionContainersIOC.aspx&quot;&gt;http://www.hanselman.com/blog/
-ListOfNETDependencyInjectionContainersIOC.aspx&lt;/a&gt; about Unity, Castle Windsor, StructureMap, Spring.NET, and Autofac&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Dependency Injection is a technique to help us produce loosely coupled code by moving the concern of creating the dependencies to another object known as a DI container.&lt;/p&gt;
 </description>
         </item>
         

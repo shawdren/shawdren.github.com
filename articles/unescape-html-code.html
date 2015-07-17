@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="description" content="The technonlogy blog of Dino L (Shawdren)"/>
+        <meta name="keywords" content="C#, ASP.NET, ASP.NET MVC, Javascript, SQL Server, HTML, CSS.,English"/>
+        <meta name="author" content="Dino Liu (Shawdren) &lt;jl_lsj@outlook.com&gt;"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+        <title>Dino L. - The tip of unescape html code in JS
+</title>
+        <link rel="stylesheet" href="/assets/vendor/normalize.css"/>
+        <link rel="stylesheet" href="/assets/vendor/prettify-night.css"/>
+        <link rel="stylesheet" href="/assets/themes/default/main.css"/>
+        <link rel="shortcut icon" href="/fav.ico"/>
+        <script type="text/javascript" src="/assets/vendor/prettify.js"></script>
+        
+		<meta name="baidu-site-verification" content="iIi5BryJ7O" />
+    </head>
+    <body onload="prettyPrint()">
+    <div id="header">
+        <div id="header-inner">
+            <div id="title"><a href="/">Dino L.</a></div>
+            <div id="subtitle">Rome was not built in a day</div>
+        </div>
+    </div>
+
+<div id="main">
+    <div id="main-inner">
+        <div id="topnav">
+            <ul>
+                 <li><a href="/">Home</a></li>
+                <li class="sep"> | </li>
+                <li><a href="/tag.html">Tags</a></li>
+				<li class="sep"> | </li>
+                <li><a href="/pages/about-me.html">About Me</a></li>
+                
+<li class="sep"> | </li>
+<li><a href="../rss.xml" target="_blank">RSS</a></li>
+
+
+            </ul>
+            <div style="clear:both;"></div>
+        </div>
+        <div id="article-title">
+            <a href="/articles/unescape-html-code.html">The tip of unescape html code in JS</a>
+        </div>
+        <div id="article-meta">
+           By Dino, updated 2015-7-17
+        </div>
+        <div id="article-tags">
+        
+        <a class="tag" href="/tag.html#js">js</a>
+        
+        </div>
+        <div id="article-content">
+            <h1 id="the-tips-of-js-development">The tips of js development</h1>
+<p>In some case there is html code to display in textbox or label, it&#39;s not human world, so that&#39;s need unescape the html code,
+and some JS libraries are include this function, such as string.js and underscore.js.</p>
+<pre class="prettyprint linenums lang-javascript">this.unescapeHTML = function(str) {
+  var escapeChars = { lt: &#39;&lt;&#39;, gt: &#39;&gt;&#39;, quot: &#39;&quot;&#39;, apos: &quot;&#39;&quot;, amp: &#39;&amp;&#39; };
+  return str.replace(/\&amp;([^;]+);/g, function(entity, entityCode) {
+      var match;
+      if ( entityCode in escapeChars) {
+          return escapeChars[entityCode];
+      } else if ( match = entityCode.match(/^#x([\da-fA-F]+)$/)) {
+          return String.fromCharCode(parseInt(match[1], 16));
+      } else if ( match = entityCode.match(/^#(\d+)$/)) {
+          return String.fromCharCode(~~match[1]);
+      } else {
+          return entity;
+      }
+  });
+};
+</pre>
+<p>some test code</p>
+<pre class="prettyprint linenums lang-javascript">console.log(this.unescapeHTML(&#39;&amp;amp&#39;));
+=&gt; &amp;
+</pre>
+<p>Its reference from stackoverflow: <a href="http://stackoverflow.com/questions/17678694/replace-html-entities-e-g-8217-with-character-equivalents-when-parsing-an">http://stackoverflow.com/questions/17678694/replace-html-entities-e-g-8217-with-character-equivalents-when-parsing-an</a></p>
+
+        </div>
+        
+    </div>
+</div>
+        <div id="footer">
+            <div id="footer-inner">
+                <p id="copyright">Copyright (c) 2014-2015 Dino L.</p>
+            </div>
+        </div>
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$','$'], ['\\(','\\)']],
+            processEscapes: true
+        }
+    });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+    </body>
+</html>
+
