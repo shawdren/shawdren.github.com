@@ -4,7 +4,7 @@
         <title>RSS feed title</title>
         <link>Homepage link</link>
         <description>RSS feed description</description>
-        <lastBuildDate>Fri, 17 Jul 2015 11:47:02 +0800</lastBuildDate>
+        <lastBuildDate>Fri, 17 Jul 2015 16:54:14 +0800</lastBuildDate>
         <language>en</language>
         
         <item>
@@ -17,19 +17,23 @@
 &lt;p&gt;In some case there is html code to display in textbox or label, it&#39;s not human world, so that&#39;s need unescape the html code,
 and some JS libraries are include this function, such as string.js and underscore.js.&lt;/p&gt;
 &lt;pre class=&quot;prettyprint linenums lang-javascript&quot;&gt;this.unescapeHTML = function(str) {
-  var escapeChars = { lt: &#39;&lt;&#39;, gt: &#39;&gt;&#39;, quot: &#39;&quot;&#39;, apos: &quot;&#39;&quot;, amp: &#39;&amp;&#39; };
-  return str.replace(/\&amp;([^;]+);/g, function(entity, entityCode) {
-      var match;
-      if ( entityCode in escapeChars) {
-          return escapeChars[entityCode];
-      } else if ( match = entityCode.match(/^#x([\da-fA-F]+)$/)) {
-          return String.fromCharCode(parseInt(match[1], 16));
-      } else if ( match = entityCode.match(/^#(\d+)$/)) {
-          return String.fromCharCode(~~match[1]);
-      } else {
-          return entity;
-      }
-  });
+    var escapeChars = { lt: &#39;&lt;&#39;, gt: &#39;&gt;&#39;, quot: &#39;&quot;&#39;, apos: &quot;&#39;&quot;, amp: &#39;&amp;&#39; };
+    if(typeof(str) !== &#39;string&#39;){
+        return str;
+    }else{
+        return str.replace(/\&amp;([^;]+);/g, function(entity, entityCode) {
+        var match;
+        if ( entityCode in escapeChars) {
+            return escapeChars[entityCode];
+        } else if ( match = entityCode.match(/^#x([\da-fA-F]+)$/)) {
+            return String.fromCharCode(parseInt(match[1], 16));
+        } else if ( match = entityCode.match(/^#(\d+)$/)) {
+            return String.fromCharCode(~~match[1]);
+        } else {
+            return entity;
+        }});
+    }
+
 };
 &lt;/pre&gt;
 &lt;p&gt;some test code&lt;/p&gt;

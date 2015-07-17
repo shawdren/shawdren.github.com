@@ -58,19 +58,23 @@
 <p>In some case there is html code to display in textbox or label, it&#39;s not human world, so that&#39;s need unescape the html code,
 and some JS libraries are include this function, such as string.js and underscore.js.</p>
 <pre class="prettyprint linenums lang-javascript">this.unescapeHTML = function(str) {
-  var escapeChars = { lt: &#39;&lt;&#39;, gt: &#39;&gt;&#39;, quot: &#39;&quot;&#39;, apos: &quot;&#39;&quot;, amp: &#39;&amp;&#39; };
-  return str.replace(/\&amp;([^;]+);/g, function(entity, entityCode) {
-      var match;
-      if ( entityCode in escapeChars) {
-          return escapeChars[entityCode];
-      } else if ( match = entityCode.match(/^#x([\da-fA-F]+)$/)) {
-          return String.fromCharCode(parseInt(match[1], 16));
-      } else if ( match = entityCode.match(/^#(\d+)$/)) {
-          return String.fromCharCode(~~match[1]);
-      } else {
-          return entity;
-      }
-  });
+    var escapeChars = { lt: &#39;&lt;&#39;, gt: &#39;&gt;&#39;, quot: &#39;&quot;&#39;, apos: &quot;&#39;&quot;, amp: &#39;&amp;&#39; };
+    if(typeof(str) !== &#39;string&#39;){
+        return str;
+    }else{
+        return str.replace(/\&amp;([^;]+);/g, function(entity, entityCode) {
+        var match;
+        if ( entityCode in escapeChars) {
+            return escapeChars[entityCode];
+        } else if ( match = entityCode.match(/^#x([\da-fA-F]+)$/)) {
+            return String.fromCharCode(parseInt(match[1], 16));
+        } else if ( match = entityCode.match(/^#(\d+)$/)) {
+            return String.fromCharCode(~~match[1]);
+        } else {
+            return entity;
+        }});
+    }
+
 };
 </pre>
 <p>some test code</p>
