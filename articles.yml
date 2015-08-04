@@ -1,3 +1,12 @@
+- id: basic shell command for linux
+  title: the basic shell command
+  postedOn: !!str 2015-7-17
+  author: Dino
+  tags:
+    - shell
+    - linux
+    - ubuntu
+  abstract: the basic shell command for learn linux on ubuntu
 - id: unescape-html-code
   title: The tip of unescape html code in JS
   postedOn: !!str 2015-7-17
