@@ -1,6 +1,14 @@
+- id: the best practices on linux 
+  title: The best practices on linux
+  postedOn: !!str 2015-8-10
+  author: Dino
+  tags:
+    - linux
+    - ubuntu
+  abstract: to memo some useage tips and the best practices on linux
 - id: basic shell command for linux
   title: the basic shell command
-  postedOn: !!str 2015-7-17
+  postedOn: !!str 2015-8-1
   author: Dino
   tags:
     - shell
