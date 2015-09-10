@@ -7,7 +7,7 @@
         <meta name="keywords" content="C#, ASP.NET, ASP.NET MVC, Javascript, SQL Server, HTML, CSS.,English"/>
         <meta name="author" content="Dino Liu (Shawdren) &lt;jl_lsj@outlook.com&gt;"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-        <title>Dino L. - How to set checkbox in header column of grid panel
+        <title>Dino L. - the book memo of you don&#39;t know js - ES 6
 </title>
         <link rel="stylesheet" href="/assets/vendor/normalize.css"/>
         <link rel="stylesheet" href="/assets/vendor/prettify-night.css"/>
@@ -43,63 +43,50 @@
             <div style="clear:both;"></div>
         </div>
         <div id="article-title">
-            <a href="/articles/extjs-gridpanel-checkbox-checkall.html">How to set checkbox in header column of grid panel</a>
+            <a href="/articles/you donot know js -es 6.html">the book memo of you don&#39;t know js - ES 6</a>
         </div>
         <div id="article-meta">
-           By Dino, updated 2015-7-3
+           By Dino, updated 2015-9-10
         </div>
         <div id="article-tags">
         
-        <a class="tag" href="/tag.html#extjs">extjs</a>
+        <a class="tag" href="/tag.html#book memo">book memo</a>
+        
+        <a class="tag" href="/tag.html#javascirpt">javascirpt</a>
         
         </div>
         <div id="article-content">
-            <p>The tips of how to set checkbox value in header of gridPanel</p>
-<h3 id="introduction">Introduction</h3>
-<p>In the grid panel, its has two columns, one is checkbox column and another one is something like name column. There is a 
-requirement which need checked all rows when grid does load end data, but in the gridPanel cannot be checked checkbox in header.
-It&#39;s very weird issue, I cannot find a solution from API documents, through debugging source code, I found that there is
-an event called onHdMouseDown, when click checkbox in header it could be select all rows, and it just add css on that cell,
-the implements code like this </p>
-<pre class="prettyprint linenums lang-javascript">onHdMouseDown :function(e, t){
-    if(t.className ==&#39;x-grid3-hd-checker&#39;){
-        e.stopEvent();var hd =Ext.fly(t.parentNode);
-        var isChecked = hd.hasClass(&#39;x-grid3-hd-checker-on&#39;);
-        if(isChecked){                
-            hd.removeClass(&#39;x-grid3-hd-checker-on&#39;);
-            this.clearSelections();
-        }else{ 
-             hd.addClass(&#39;x-grid3-hd-checker-on&#39;);
-            this.selectAll();
-        }
-    }
-}
-</pre>
-<p>So I could be use the same way to solve my issue, at the end I found a solution on stackoverflow, the background method 
-as below code</p>
-<pre class="prettyprint linenums lang-javascript">var sm = new Ext.grid.CheckboxSelectionModel({
-    listeners : {
-            selectionchange : function(){
-                var recLen = Ext.getCmp(&#39;grid&#39;).store.getRange().length;
-                var selectedLen = this.selections.items.length;
-                var view   = Ext.getCmp(&#39;grid&#39;).getView();
-                var chkdiv = Ext.fly(view.innerHd).child(&quot;.x-grid3-hd-checker&quot;)
-                if(selectedLen == recLen){
-                    chkdiv.addClass(&quot;x-grid3-hd-checker-on&quot;);
-                } else {
-                    chkdiv.removeClass(&quot;x-grid3-hd-checker-on&quot;);
-                }
-            }
-            ,rowdeselect : function ( sm ,rowIndex ,record) {
-                var view   = Ext.getCmp(&#39;grid&#39;).getView();
-                var chkdiv = Ext.fly(view.innerHd).child(&quot;.x-grid3-hd-checker&quot;)
-                chkdiv.removeClass(&#39;x-grid3-hd-checker-on&#39;);
-            }
-    }
- });
-</pre>
-<p>It could be solve my issue perfectly. 
-the reference link is <a href="http://stackoverflow.com/questions/7969607/extjs-checkboxselection-header-not-updating">http://stackoverflow.com/questions/7969607/extjs-checkboxselection-header-not-updating</a></p>
+            <h2 id="the-book-memo-of-you-don-39-t-know-js-es-6">The book memo of you don&#39;t know js - ES 6</h2>
+<hr>
+<p>The book memo of &lt;You Don&#39;t Know JS - ES6&gt;.
+It&#39;s a essential book for ECMA Script 6.</p>
+<h3 id="syntax">Syntax</h3>
+<ul>
+<li>let Declarations<ul>
+<li>it&#39;s easy to understand that if use the let to declare a variable which scope is only under the block.</li>
+<li>try to put let declaration on the top of the block, if use the variable before the let declaration, the referenceError will be ecountered, it&#39;s called a TDZ(temporal dead zone) error.</li>
+</ul>
+</li>
+<li>const Declarations<ul>
+<li>It&#39;s a variable that&#39;s read-only after its initial value is set.</li>
+<li>It&#39;s cannot be able to garbage collected.</li>
+<li>Don&#39;t use const on variables.</li>
+</ul>
+</li>
+<li>Spread and Rest<ul>
+<li>the oprator ... that&#39;s typically reffered to as the spread or rest which depending on where it&#39;s used.</li>
+</ul>
+</li>
+<li>Default parameter values<ul>
+<li>something like that function plusNo(x = 0, y = 1){}, it&#39;s void to judge parameters in function for default values.</li>
+</ul>
+</li>
+<li>Default value expressions<ul>
+<li>It same as default parameter, function plusNo(){x = 0, y = foo(z)}</li>
+</ul>
+</li>
+<li>Destructuring</li>
+</ul>
 
         </div>
         <div id="disqus_thread"></div>

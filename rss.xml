@@ -4,8 +4,48 @@
         <title>RSS feed title</title>
         <link>Homepage link</link>
         <description>RSS feed description</description>
-        <lastBuildDate>Tue, 11 Aug 2015 15:48:31 +0800</lastBuildDate>
+        <lastBuildDate>Thu, 10 Sep 2015 17:04:13 +0800</lastBuildDate>
         <language>en</language>
+        
+        <item>
+            <title>the book memo of you don&#39;t know js - ES 6</title>
+            <link>Homepage link/articles/you donot know js -es 6.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/you donot know js -es 6.html</guid>
+            <author>jl_lsj@outlook.com Dino Liu</author>
+            <pubDate>Thu, 10 Sep 2015 00:00:00 +0800</pubDate>
+            <description>&lt;h2 id=&quot;the-book-memo-of-you-don-39-t-know-js-es-6&quot;&gt;The book memo of you don&#39;t know js - ES 6&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;The book memo of &lt;You Don&#39;t Know JS - ES6&gt;.
+It&#39;s a essential book for ECMA Script 6.&lt;/p&gt;
+&lt;h3 id=&quot;syntax&quot;&gt;Syntax&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;let Declarations&lt;ul&gt;
+&lt;li&gt;it&#39;s easy to understand that if use the let to declare a variable which scope is only under the block.&lt;/li&gt;
+&lt;li&gt;try to put let declaration on the top of the block, if use the variable before the let declaration, the referenceError will be ecountered, it&#39;s called a TDZ(temporal dead zone) error.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;const Declarations&lt;ul&gt;
+&lt;li&gt;It&#39;s a variable that&#39;s read-only after its initial value is set.&lt;/li&gt;
+&lt;li&gt;It&#39;s cannot be able to garbage collected.&lt;/li&gt;
+&lt;li&gt;Don&#39;t use const on variables.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Spread and Rest&lt;ul&gt;
+&lt;li&gt;the oprator ... that&#39;s typically reffered to as the spread or rest which depending on where it&#39;s used.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Default parameter values&lt;ul&gt;
+&lt;li&gt;something like that function plusNo(x = 0, y = 1){}, it&#39;s void to judge parameters in function for default values.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Default value expressions&lt;ul&gt;
+&lt;li&gt;It same as default parameter, function plusNo(){x = 0, y = foo(z)}&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Destructuring&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
         
         <item>
             <title>The best practices on linux</title>
@@ -374,97 +414,6 @@ onButtonClick:function(){
 &lt;h3 id=&quot;-a-href-https-htmlspecwhatwgorg-multipage-introductionhtml-is-this-html5-https-htmlspecwhatwgorg-multipage-introductionhtml-is-this-html5-a-&quot;&gt;&lt;a href=&quot;https://html.spec.whatwg.org/multipage/introduction.html#is-this-html5?&quot;&gt;https://html.spec.whatwg.org/multipage/introduction.html#is-this-html5?&lt;/a&gt;&lt;/h3&gt;
 &lt;h1 id=&quot;miscellaneous&quot;&gt;Miscellaneous&lt;/h1&gt;
 &lt;h3 id=&quot;-a-href-https-idec9io-https-idec9io-a-&quot;&gt;&lt;a href=&quot;https://ide.c9.io&quot;&gt;https://ide.c9.io&lt;/a&gt;&lt;/h3&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>The book notes 4 for learn Ninject</title>
-            <link>Homepage link/articles/book-notes-for-learn-Ninject-4.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
-            <guid>Homepage link/articles/book-notes-for-learn-Ninject-4.html</guid>
-            <author>jl_lsj@outlook.com Dino Liu</author>
-            <pubDate>Tue, 23 Dec 2014 00:00:00 +0800</pubDate>
-            <description>&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;Recently, our project needs to add a new feature, the project did use DI tool &lt;a href=&quot;http://www.ninject.org/index.html&quot;&gt;Ninject&lt;/a&gt;, I have reading a book which Mastering Ninject for Dependency Injection to learn it. this article does record my book notes.&lt;/p&gt;
-&lt;p&gt;In Ninject it also could manage object lifetime. It allows create temporary object and full life object.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Transient scope
-In Transient scope, the object lifetime is not managed by Ninject. Whenever we
-request an instance of a type, a new one will be created. Ninject does not take care of
-keeping the created instance or disposing of it in this scope. This is the default object
-scope in Ninject. If no scope is explicitly specified, they are transient-scoped. In the
-previous code, both ConsoleLogger and MailService were treated in the Transient
-scope because the object scope was not specified.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Singleton scope &lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;There are two approaches to achieve this. The first one
-is using one of the Singleton patterns:&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;class ConsoleLogger:ILogger
-{
-public static readonly ConsoleLogger Instance = new ConsoleLogger();
- private static ConsoleLogger()
- {
-   // Hiding constructor
- }
-  public void Log(string message)
-  {
-    Console.WriteLine(&quot;{0}: {1}&quot;, DateTime.Now, message);
-  }
-}
-&lt;/pre&gt;
-&lt;p&gt;And instructing the binding to always use the provided instance rather than every
-time creating a new instance of ConsoleLogger. We can achieve this by using the
-ToConstant method:&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;kernel.Bind&lt;ILogger&gt;().ToConstant(ConsoleLogger.Instance);
-&lt;/pre&gt;
-&lt;p&gt;This way is inconvenece to test, there is another way to do this&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;kernel.Bind&lt;ILogger&gt;().To&lt;ConsoleLogger&gt;().InSingletonScope();
-&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;Thread scope &lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;[Test]
-public void ReturnsTheSameInstancesInOneThread()
-{
-   using (var kernel = new StandardKernel())
-   {
-        kernel.Bind&lt;object&gt;().ToSelf().InThreadScope();
-    var instance1 = kernel.Get&lt;object&gt;();
-    var instance2 = kernel.Get&lt;object&gt;();
-    Assert.AreEqual(instance1, instance2);
-    }
-}
-&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;Request scope &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Request scope is useful in web applications when we need to get a single instance
-of a type from Ninject as long as we are handling the same request. Once the request
-is processed and a new request arrives, Ninject creates a new instance of the type
-and keeps it until the end of the request processing. Note that Request scope behaves
-like Transient scope outside of a web request (for example, during startup) or in
-non-web applications.&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;kernel.Bind&lt;MailServerConfig&gt;().ToSelf().InRequestScope();
-&lt;/pre&gt;
-&lt;p&gt;The InRequestScope method is not available unless we add a reference to the
-Ninject.Web.Common library, which makes sense only in web applications.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Custom scope &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Custom scope lets us define our own scopes in which to keep an instance of a type
-unique.&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;kernel.Bind&lt;object&gt;().ToSelf().InScope(ctx=&gt;Thread.CurrentThread);
-
-kernel.Bind&lt;object&gt;().ToSelf().InScope(ctx=&gt;HttpContext.Current);
-&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;Dispose an object &lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;var myObject = kernel.Get&lt;MyService&gt;();
-
-kernel.Release(myObject);
-&lt;/pre&gt;
 </description>
         </item>
         

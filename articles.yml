@@ -1,3 +1,11 @@
+- id: you donot know js -es 6
+  title: the book memo of you don't know js - ES 6
+  postedOn: !!str 2015-9-10
+  author: Dino
+  tags:
+    - book memo
+    - javascirpt
+  abstract: The book mome of you don't know js -ES 6
 - id: the best practices on linux 
   title: The best practices on linux
   postedOn: !!str 2015-8-10
