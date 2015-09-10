@@ -19,4 +19,4 @@ It's a essential book for ECMA Script 6.
 * Default value expressions
     * It same as default parameter, function plusNo(){x = 0, y = foo(z)}
 * Destructuring
-    
+
