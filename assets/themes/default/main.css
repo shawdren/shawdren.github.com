@@ -35,7 +35,7 @@ pre.prettyprint ol {
 /* 页面头部 */
 div#header {
     background-color: #2a3440;
-    height: 50px;
+    height: 80px;
 }
 div#header-inner {
     width: 90%;
@@ -59,6 +59,40 @@ div#subtitle {
     font-size: 11px;
 }
 
+.logoContainer{
+    width: 20%;
+    padding-top: 15px;
+}
+.put-left{
+    float: left;
+    width: 40%;
+}
+.put-right{
+    float: right;
+}
+.logo {
+  display: block;
+  position: absolute !important;
+  height: 40px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  background: #eee;
+  padding: 3px;
+  box-shadow: 0 0 10px #00ff00;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+}
+.logo:hover {	
+	-webkit-transform: scale(1.5) rotate(360deg); -moz-transform: scale(1.5)  rotate(360deg); transform: scale(1.5) rotate(360deg);
+}
+.topBread{
+    height: 10px;
+    position: fixed;
+    background: #2a3440;
+    top:0;
+    width: 100%
+}
 /* 页面底部 */
 div#footer-inner {
     border-top: 1px solid #5a5a5a;

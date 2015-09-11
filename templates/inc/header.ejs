@@ -12,14 +12,26 @@
         <link rel="stylesheet" href="/assets/vendor/prettify-<%= site.codetheme %>.css"/>
         <link rel="stylesheet" href="/assets/themes/<%= site.theme %>/main.css"/>
         <link rel="shortcut icon" href="/fav.ico"/>
-        <script type="text/javascript" src="/assets/vendor/prettify.js"></script>
         <% include header_plugin %>
 		<meta name="baidu-site-verification" content="iIi5BryJ7O" />
     </head>
     <body onload="prettyPrint()">
     <div id="header">
         <div id="header-inner">
-            <div id="title"><a href="/"><%= site.title %></a></div>
-            <div id="subtitle"><%= site.subtitle %></div>
+            <div class="logoContainer">
+                <div class="put-left">
+                    <a href="/">
+                        <img class="logo" src="http://tp3.sinaimg.cn/1044085270/180/39996370168/1" title="Dino">
+                    </a>
+                </div>
+                <div class="put-right">
+                    <div id="title">
+                        <a href="/"><%= site.title %></a>
+                    </div>
+                    <div id="subtitle"><%= site.subtitle %></div>
+                </div>
+             </div>
         </div>
+    </div>
+    <div class="topBread">
     </div>
