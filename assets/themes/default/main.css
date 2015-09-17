@@ -48,6 +48,10 @@ div#main-inner {
     max-width: 1024px;
     margin: 0 auto;
 }
+div#title{
+    
+    direction: rtl;
+}
 div#title a {
     font-weight: bold;
     font-size: 24px;
@@ -57,18 +61,20 @@ div#subtitle {
     color: rgba(255,255,255,.5);
     font-weight: bold;
     font-size: 11px;
+    direction: rtl;
 }
 
 .logoContainer{
-    width: 20%;
+    width: 100%;
     padding-top: 15px;
 }
 .put-left{
     float: left;
-    width: 40%;
+    width: 0%;
 }
 .put-right{
     float: right;
+    width: 50%;
 }
 .logo {
   display: block;
@@ -91,7 +97,8 @@ div#subtitle {
     position: fixed;
     background: #2a3440;
     top:0;
-    width: 100%
+    width: 100%;
+    display: none;
 }
 /* 页面底部 */
 div#footer-inner {
