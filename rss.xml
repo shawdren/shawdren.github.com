@@ -4,8 +4,55 @@
         <title>RSS feed title</title>
         <link>Homepage link</link>
         <description>RSS feed description</description>
-        <lastBuildDate>Thu, 17 Sep 2015 17:53:15 +0800</lastBuildDate>
+        <lastBuildDate>Mon, 21 Sep 2015 10:08:50 +0800</lastBuildDate>
         <language>en</language>
+        
+        <item>
+            <title>Install GAC without gacutil tool</title>
+            <link>Homepage link/articles/install gac without gacutil tool.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/install gac without gacutil tool.html</guid>
+            <author>jl_lsj@outlook.com Dino Liu</author>
+            <pubDate>Mon, 21 Sep 2015 00:00:00 +0800</pubDate>
+            <description>&lt;h2 id=&quot;install-gac-without-gacutil-too&quot;&gt;Install GAC without gacutil too&lt;/h2&gt;
+&lt;p&gt;Most time we should be use gac util too to instll gac in computer for windows. 
+But sometimes if the compouter didn&#39;t install VS or doesn&#39;t have gac util tool, 
+how to install gac use comand line? I found a solution for it then memo it.&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-javascript&quot;&gt;   1:  BEGIN {
+   2:      $ErrorActionPreference = &quot;Stop&quot;
+   3:      
+   4:      if ( $null -eq ([AppDomain]::CurrentDomain.GetAssemblies() |? { $_.FullName -eq &quot;System.EnterpriseServices, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a&quot; }) ) {
+   5:          [System.Reflection.Assembly]::Load(&quot;System.EnterpriseServices, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a&quot;) | Out-Null
+   6:      }
+   7:      
+   8:      $publish = New-Object System.EnterpriseServices.Internal.Publish
+   9:  }
+  10:  PROCESS {
+  11:      $assembly = $null
+  12:      
+  13:      if ( $_ -is [string] ) {
+  14:          $assembly = $_
+  15:      } elseif ( $_ -is [System.IO.FileInfo] ) {
+  16:          $assembly = $_.FullName
+  17:      } else {
+  18:          throw (&quot;The object type &#39;{0}&#39; is not supported.&quot; -f $_.GetType().FullName)
+  19:      }
+  20:      
+  21:      if ( -not (Test-Path $assembly -type Leaf) ) {
+  22:          throw &quot;The assembly &#39;$assembly&#39; does not exist.&quot;
+  23:      }
+  24:      
+  25:      if ( [System.Reflection.Assembly]::LoadFile( $assembly ).GetName().GetPublicKey().Length -eq 0 ) {
+  26:          throw &quot;The assembly &#39;$assembly&#39; must be strongly signed.&quot;
+  27:      }
+  28:      
+  29:      Write-Output &quot;Installing: $assembly&quot;
+  30:      
+  31:      $publish.GacInstall( $assembly )
+  32:  }
+&lt;/pre&gt;
+&lt;p&gt;the reference: &lt;a href=&quot;http://weblogs.asp.net/adweigert/powershell-install-gac-gacutil-for-powershell&quot;&gt;PowerShell: Install-Gac (GACUTIL for PowerShell)&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>the book memo of you don&#39;t know js - ES 6</title>
@@ -389,31 +436,6 @@ onButtonClick:function(){
     fireEvent(&#39;still needs fire Event for trigger click event&#39;);
 }
 &lt;/pre&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>The resources of learn front end</title>
-            <link>Homepage link/articles/learn-frontend-resources.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
-            <guid>Homepage link/articles/learn-frontend-resources.html</guid>
-            <author>jl_lsj@outlook.com Dino Liu</author>
-            <pubDate>Thu, 16 Apr 2015 00:00:00 +0800</pubDate>
-            <description>&lt;h1 id=&quot;javascritp-resources&quot;&gt;Javascritp resources&lt;/h1&gt;
-&lt;h2 id=&quot;framework&quot;&gt;framework&lt;/h2&gt;
-&lt;h3 id=&quot;zeptojs-a-href-http-zeptojscom-http-zeptojscom-a-&quot;&gt;Zeptojs(&lt;a href=&quot;http://zeptojs.com/&quot;&gt;http://zeptojs.com/&lt;/a&gt;)&lt;/h3&gt;
-&lt;h3 id=&quot;backbonejs-a-href-http-backbonejsorg-http-backbonejsorg-a-&quot;&gt;Backbonejs(&lt;a href=&quot;http://backbonejs.org/&quot;&gt;http://backbonejs.org/&lt;/a&gt;)&lt;/h3&gt;
-&lt;h3 id=&quot;nativescript-a-href-https-wwwnativescriptorg-https-wwwnativescriptorg-a-&quot;&gt;Nativescript(&lt;a href=&quot;https://www.nativescript.org/&quot;&gt;https://www.nativescript.org/&lt;/a&gt;)&lt;/h3&gt;
-&lt;h3 id=&quot;-javascript-pitfalls-null-false-undefined-nan-[-a-href-http-wwwmapbenderorg-javascript_pitfalls-_null-_false-_undefined-_nan-http-wwwmapbenderorg-javascript_pitfalls-_null-_false-_undefined-_nan-a-]&quot;&gt;(JavaScript pitfalls: null, false, undefined, NaN)[&lt;a href=&quot;http://www.mapbender.org/JavaScript_pitfalls:_null,_false,_undefined,_NaN&quot;&gt;http://www.mapbender.org/JavaScript_pitfalls:_null,_false,_undefined,_NaN&lt;/a&gt;]&lt;/h3&gt;
-&lt;h3 id=&quot;ecmascript-6-a-href-http-es6ruanyifengcom-http-es6ruanyifengcom-a-&quot;&gt;ECMAScript 6(&lt;a href=&quot;http://es6.ruanyifeng.com/&quot;&gt;http://es6.ruanyifeng.com/&lt;/a&gt;)&lt;/h3&gt;
-&lt;h2 id=&quot;tools&quot;&gt;tools&lt;/h2&gt;
-&lt;h3 id=&quot;jslint-a-href-http-wwwjslintcom-http-wwwjslintcom-a-&quot;&gt;JSLint(&lt;a href=&quot;http://www.jslint.com/&quot;&gt;http://www.jslint.com/&lt;/a&gt;)&lt;/h3&gt;
-&lt;h2 id=&quot;nodejs&quot;&gt;nodejs&lt;/h2&gt;
-&lt;h3 id=&quot;-a-href-http-wwwnodebeginnerorg-http-wwwnodebeginnerorg-a-&quot;&gt;&lt;a href=&quot;http://www.nodebeginner.org/&quot;&gt;http://www.nodebeginner.org/&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;-a-href-http-nodeguidecom-http-nodeguidecom-a-&quot;&gt;&lt;a href=&quot;http://nodeguide.com/&quot;&gt;http://nodeguide.com/&lt;/a&gt;&lt;/h3&gt;
-&lt;h1 id=&quot;html&quot;&gt;HTML&lt;/h1&gt;
-&lt;h3 id=&quot;-a-href-https-htmlspecwhatwgorg-multipage-introductionhtml-is-this-html5-https-htmlspecwhatwgorg-multipage-introductionhtml-is-this-html5-a-&quot;&gt;&lt;a href=&quot;https://html.spec.whatwg.org/multipage/introduction.html#is-this-html5?&quot;&gt;https://html.spec.whatwg.org/multipage/introduction.html#is-this-html5?&lt;/a&gt;&lt;/h3&gt;
-&lt;h1 id=&quot;miscellaneous&quot;&gt;Miscellaneous&lt;/h1&gt;
-&lt;h3 id=&quot;-a-href-https-idec9io-https-idec9io-a-&quot;&gt;&lt;a href=&quot;https://ide.c9.io&quot;&gt;https://ide.c9.io&lt;/a&gt;&lt;/h3&gt;
 </description>
         </item>
         

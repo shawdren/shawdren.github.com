@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="description" content="The technonlogy blog of Dino L (Shawdren)"/>
+        <meta name="keywords" content="C#, ASP.NET, ASP.NET MVC, Javascript, SQL Server, HTML, CSS.,English"/>
+        <meta name="author" content="Dino Liu (Shawdren) &lt;jl_lsj@outlook.com&gt;"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+        <title>Dino L. - Install GAC without gacutil tool
+</title>
+        <link rel="stylesheet" href="/assets/vendor/normalize.css"/>
+        <link rel="stylesheet" href="/assets/vendor/prettify-night.css"/>
+        <link rel="stylesheet" href="/assets/themes/default/main.css"/>
+        <link rel="shortcut icon" href="/fav.ico"/>
+        
+		<meta name="baidu-site-verification" content="iIi5BryJ7O" />
+    </head>
+    <body onload="prettyPrint()">
+    <div id="header">
+        <div id="header-inner">
+            <div class="logoContainer">
+                <div class="put-left">
+                    <a href="/">
+                        <img class="logo" src="http://tp3.sinaimg.cn/1044085270/180/39996370168/1" title="Dino">
+                    </a>
+                </div>
+                <div class="put-right">
+                    <div id="title">
+                        <a href="/">Dino L.</a>
+                    </div>
+                    <div id="subtitle">Rome was not built in a day</div>
+                </div>
+             </div>
+        </div>
+    </div>
+    <div class="topBread">
+    </div>
+
+<div id="main">
+    <div id="main-inner">
+        <div id="topnav">
+            <ul>
+                 <li><a href="/">Home</a></li>
+                <li class="sep"> | </li>
+                <li><a href="/tag.html">Tags</a></li>
+				<li class="sep"> | </li>
+                <li><a href="/pages/about-me.html">About Me</a></li>
+                
+<li class="sep"> | </li>
+<li><a href="../rss.xml" target="_blank">RSS</a></li>
+
+
+            </ul>
+            <div style="clear:both;"></div>
+        </div>
+        <div id="article-title">
+            <a href="/articles/install gac without gacutil tool.html">Install GAC without gacutil tool</a>
+        </div>
+        <div id="article-meta">
+           By Dino, updated 2015-9-21
+        </div>
+        <div id="article-tags">
+        
+        <a class="tag" href="/tag.html#CLI">CLI</a>
+        
+        <a class="tag" href="/tag.html#DotNet">DotNet</a>
+        
+        </div>
+        <div id="article-content">
+            <h2 id="install-gac-without-gacutil-too">Install GAC without gacutil too</h2>
+<p>Most time we should be use gac util too to instll gac in computer for windows. 
+But sometimes if the compouter didn&#39;t install VS or doesn&#39;t have gac util tool, 
+how to install gac use comand line? I found a solution for it then memo it.</p>
+<pre class="prettyprint linenums lang-javascript">   1:  BEGIN {
+   2:      $ErrorActionPreference = &quot;Stop&quot;
+   3:      
+   4:      if ( $null -eq ([AppDomain]::CurrentDomain.GetAssemblies() |? { $_.FullName -eq &quot;System.EnterpriseServices, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a&quot; }) ) {
+   5:          [System.Reflection.Assembly]::Load(&quot;System.EnterpriseServices, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a&quot;) | Out-Null
+   6:      }
+   7:      
+   8:      $publish = New-Object System.EnterpriseServices.Internal.Publish
+   9:  }
+  10:  PROCESS {
+  11:      $assembly = $null
+  12:      
+  13:      if ( $_ -is [string] ) {
+  14:          $assembly = $_
+  15:      } elseif ( $_ -is [System.IO.FileInfo] ) {
+  16:          $assembly = $_.FullName
+  17:      } else {
+  18:          throw (&quot;The object type &#39;{0}&#39; is not supported.&quot; -f $_.GetType().FullName)
+  19:      }
+  20:      
+  21:      if ( -not (Test-Path $assembly -type Leaf) ) {
+  22:          throw &quot;The assembly &#39;$assembly&#39; does not exist.&quot;
+  23:      }
+  24:      
+  25:      if ( [System.Reflection.Assembly]::LoadFile( $assembly ).GetName().GetPublicKey().Length -eq 0 ) {
+  26:          throw &quot;The assembly &#39;$assembly&#39; must be strongly signed.&quot;
+  27:      }
+  28:      
+  29:      Write-Output &quot;Installing: $assembly&quot;
+  30:      
+  31:      $publish.GacInstall( $assembly )
+  32:  }
+</pre>
+<p>the reference: <a href="http://weblogs.asp.net/adweigert/powershell-install-gac-gacutil-for-powershell">PowerShell: Install-Gac (GACUTIL for PowerShell)</a></p>
+
+        </div>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES * * */
+            var disqus_shortname = 'shawdren';
+            
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                if(navigator.platform !== 'android' || navigator.platform !== 'undefined'){
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                }
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+        
+    </div>
+</div>
+        <div id="footer">
+            <div id="footer-inner">
+                <p id="copyright">Copyright (c) 2014-2015 Dino L.</p>
+            </div>
+        </div>
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$','$'], ['\\(','\\)']],
+            processEscapes: true
+        }
+    });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+    </body>
+    <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>    
+    <script type="text/javascript" src="/assets/vendor/prettify.js"></script>
+    <script type="text/javascript" src="/assets/js/main.js"></script>
+</html>
+
