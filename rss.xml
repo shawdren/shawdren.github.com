@@ -4,8 +4,52 @@
         <title>RSS feed title</title>
         <link>Homepage link</link>
         <description>RSS feed description</description>
-        <lastBuildDate>Tue, 27 Oct 2015 17:05:51 +0800</lastBuildDate>
+        <lastBuildDate>Tue, 27 Oct 2015 17:42:57 +0800</lastBuildDate>
         <language>en</language>
+        
+        <item>
+            <title>beautiful Chinese style</title>
+            <link>Homepage link/articles/beautiful-chinese-style.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/beautiful-chinese-style.html</guid>
+            <author>jl_lsj@outlook.com Dino Liu</author>
+            <pubDate>Tue, 27 Oct 2015 00:00:00 +0800</pubDate>
+            <description>&lt;h2 id=&quot;beautiful-chinese-style&quot;&gt;Beautiful Chinese style&lt;/h2&gt;
+&lt;p&gt;On the internet I found a list of chinese themes, they are so beautifully, I have based on those on to reassign colors for my blog. It much pretty than before. 
+Therefore I collected them on my blog to memo.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://ww1.sinaimg.cn/bmiddle/a94a8951gw1exfh8bgybmj20c81f9t9x.jpg&quot; alt=&quot;yuanqing&quot;&gt;
+&lt;img src=&quot;http://ww4.sinaimg.cn/bmiddle/a94a8951gw1exfh825daxj20c81f9dh3.jpg&quot; alt=&quot;xiangsihui&quot;&gt;
+&lt;img src=&quot;http://ww2.sinaimg.cn/bmiddle/a94a8951gw1exfh81fkcnj20c81f9wfw.jpg&quot; alt=&quot;quehui&quot;&gt;
+&lt;img src=&quot;http://ww2.sinaimg.cn/bmiddle/a94a8951gw1exfh80pp31j20c81f9q48.jpg&quot; alt=&quot;ZhanLan&quot;&gt;
+&lt;img src=&quot;http://ww2.sinaimg.cn/bmiddle/a94a8951gw1exfh7zq7yvj20c80y6wfj.jpg&quot; alt=&quot;tianqing&quot;&gt;
+&lt;img src=&quot;http://ww1.sinaimg.cn/bmiddle/a94a8951gw1exfh7z2p3wj20c81f90u5.jpg&quot; alt=&quot;KuLyv&quot;&gt;
+&lt;img src=&quot;http://ww1.sinaimg.cn/bmiddle/a94a8951gw1exfh7yf1imj20c80y60tp.jpg&quot; alt=&quot;ZiShuiJing&quot;&gt;
+&lt;img src=&quot;http://ww3.sinaimg.cn/bmiddle/a94a8951gw1exfh7xq78pj20c80y6wfi.jpg&quot; alt=&quot;ShiYangJin&quot;&gt;
+&lt;img src=&quot;http://ww3.sinaimg.cn/bmiddle/a94a8951gw1exfh7wy17qj20c80y6jsc.jpg&quot; alt=&quot;YinZhu&quot;&gt;&lt;/p&gt;
+&lt;p&gt;the rgb of them are:&lt;/p&gt;
+&lt;h3 id=&quot;yuanqing-rgb-62-60-61-&quot;&gt;YuanQing:      rgb(62,60,61)&lt;/h3&gt;
+&lt;h3 id=&quot;hongzao-rgb-79-83-85-&quot;&gt;HongZao:       rgb(79,83,85)&lt;/h3&gt;
+&lt;h3 id=&quot;shenyan-rgb-90-76-76-&quot;&gt;ShenYan:       rgb(90,76,76)&lt;/h3&gt;
+&lt;h3 id=&quot;xiangsihui-rgb-98-92-82-&quot;&gt;XiangSiHui:    rgb(98,92,82)&lt;/h3&gt;
+&lt;h3 id=&quot;xuanjin-rgb-121-111-84-&quot;&gt;XuanJin:       rgb(121,111,84)&lt;/h3&gt;
+&lt;h3 id=&quot;dailan-rgb-48-71-88-&quot;&gt;DaiLan:        rgb(48,71,88)&lt;/h3&gt;
+&lt;h3 id=&quot;quehui-rgb-69-86-103-&quot;&gt;QueHui:        rgb(69,86,103)&lt;/h3&gt;
+&lt;h3 id=&quot;huaqing-rgb-84-107-131-&quot;&gt;HuaQing:       rgb(84,107,131)&lt;/h3&gt;
+&lt;h3 id=&quot;shenzhuyue-rgb-37-120-181-&quot;&gt;ShenZhuYue:    rgb(37,120,181)&lt;/h3&gt;
+&lt;h3 id=&quot;dianlan-rgb-27-84-242-&quot;&gt;DianLan: rgb(27,84,242)&lt;/h3&gt;
+&lt;h3 id=&quot;biyushi-rgb-86-149-151-&quot;&gt;BiYuShi: rgb(86,149,151)&lt;/h3&gt;
+&lt;h3 id=&quot;chunlan-rgb-123-161-168-&quot;&gt;ChunLan: rgb(123,161,168)&lt;/h3&gt;
+&lt;h3 id=&quot;tianqing-rgb-46-195-231-&quot;&gt;TianQing: rgb(46,195,231)&lt;/h3&gt;
+&lt;h3 id=&quot;canglv-rgb-78-95-69-&quot;&gt;CangLv: rgb(78,95,69)&lt;/h3&gt;
+&lt;h3 id=&quot;kulv-rgb-183-178-120-&quot;&gt;KuLv: rgb(183,178,120)&lt;/h3&gt;
+&lt;h3 id=&quot;chunlv-rgb-227-239-209-&quot;&gt;ChunLv: rgb(227,239,209)&lt;/h3&gt;
+&lt;h3 id=&quot;jiangzi-rgb-112-77-78-&quot;&gt;JiangZi: rgb(112,77,78)&lt;/h3&gt;
+&lt;h3 id=&quot;zishuijing-rgb-195-166-203-&quot;&gt;ZiShuiJing: rgb(195,166,203)&lt;/h3&gt;
+&lt;h3 id=&quot;feihong-rgb-195-86-85-&quot;&gt;FeiHong: rgb(195,86,85)&lt;/h3&gt;
+&lt;h3 id=&quot;shiyangjin-rgb-252-177-170-&quot;&gt;ShiYangJin: rgb(252,177,170)&lt;/h3&gt;
+&lt;h3 id=&quot;chensha-rgb-175-94-83-&quot;&gt;ChenSHa: rgb(175,94,83)&lt;/h3&gt;
+&lt;h3 id=&quot;yinzhu-rgb-221-59-68-&quot;&gt;YinZhu: rgb(221,59,68)&lt;/h3&gt;
+</description>
+        </item>
         
         <item>
             <title>Install GAC without gacutil tool</title>
@@ -386,56 +430,6 @@ var gridStore = new Ext.data.ArrayStore({
 &lt;h3 id=&quot;-a-href-https-angular-uigithubio-bootstrap-ui-bootstrps-a-&quot;&gt;&lt;a href=&quot;https://angular-ui.github.io/bootstrap/&quot;&gt;UI Bootstrps&lt;/a&gt;&lt;/h3&gt;
 &lt;h3 id=&quot;-a-href-http-getbootstrapcom-getting-started-download-bootstrap-get-start-a-&quot;&gt;&lt;a href=&quot;http://getbootstrap.com/getting-started/#download&quot;&gt;Bootstrap get start&lt;/a&gt;&lt;/h3&gt;
 &lt;h3 id=&quot;-a-href-http-wwww3schoolscom-angular-defaultasp-w3c-school-learn-angular-js-a-&quot;&gt;&lt;a href=&quot;http://www.w3schools.com/angular/default.asp&quot;&gt;w3c school learn angular js&lt;/a&gt;&lt;/h3&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>A way to set config for addbutton of Panel in Extjs</title>
-            <link>Homepage link/articles/addconfig-addbutton-extjs.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
-            <guid>Homepage link/articles/addconfig-addbutton-extjs.html</guid>
-            <author>jl_lsj@outlook.com Dino Liu</author>
-            <pubDate>Mon, 20 Apr 2015 00:00:00 +0800</pubDate>
-            <description>&lt;h2 id=&quot;a-way-to-set-config-for-addbutton-of-panel-in-extjs&quot;&gt;A way to set config for addbutton of Panel in Extjs&lt;/h2&gt;
-&lt;p&gt;Via read source code of addButton(&lt;a href=&quot;http://docs.sencha.com/extjs/3.4.0/source/Panel.html#Ext-Panel-method-addButton&quot;&gt;http://docs.sencha.com/extjs/3.4.0/source/Panel.html#Ext-Panel-method-addButton&lt;/a&gt;), we can found out that there is a 
-handler parameter could be passed by outside or in the config itself.&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums lang-javascript&quot;&gt;    addButton : function(config, handler, scope){
-        if(!this.fbar){
-            this.createFbar([]);
-        }
-        if(handler){
-            if(Ext.isString(config)){
-                config = {text: config};
-            }
-            config = Ext.apply({
-                handler: handler,
-                scope: scope
-            }, config);
-        }
-        return this.fbar.add(config);
-    },
-&lt;/pre&gt;
-&lt;p&gt;so there are 2 ways to set the handler for buttons on the pannel.
-one is just add handler in the config&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums lang-javascript&quot;&gt; this.addButton({
-                    text: Label,
-                    Config: config,
-                    disabled: true,
-                    handler:function(){
-                        fireEvent(&#39;to do event&#39;);
-                    }
-                }, null, this);
-&lt;/pre&gt;
-&lt;p&gt;another way could be passed the handler parameter&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums lang-javascript&quot;&gt; this.addButton({
-                    text: config.Label,
-                    Config: config,
-                    disabled: true
-                }, config.handler ? config.handler : this.onButtonClick, this);
-...,
-onButtonClick:function(){
-    fireEvent(&#39;still needs fire Event for trigger click event&#39;);
-}
-&lt;/pre&gt;
 </description>
         </item>
         
