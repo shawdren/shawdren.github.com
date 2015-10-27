@@ -13,7 +13,7 @@ a:hover {
 p {
     font-size: 16px;
     line-height: 1.8em;
-    color: #ccc;
+    color: rgba(255,255,255,.8);
 }
 li {
     line-height: 1.8em;
@@ -141,7 +141,7 @@ div#article-content blockquote {
 }
 div#article-content li {
     margin: 7px 0;
-    color: #ccc;
+    color: rgba(255,255,255,.8);
 }
 div#article-meta {
     color: rgba(255,255,255,.8);
