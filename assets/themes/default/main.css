@@ -166,6 +166,9 @@ div.article-block a.tag {
     color: rgba(0,0,0,.5);
     padding: 3px;
     font-size: 14px;
+    -moz-border-radius: 5px; 
+    -webkit-border-radius: 5px; 
+    border-radius: 5px;
 }
 div#aboutme {
     margin: 20px auto;
@@ -185,6 +188,12 @@ div#tag-cloud {
     border: 1px dashed #ccc;
     margin: 20px 0;
     background-color: rgb(227, 239, 209);
+    -webkit-box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.25);
+    box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.25);
+    -moz-border-radius: 10px; 
+    -webkit-border-radius: 10px; 
+    border-radius: 10px;
 }
 div#tag-cloud a {
     margin: 6px;
@@ -216,6 +225,9 @@ div#article-tags a.tag {
     color: rgba(0,0,0,.5);
     padding: 3px;
     font-size: 14px;
+    -moz-border-radius: 5px; 
+    -webkit-border-radius: 5px; 
+    border-radius: 5px;
 }
 
 /* 导航栏 */
