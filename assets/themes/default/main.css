@@ -1,10 +1,11 @@
 /* 基础而通用的样式 */
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "WenQuanYi Micro Hei", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
+    background: rgb(123, 161, 168);
 }
 a {
     text-decoration: none;
-    color: #08c;
+    color: rgba(255,255,255,.8)
 }
 a:hover {
     text-decoration: underline;
@@ -12,13 +13,14 @@ a:hover {
 p {
     font-size: 16px;
     line-height: 1.8em;
-    color: #5a5a5a;
+    color: #ccc;
 }
 li {
     line-height: 1.8em;
 }
 h1, h2, h3, h4 {
     font-weight: normal;
+     color: #ccc;
 }
 
 /* 为代码块定义的样式 */
@@ -34,7 +36,7 @@ pre.prettyprint ol {
 
 /* 页面头部 */
 div#header {
-    background-color: #2a3440;
+        background-color:rgb(86,149,151);
     height: 80px;
 }
 div#header-inner {
@@ -58,7 +60,7 @@ div#title a {
     color: #fff;
 }
 div#subtitle {
-    color: rgba(255,255,255,.5);
+    color: rgb(255,255,255);
     font-weight: bold;
     font-size: 11px;
     direction: rtl;
@@ -103,6 +105,7 @@ div#subtitle {
 /* 页面底部 */
 div#footer-inner {
     border-top: 1px solid #5a5a5a;
+    background-color:rgb(86,149,151);
     width: 90%;
     max-width: 1024px;
     margin: 20px auto 0;
@@ -120,7 +123,7 @@ div#article-title {
     padding-left: 12px;
 }
 div#article-title a {
-    color: #2a2a2a;
+    color: rgba(255,255,255,1);;
 }
 div#article-content p.picture {
     text-align: center;
@@ -128,7 +131,7 @@ div#article-content p.picture {
 div#article-content h1,
                     h2,
                     h3 {
-    color: #2a2a2a;
+    color: rgba(255,255,255,1);;
 }
 div#article-content blockquote {
     margin-left: 5px;
@@ -138,10 +141,10 @@ div#article-content blockquote {
 }
 div#article-content li {
     margin: 7px 0;
-    color: #5a5a5a;
+    color: #ccc;
 }
 div#article-meta {
-    color: #999;
+    color: rgba(255,255,255,.8);
     padding: 6px 0;
 }
 div.article-block {
@@ -151,16 +154,16 @@ div.article-block p.title {
     font-size: 24px;
 }
 div.article-block p.title a {
-    color:#333;
+    color:rgba(255,255,255,.8);
 }
 div.article-block p.meta {
     text-align: right;
-    color: #999;
+    color: rgba(255,255,255,.8);
 }
 div.article-block a.tag {
     margin-right: 6px;
-    background-color: #999;
-    color: #fff;
+    background-color: rgb(227, 239, 209);
+    color: rgba(0,0,0,.5);
     padding: 3px;
     font-size: 14px;
 }
@@ -169,7 +172,7 @@ div#aboutme {
 }
 div#aboutme p {
     font-size: 14px;
-    color: #666;
+    color: rgba(255,255,255,.8);
 }
 div#rss {
     border-bottom: 1px dashed #ccc;
@@ -181,13 +184,13 @@ div#rss {
 div#tag-cloud {
     border: 1px dashed #ccc;
     margin: 20px 0;
-    background-color: #f0f0f0;
+    background-color: rgb(227, 239, 209);
 }
 div#tag-cloud a {
     margin: 6px;
     display: block;
     float: left;
-    background-color: #2a3440;
+    background-color: rgb(37, 120, 181);
     color: #fff;
     padding: 3px;
     font-size: 14px;
@@ -201,7 +204,7 @@ div#tag-index h1 {
     border-bottom: 1px dashed #ccc;
 }
 div#tag-index h1 a {
-    color: #2a2a2a;
+    color: #ccc;
     font-size: 24px;
 }
 div#article-tags {
@@ -209,8 +212,8 @@ div#article-tags {
 }
 div#article-tags a.tag {
     margin-right: 6px;
-    background-color: #999;
-    color: #FFFFFF;
+    background-color: rgb(227, 239, 209);
+    color: rgba(0,0,0,.5);
     padding: 3px;
     font-size: 14px;
 }
@@ -227,7 +230,7 @@ div#topnav ul li {
 }
 div#topnav ul li a {
     display: block;
-    color: #2a3440;
+    color: rgba(255,255,255,.8);
 }
 div#topnav ul li.sep {
     color: #ccc;
