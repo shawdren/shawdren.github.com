@@ -1,4 +1,32 @@
 $('#submit').click(function(){
+	openSearch();
+});
+$('#checkAll').click(function(){
+	if($(this).is(":checked")){
+		$.each($('[type=checkbox]'),function(index,value){
+			value.checked = true;
+		})
+	}else{
+		$.each($('[type=checkbox]'),function(index,value){
+			value.checked = false;
+		})
+	}
+});
+
+$('#name').focus(function(){
+	this.value=''
+});
+
+
+ $('#name').bind('keypress',function(event){
+    if(event.keyCode == "13")    
+    {
+        openSearch();
+		return false;
+	}
+ });       
+
+function openSearch(){
 	var name = $('#name').val();
 	if(name === ''){
 		return false;
@@ -20,22 +48,5 @@ $('#submit').click(function(){
 		    })
 	    }
 	}
-});
-$('#checkAll').click(function(){
-	if($(this).is(":checked")){
-		$.each($('[type=checkbox]'),function(index,value){
-			value.checked = true;
-		})
-	}else{
-		$.each($('[type=checkbox]'),function(index,value){
-			value.checked = false;
-		})
-	}
-});
-
-$('#name').focus(function(){
-	this.value=''
-});
-
-
+}
 	
