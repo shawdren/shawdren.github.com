@@ -1,3 +1,18 @@
+- id: dynamic-build-client-proxy
+  title: Build dynamic client proxy for WCF and WebService
+  postedOn: !!str 2016-5-24
+  author: Dino
+  tags:
+    - WCF
+    - WebService
+  abstract:  Build dynamic client proxy for WCF and WebService
+- id: mongo-db-tips
+  title: Some tips about Mongo db basically
+  postedOn: !!str 2016-5-13
+  author: Dino
+  tags:
+    - Mongo
+  abstract: Some tips about Mongo db basically
 - id: beautiful-chinese-style
   title: beautiful Chinese style
   postedOn: !!str 2015-10-27
@@ -156,5 +171,3 @@
   tags:
     - Article
   abstract: this is my first post
-
-  

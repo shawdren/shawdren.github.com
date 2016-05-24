@@ -1,0 +1,368 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="description" content="The technonlogy blog of Dino L (Shawdren)"/>
+        <meta name="keywords" content="C#, ASP.NET, ASP.NET MVC, Javascript, SQL Server, HTML, CSS.,English"/>
+        <meta name="author" content="Dino Liu (Shawdren) &lt;jl_lsj@outlook.com&gt;"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+        <title>Dino L. - Build dynamic client proxy for WCF and WebService
+</title>
+        <link rel="stylesheet" href="/assets/vendor/normalize.css"/>
+        <link rel="stylesheet" href="/assets/vendor/prettify-night.css"/>
+        <link rel="stylesheet" href="/assets/themes/default/main.css"/>
+        <link rel="shortcut icon" href="/fav.ico"/>
+        
+		<meta name="baidu-site-verification" content="iIi5BryJ7O" />
+    </head>
+    <body onload="prettyPrint()">
+    <div id="header">
+        <div id="header-inner">
+            <div class="logoContainer">
+                <div class="put-left">
+                    <a href="/">
+                        <img class="logo" src="http://tp3.sinaimg.cn/1044085270/180/39996370168/1" title="Dino">
+                    </a>
+                </div>
+                <div class="put-right">
+                    <div id="title">
+                        <a href="/">Dino L.</a>
+                    </div>
+                    <div id="subtitle">Rome was not built in a day</div>
+                </div>
+             </div>
+        </div>
+    </div>
+    <div class="topBread">
+    </div>
+
+<div id="main">
+    <div id="main-inner">
+        <div id="topnav">
+            <ul>
+                 <li><a href="/">Home</a></li>
+                <li class="sep"> | </li>
+                <li><a href="/tag.html">Tags</a></li>
+				<li class="sep"> | </li>
+                <li><a href="/pages/about-me.html">About Me</a></li>
+                
+<li class="sep"> | </li>
+<li><a href="../rss.xml" target="_blank">RSS</a></li>
+
+
+            </ul>
+            <div style="clear:both;"></div>
+        </div>
+        <div id="article-title">
+            <a href="/articles/dynamic-build-client-proxy.html">Build dynamic client proxy for WCF and WebService</a>
+        </div>
+        <div id="article-meta">
+           By Dino, updated 2016-5-24
+        </div>
+        <div id="article-tags">
+        
+        <a class="tag" href="/tag.html#WCF">WCF</a>
+        
+        <a class="tag" href="/tag.html#WebService">WebService</a>
+        
+        </div>
+        <div id="article-content">
+            <h2 id="how-to-build-dynamic-proxy-for-wcf-and-webservice">How to build dynamic proxy for WCF and WebService</h2>
+<p>In my daily job recnetly I got a bug which cannot generate assembly for services, but we don&#39;t which is wcf or web service,
+in our code only support for webservice to create proxy dynamically. In order to memo the research result, show some snippet here.</p>
+<ul>
+<li>For Webservice which is use ServiceDescriptionImporter</li>
+<li>For SVC which is use ServiceContractGenerator</li>
+</ul>
+<p>the difference for those classes refer from stackoverflow</p>
+<blockquote>
+<p>ServiceDescriptionImporter is the class that is used by the &quot;Add Web Reference&quot; dialog in VS and the &quot;wsdl.exe&quot; tool in the SDK to generate &quot;asmx&quot;-style client web service proxies. ServiceContractGenerator is the WCF equivalent, for the &quot;Add Service Reference&quot; dialog in VS and the &quot;svcutil.exe&quot; &gt;tool in the SDK. The former uses the asmx client infrastructure (System.Web.Services.Protocols.SoapHttpClientProtocol and friends) and the latter uses the WCF client infrastructure (System.ServiceModel.ClientBase and friends).</p>
+<p>Either will be able to talk to most services -- that is, it is intended for both the WCF and asmx client infrastructures to be broadly interoperable with a range of web services standards. A WCF client can talk to an asmx server (as well as servers from other vendors) and vice versa.</p>
+<p>That said, WCF is newer, richer, better supported, and supports more WS standards than does asmx. You will certainly not be locked into only supporting WCF services<br><a href="http://stackoverflow.com/a/1772461/3986569">ServiceContractGenerator vs ServiceDescriptionImporter</a></p>
+</blockquote>
+<h3 id="create-demo-project">Create demo project</h3>
+<p>create demo project, add console project and wcf project</p>
+<p>1 In wcf project add asmx and svc files</p>
+<p>2 in console project add below code to test</p>
+<blockquote>
+<p>ServiceDescription extenstion class
+```csharp
+using System;
+using System.Net;
+using System.Web.Services.Description;
+using System.Xml;</p>
+</blockquote>
+<p>public static class ServiceDescriptionExt
+{</p>
+<pre>public static ServiceDescription ReadEx(string wsdlUrl, NetworkCredential credential)
+{
+    XmlTextReader reader = GetXmlTextReader(wsdlUrl, credential);
+
+    if (!ServiceDescription.CanRead(reader))
+    {
+
+    }
+
+    ServiceDescription wsdl = ServiceDescription.Read(reader);
+
+    return wsdl;
+}
+
+public static System.ServiceModel.Description.WsdlImporter GetWsdlImporter(string wsdlUrl)
+{
+    var mexMode = System.ServiceModel.Description.MetadataExchangeClientMode.HttpGet;
+    var wsdlUri = new Uri(wsdlUrl);
+    var mexClient = new System.ServiceModel.Description.MetadataExchangeClient(wsdlUri, mexMode);
+    //mexClient.HttpCredentials = credential;
+    mexClient.ResolveMetadataReferences = true;
+    var metaDocs = mexClient.GetMetadata();
+    return new System.ServiceModel.Description.WsdlImporter(metaDocs);
+}
+
+public static XmlTextReader GetXmlTextReader(string wsdlUrl, NetworkCredential credential)
+{
+    Uri uri;
+    Uri.TryCreate(wsdlUrl, UriKind.Absolute, out uri);
+
+    XmlTextReader reader;
+    if (((uri == null) || (uri.Scheme != &quot;https&quot;)) &amp;&amp; (credential == null))
+    {
+        reader = new XmlTextReader(wsdlUrl);
+    }
+    else
+    {
+        var request = WebRequest.Create(wsdlUrl);
+        request.Credentials = credential;
+
+        if ((uri != null) &amp;&amp; (uri.Scheme == &quot;https&quot;) &amp;&amp; request is HttpWebRequest)
+            ((HttpWebRequest)request).ServerCertificateValidationCallback += RemoteCertificateValidationCallback;
+
+        WebResponse response = request.GetResponse();
+        reader = new XmlTextReader(response.GetResponseStream());
+    }
+
+    return reader;
+}
+
+private static bool RemoteCertificateValidationCallback(object sender, System.Security.Cryptography.X509Certificates.X509Certificate certificate, System.Security.Cryptography.X509Certificates.X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors)
+{
+    if (sslPolicyErrors == System.Net.Security.SslPolicyErrors.None)
+        return true;
+    else if (sslPolicyErrors == System.Net.Security.SslPolicyErrors.RemoteCertificateNotAvailable)
+        return false;
+    else if (sslPolicyErrors == System.Net.Security.SslPolicyErrors.RemoteCertificateNameMismatch)
+        return true;
+    return true;
+
+}
+</pre><p>}</p>
+<pre>
+&gt; the methods for generate proxy
+````csharp
+
+        private static void GenerateAssemblyForASMX()
+        {
+            var codeNamespace = new CodeNamespace();
+            var codeUnit = new CodeCompileUnit();
+            GenerateCSCodeForService(new EndpointAddress(@&quot;http://localhost:55771/Service1.svc&quot;), @&quot;D:\test.wsdl&quot;);
+            GenerateAssemblyForSVC(@&quot;c:\HEATService.wsdl&quot;);
+            codeUnit.Namespaces.Add(codeNamespace);
+            System.Web.Services.Description.ServiceDescription serviceDescription = ServiceDescriptionExt.ReadEx(@&quot;http://localhost:55771/WebService1.asmx?wsdl&quot;, new NetworkCredential());
+            var descriptionImporter = new ServiceDescriptionImporter { ProtocolName = &quot;Soap12&quot; };
+            descriptionImporter.AddServiceDescription(serviceDescription, null, null);
+            descriptionImporter.Style = ServiceDescriptionImportStyle.Client;
+            descriptionImporter.CodeGenerationOptions =
+                System.Xml.Serialization.CodeGenerationOptions.GenerateProperties;
+            ServiceDescriptionImportWarnings importWarnings = descriptionImporter.Import(codeNamespace, codeUnit);
+            if (importWarnings == 0)
+            {
+                var compiler = CodeDomProvider.CreateProvider(&quot;CSharp&quot;);
+
+                var references = new[] { &quot;System.Web.Services.dll&quot;, &quot;System.Xml.dll&quot; };
+
+                var parameters = new CompilerParameters(references);
+                var results = compiler.CompileAssemblyFromDom(parameters, codeUnit);
+
+                if (results.Errors.Cast&lt;CompilerError&gt;().Any())
+                {
+                    throw new Exception(&quot;Compilation Error Creating Assembly&quot;);
+                }
+                var a  = results.CompiledAssembly;
+            }
+            else
+            {
+                throw new Exception(&quot;Invalid WSDL&quot;);
+            }
+        }
+        static void GenerateCSCodeForService(EndpointAddress metadataAddress, string outputFile)
+        {
+            MetadataExchangeClient mexClient = new MetadataExchangeClient(
+                new Uri(@&quot;http://localhost:55771/Service1.svc?wsdl&quot;), MetadataExchangeClientMode.HttpGet);
+
+            mexClient.ResolveMetadataReferences = true;
+            MetadataSet metaDocs = mexClient.GetMetadata();
+
+            WsdlImporter importer = new WsdlImporter(metaDocs);
+            ServiceContractGenerator generator = new ServiceContractGenerator();
+
+            object dataContractImporter;
+            XsdDataContractImporter xsdDCImporter;
+            if (!importer.State.TryGetValue(typeof(XsdDataContractImporter), out dataContractImporter))
+            {
+                Console.WriteLine(&quot;Couldn&#39;t find the XsdDataContractImporter! Adding custom importer.&quot;);
+                xsdDCImporter = new XsdDataContractImporter();
+                xsdDCImporter.Options = new ImportOptions();
+                importer.State.Add(typeof(XsdDataContractImporter), xsdDCImporter);
+            }
+            else
+            {
+                xsdDCImporter = (XsdDataContractImporter)dataContractImporter;
+                if (xsdDCImporter.Options == null)
+                {
+                    Console.WriteLine(&quot;There were no ImportOptions on the importer.&quot;);
+                    xsdDCImporter.Options = new ImportOptions();
+                }
+            }
+           // xsdDCImporter.Options.DataContractSurrogate = new DCAnnotationSurrogate();
+
+            // Uncomment the following code if you are going to do your work programmatically rather than add 
+            // the WsdlDocumentationImporters through a configuration file. 
+            /*
+            // The following code inserts a custom WsdlImporter without removing the other 
+            // importers already in the collection.
+            System.Collections.Generic.IEnumerable&lt;IWsdlImportExtension&gt; exts = importer.WsdlImportExtensions;
+            System.Collections.Generic.List&lt;IWsdlImportExtension&gt; newExts 
+              = new System.Collections.Generic.List&lt;IWsdlImportExtension&gt;();
+            foreach (IWsdlImportExtension ext in exts)
+            {
+              Console.WriteLine(&quot;Default WSDL import extensions: {0}&quot;, ext.GetType().Name);
+              newExts.Add(ext);
+            }
+            newExts.Add(new WsdlDocumentationImporter());
+            System.Collections.Generic.IEnumerable&lt;IPolicyImportExtension&gt; polExts = importer.PolicyImportExtensions;
+            importer = new WsdlImporter(metaDocs, polExts, newExts);
+            */
+
+            System.Collections.ObjectModel.Collection&lt;ContractDescription&gt; contracts
+              = importer.ImportAllContracts();
+            importer.ImportAllEndpoints();
+            foreach (ContractDescription contract in contracts)
+            {
+                generator.GenerateServiceContractType(contract);
+            }
+            if (generator.Errors.Count != 0)
+                throw new Exception(&quot;There were errors during code compilation.&quot;);
+
+            //Write the code dom
+            System.CodeDom.Compiler.CodeGeneratorOptions options
+              = new System.CodeDom.Compiler.CodeGeneratorOptions();
+            options.BracingStyle = &quot;C&quot;;
+            System.CodeDom.Compiler.CodeDomProvider codeDomProvider
+              = System.CodeDom.Compiler.CodeDomProvider.CreateProvider(&quot;C#&quot;);
+            System.CodeDom.Compiler.IndentedTextWriter textWriter
+              = new System.CodeDom.Compiler.IndentedTextWriter(new System.IO.StreamWriter(outputFile));
+            codeDomProvider.GenerateCodeFromCompileUnit(
+              generator.TargetCompileUnit, textWriter, options
+            );
+            textWriter.Close();
+        }
+
+        public static void GenerateAssemblyForSVC(string url)
+        {
+            Uri address = new Uri(url);
+            MetadataExchangeClientMode mexMode = MetadataExchangeClientMode.HttpGet;
+            MetadataExchangeClient metadataExchangeClient = new MetadataExchangeClient(address, mexMode);
+            metadataExchangeClient.ResolveMetadataReferences = true;
+
+            //Trust all certificates
+            System.Net.ServicePointManager.ServerCertificateValidationCallback = ((sender, certificate, chain, sslPolicyErrors) =&gt; true);
+            ICredentials networkCredential = new NetworkCredential(&quot;username&quot;, &quot;password&quot;, &quot;domain&quot;);
+            metadataExchangeClient.HttpCredentials = networkCredential;
+
+            MetadataSet metadataSet = metadataExchangeClient.GetMetadata();
+            WsdlImporter wsdlImporter = new WsdlImporter(metadataSet);
+            Collection&lt;ContractDescription&gt; contracts = wsdlImporter.ImportAllContracts();
+            ServiceEndpointCollection allEndpoints = wsdlImporter.ImportAllEndpoints();
+
+            ServiceContractGenerator serviceContractGenerator = new ServiceContractGenerator();
+            foreach (ContractDescription contract in contracts)
+            {
+                serviceContractGenerator.GenerateServiceContractType(contract);
+            }
+
+            // Generate a code file for the contracts.
+            CodeGeneratorOptions codeGeneratorOptions = new CodeGeneratorOptions();
+            codeGeneratorOptions.BracingStyle = &quot;C&quot;;
+
+            // Create Compiler instance of a specified language.
+            CompilerResults compilerResults;
+            using (CodeDomProvider codeDomProvider = CodeDomProvider.CreateProvider(&quot;CSharp&quot;))
+            {
+
+                // Adding WCF-related assemblies references as copiler parameters, so as to do the compilation of particular service contract.
+                CompilerParameters compilerParameters = new CompilerParameters(new string[] { &quot;System.dll&quot;, &quot;System.ServiceModel.dll&quot;, &quot;System.Runtime.Serialization.dll&quot; });
+
+                compilerParameters.GenerateInMemory = true;
+                compilerParameters.WarningLevel = 1;
+
+                compilerResults = codeDomProvider.CompileAssemblyFromDom(compilerParameters, serviceContractGenerator.TargetCompileUnit);
+            }
+
+            if (compilerResults.Errors.Count &lt;= 0)
+            {
+                var assembly = compilerResults.CompiledAssembly;
+            }
+            else
+            {
+                foreach (CompilerError error in compilerResults.Errors)
+                {
+                    Console.WriteLine(error.ErrorNumber + &quot;: &quot; + error.ErrorText + &quot; &quot; + error.IsWarning + &quot; &quot; + error.Line);
+                }
+
+                throw new Exception(&quot;Compiler Errors - unable to build Web Service Assembly&quot;);
+            }
+        }
+</pre>
+        </div>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES * * */
+            var disqus_shortname = 'shawdren';
+            
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                if(navigator.platform !== 'android' || navigator.platform !== 'undefined'){
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                }
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+        
+    </div>
+</div>
+        <div id="footer">
+            <div id="footer-inner">
+                <p id="copyright">Copyright (c) 2014-2015 Dino L.</p>
+            </div>
+        </div>
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$','$'], ['\\(','\\)']],
+            processEscapes: true
+        }
+    });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+    </body>
+    <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>    
+    <script type="text/javascript" src="/assets/vendor/prettify.js"></script>
+    <script type="text/javascript" src="/assets/js/main.js"></script>
+</html>
+
