@@ -4,14 +4,14 @@
         <title>RSS feed title</title>
         <link>Homepage link</link>
         <description>RSS feed description</description>
-        <lastBuildDate>Tue, 24 May 2016 17:08:49 +0800</lastBuildDate>
+        <lastBuildDate>Wed, 25 May 2016 17:36:37 +0800</lastBuildDate>
         <language>en</language>
         
         <item>
             <title>Build dynamic client proxy for WCF and WebService</title>
             <link>Homepage link/articles/dynamic-build-client-proxy.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
             <guid>Homepage link/articles/dynamic-build-client-proxy.html</guid>
-            <author>jl_lsj@outlook.com Dino Liu</author>
+            <author>jl_lsj#outlook.com Dino Liu</author>
             <pubDate>Tue, 24 May 2016 00:00:00 +0800</pubDate>
             <description>&lt;h2 id=&quot;how-to-build-dynamic-proxy-for-wcf-and-webservice&quot;&gt;How to build dynamic proxy for WCF and WebService&lt;/h2&gt;
 &lt;p&gt;In my daily job recnetly I got a bug which cannot generate assembly for services, but we don&#39;t which is wcf or web service,
@@ -30,82 +30,84 @@ in our code only support for webservice to create proxy dynamically. In order to
 &lt;p&gt;create demo project, add console project and wcf project&lt;/p&gt;
 &lt;p&gt;1 In wcf project add asmx and svc files&lt;/p&gt;
 &lt;p&gt;2 in console project add below code to test&lt;/p&gt;
+&lt;p&gt;3 The third way is using service hosting &lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;ServiceDescription extenstion class
-```csharp
-using System;
+&lt;p&gt;ServiceDescription extenstion class&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&quot;prettyprint linenums lang-csharp&quot;&gt;using System;
 using System.Net;
 using System.Web.Services.Description;
-using System.Xml;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;public static class ServiceDescriptionExt
-{&lt;/p&gt;
-&lt;pre&gt;public static ServiceDescription ReadEx(string wsdlUrl, NetworkCredential credential)
+using System.Xml;
+
+
+public static class ServiceDescriptionExt
 {
-    XmlTextReader reader = GetXmlTextReader(wsdlUrl, credential);
 
-    if (!ServiceDescription.CanRead(reader))
+    public static ServiceDescription ReadEx(string wsdlUrl, NetworkCredential credential)
     {
+        XmlTextReader reader = GetXmlTextReader(wsdlUrl, credential);
 
+        if (!ServiceDescription.CanRead(reader))
+        {
+
+        }
+
+        ServiceDescription wsdl = ServiceDescription.Read(reader);
+
+        return wsdl;
     }
 
-    ServiceDescription wsdl = ServiceDescription.Read(reader);
-
-    return wsdl;
-}
-
-public static System.ServiceModel.Description.WsdlImporter GetWsdlImporter(string wsdlUrl)
-{
-    var mexMode = System.ServiceModel.Description.MetadataExchangeClientMode.HttpGet;
-    var wsdlUri = new Uri(wsdlUrl);
-    var mexClient = new System.ServiceModel.Description.MetadataExchangeClient(wsdlUri, mexMode);
-    //mexClient.HttpCredentials = credential;
-    mexClient.ResolveMetadataReferences = true;
-    var metaDocs = mexClient.GetMetadata();
-    return new System.ServiceModel.Description.WsdlImporter(metaDocs);
-}
-
-public static XmlTextReader GetXmlTextReader(string wsdlUrl, NetworkCredential credential)
-{
-    Uri uri;
-    Uri.TryCreate(wsdlUrl, UriKind.Absolute, out uri);
-
-    XmlTextReader reader;
-    if (((uri == null) || (uri.Scheme != &quot;https&quot;)) &amp;&amp; (credential == null))
+    public static System.ServiceModel.Description.WsdlImporter GetWsdlImporter(string wsdlUrl)
     {
-        reader = new XmlTextReader(wsdlUrl);
-    }
-    else
-    {
-        var request = WebRequest.Create(wsdlUrl);
-        request.Credentials = credential;
-
-        if ((uri != null) &amp;&amp; (uri.Scheme == &quot;https&quot;) &amp;&amp; request is HttpWebRequest)
-            ((HttpWebRequest)request).ServerCertificateValidationCallback += RemoteCertificateValidationCallback;
-
-        WebResponse response = request.GetResponse();
-        reader = new XmlTextReader(response.GetResponseStream());
+        var mexMode = System.ServiceModel.Description.MetadataExchangeClientMode.HttpGet;
+        var wsdlUri = new Uri(wsdlUrl);
+        var mexClient = new System.ServiceModel.Description.MetadataExchangeClient(wsdlUri, mexMode);
+        //mexClient.HttpCredentials = credential;
+        mexClient.ResolveMetadataReferences = true;
+        var metaDocs = mexClient.GetMetadata();
+        return new System.ServiceModel.Description.WsdlImporter(metaDocs);
     }
 
-    return reader;
-}
+    public static XmlTextReader GetXmlTextReader(string wsdlUrl, NetworkCredential credential)
+    {
+        Uri uri;
+        Uri.TryCreate(wsdlUrl, UriKind.Absolute, out uri);
 
-private static bool RemoteCertificateValidationCallback(object sender, System.Security.Cryptography.X509Certificates.X509Certificate certificate, System.Security.Cryptography.X509Certificates.X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors)
-{
-    if (sslPolicyErrors == System.Net.Security.SslPolicyErrors.None)
+        XmlTextReader reader;
+        if (((uri == null) || (uri.Scheme != &quot;https&quot;)) &amp;&amp; (credential == null))
+        {
+            reader = new XmlTextReader(wsdlUrl);
+        }
+        else
+        {
+            var request = WebRequest.Create(wsdlUrl);
+            request.Credentials = credential;
+
+            if ((uri != null) &amp;&amp; (uri.Scheme == &quot;https&quot;) &amp;&amp; request is HttpWebRequest)
+                ((HttpWebRequest)request).ServerCertificateValidationCallback += RemoteCertificateValidationCallback;
+
+            WebResponse response = request.GetResponse();
+            reader = new XmlTextReader(response.GetResponseStream());
+        }
+
+        return reader;
+    }
+
+    private static bool RemoteCertificateValidationCallback(object sender, System.Security.Cryptography.X509Certificates.X509Certificate certificate, System.Security.Cryptography.X509Certificates.X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors)
+    {
+        if (sslPolicyErrors == System.Net.Security.SslPolicyErrors.None)
+            return true;
+        else if (sslPolicyErrors == System.Net.Security.SslPolicyErrors.RemoteCertificateNotAvailable)
+            return false;
+        else if (sslPolicyErrors == System.Net.Security.SslPolicyErrors.RemoteCertificateNameMismatch)
+            return true;
         return true;
-    else if (sslPolicyErrors == System.Net.Security.SslPolicyErrors.RemoteCertificateNotAvailable)
-        return false;
-    else if (sslPolicyErrors == System.Net.Security.SslPolicyErrors.RemoteCertificateNameMismatch)
-        return true;
-    return true;
 
+    }
 }
-&lt;/pre&gt;&lt;p&gt;}&lt;/p&gt;
-&lt;pre&gt;
-&gt; the methods for generate proxy
-````csharp
-
+&lt;/pre&gt;
+&lt;p&gt; the methods for generate proxy&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-csharp&quot;&gt;
         private static void GenerateAssemblyForASMX()
         {
             var codeNamespace = new CodeNamespace();
@@ -268,14 +270,159 @@ private static bool RemoteCertificateValidationCallback(object sender, System.Se
                 throw new Exception(&quot;Compiler Errors - unable to build Web Service Assembly&quot;);
             }
         }
-&lt;/pre&gt;</description>
+&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Using self-service hosting way to deply WCF&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&quot;prettyprint linenums lang-csharp&quot;&gt;using System;
+using System.Runtime.Serialization;
+using System.ServiceModel;
+using System.ServiceModel.Description;
+using System.ServiceModel.Web;
+
+
+public static class HostService
+{
+
+    [ServiceContract(Namespace = &quot;WCFServiceHost&quot;)]
+    public interface ICalculator
+    {
+        [WebInvoke(ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped)]
+        MathResult DoMathJson(double n1, double n2);
+
+        [WebInvoke(ResponseFormat = WebMessageFormat.Xml, BodyStyle = WebMessageBodyStyle.Wrapped)]
+        MathResult DoMathXml(double n1, double n2);
+
+    }
+
+    public class CalculatorService : ICalculator
+    {
+
+        public MathResult DoMathJson(double n1, double n2)
+        {
+            return DoMath(n1, n2);
+        }
+
+        public MathResult DoMathXml(double n1, double n2)
+        {
+            return DoMath(n1, n2);
+        }
+
+        private MathResult DoMath(double n1, double n2)
+        {
+            MathResult mr = new MathResult();
+            mr.sum = n1 + n2;
+            mr.difference = n1 - n2;
+            mr.product = n1 * n2;
+            mr.quotient = n1 / n2;
+            return mr;
+        }
+    }
+
+    [DataContract]
+    public class MathResult
+    {
+        [DataMember]
+        public double sum;
+
+        [DataMember]
+        public double difference;
+
+        [DataMember]
+        public double product;
+
+        [DataMember]
+        public double quotient;
+    }
+
+    public static void Host()
+    {
+        var adrs = new Uri[1];
+        adrs[0] = new Uri(&quot;http://localhost:3980/service&quot;);
+        using (ServiceHost serviceHost = new ServiceHost(typeof(CalculatorService), adrs))
+        {
+            try
+            {
+
+                ServiceMetadataBehavior smb = new ServiceMetadataBehavior();
+                smb.HttpGetEnabled = true;
+                smb.MetadataExporter.PolicyVersion = PolicyVersion.Policy15;
+                serviceHost.Description.Behaviors.Add(smb);
+
+                // Open the ServiceHost to start listening for messages.
+                serviceHost.Open();
+
+                // The service can now be accessed.
+                Console.WriteLine(&quot;The service is ready.&quot;);
+                Console.WriteLine(&quot;Press &lt;ENTER&gt; to terminate service.&quot;);
+                Console.ReadLine();
+
+                // Close the ServiceHost.
+                serviceHost.Close();
+            }
+            catch (TimeoutException timeProblem)
+            {
+                Console.WriteLine(timeProblem.Message);
+                Console.ReadLine();
+            }
+            catch (CommunicationException commProblem)
+            {
+                Console.WriteLine(commProblem.Message);
+                Console.ReadLine();
+            }
+        }
+    }
+}
+&lt;/pre&gt;
+&lt;p&gt;Once we generated assembly, then we can use that to call service&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-csharp&quot;&gt;
+        private static void Execute(string wsdlUrl)
+        {
+            var clientProxyType = asm.GetTypes().First(
+                t =&gt; t.IsClass &amp;&amp; t.Name == &quot;Calculator&quot; + &quot;Client&quot; &amp;&amp;
+                     t.GetInterface(typeof(ICommunicationObject).Name) != null);
+
+            var interfaces = clientProxyType.GetInterfaces();
+            var currentServiceEndpoint = (from itm in interfaces select allEndpoints).FirstOrDefault();
+
+            if (currentServiceEndpoint == null)
+            {
+                throw new Exception(&quot;No endpoint found&quot;);
+            }
+
+            var endpoint = currentServiceEndpoint.FirstOrDefault(itm =&gt; wsdlUrl.Contains(itm.Address.ToString()));
+            if (endpoint == null)
+            {
+                throw new Exception(&quot;No binding found&quot;);
+            }
+
+            object obj = asm.CreateInstance(
+               clientProxyType.Name,
+               false,
+               BindingFlags.CreateInstance,
+               null,
+               new object[] { endpoint.Binding, endpoint.Address },
+               CultureInfo.CurrentCulture,
+               null);
+            Type type = obj.GetType();
+            List&lt;object&gt; args = new List&lt;object&gt;();
+            var methodName = &quot;DoMathXml&quot;;
+
+            var memInfo = type.GetMethod(methodName);
+            var memParams = memInfo.GetParameters();
+            args.Add(2);
+            args.Add(2);
+            var result = type.InvokeMember(&quot;DoMathXml&quot;, BindingFlags.InvokeMethod, null, obj, args.ToArray());
+        }
+&lt;/pre&gt;
+</description>
         </item>
         
         <item>
             <title>Some tips about Mongo db basically</title>
             <link>Homepage link/articles/mongo-db-tips.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
             <guid>Homepage link/articles/mongo-db-tips.html</guid>
-            <author>jl_lsj@outlook.com Dino Liu</author>
+            <author>jl_lsj#outlook.com Dino Liu</author>
             <pubDate>Fri, 13 May 2016 00:00:00 +0800</pubDate>
             <description>&lt;p&gt;Some tips about mongodb&lt;/p&gt;
 &lt;pre&gt;CRUD Operations:
@@ -453,7 +600,7 @@ Denormalization Summary:
             <title>beautiful Chinese style</title>
             <link>Homepage link/articles/beautiful-chinese-style.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
             <guid>Homepage link/articles/beautiful-chinese-style.html</guid>
-            <author>jl_lsj@outlook.com Dino Liu</author>
+            <author>jl_lsj#outlook.com Dino Liu</author>
             <pubDate>Tue, 27 Oct 2015 00:00:00 +0800</pubDate>
             <description>&lt;h2 id=&quot;beautiful-chinese-style&quot;&gt;Beautiful Chinese style&lt;/h2&gt;
 &lt;p&gt;On the internet I found a list of chinese themes, they are so beautifully, I have based on those on to reassign colors for my blog. It much pretty than before. 
@@ -497,7 +644,7 @@ Therefore I collected them on my blog to memo.&lt;/p&gt;
             <title>Install GAC without gacutil tool</title>
             <link>Homepage link/articles/install gac without gacutil tool.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
             <guid>Homepage link/articles/install gac without gacutil tool.html</guid>
-            <author>jl_lsj@outlook.com Dino Liu</author>
+            <author>jl_lsj#outlook.com Dino Liu</author>
             <pubDate>Mon, 21 Sep 2015 00:00:00 +0800</pubDate>
             <description>&lt;h2 id=&quot;install-gac-without-gacutil-too&quot;&gt;Install GAC without gacutil too&lt;/h2&gt;
 &lt;p&gt;Most time we should be use gac util too to instll gac in computer for windows. 
@@ -544,7 +691,7 @@ how to install gac use comand line? I found a solution for it then memo it.&lt;/
             <title>the book memo of you don&#39;t know js - ES 6</title>
             <link>Homepage link/articles/you donot know js -es 6.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
             <guid>Homepage link/articles/you donot know js -es 6.html</guid>
-            <author>jl_lsj@outlook.com Dino Liu</author>
+            <author>jl_lsj#outlook.com Dino Liu</author>
             <pubDate>Thu, 10 Sep 2015 00:00:00 +0800</pubDate>
             <description>&lt;h2 id=&quot;the-book-memo-of-you-don-39-t-know-js-es-6&quot;&gt;The book memo of you don&#39;t know js - ES 6&lt;/h2&gt;
 &lt;hr&gt;
@@ -584,7 +731,7 @@ It&#39;s a essential book for ECMA Script 6.&lt;/p&gt;
             <title>The best practices on linux</title>
             <link>Homepage link/articles/the best practices on linux.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
             <guid>Homepage link/articles/the best practices on linux.html</guid>
-            <author>jl_lsj@outlook.com Dino Liu</author>
+            <author>jl_lsj#outlook.com Dino Liu</author>
             <pubDate>Mon, 10 Aug 2015 00:00:00 +0800</pubDate>
             <description>&lt;h2 id=&quot;the-best-practices-on-linux&quot;&gt;The best practices on Linux&lt;/h2&gt;
 &lt;h3 id=&quot;1-create-bat-file-for-cp-file&quot;&gt;1. create bat file for cp file.&lt;/h3&gt;
@@ -605,7 +752,7 @@ here, we could be create a bat file&lt;/p&gt;
             <title>the basic shell command</title>
             <link>Homepage link/articles/basic shell command for linux.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
             <guid>Homepage link/articles/basic shell command for linux.html</guid>
-            <author>jl_lsj@outlook.com Dino Liu</author>
+            <author>jl_lsj#outlook.com Dino Liu</author>
             <pubDate>Sat, 01 Aug 2015 00:00:00 +0800</pubDate>
             <description>&lt;h2 id=&quot;the-basic-command-of-shell&quot;&gt;The basic command of shell&lt;/h2&gt;
 &lt;ul&gt;
@@ -683,7 +830,7 @@ here, we could be create a bat file&lt;/p&gt;
             <title>The tip of unescape html code in JS</title>
             <link>Homepage link/articles/unescape-html-code.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
             <guid>Homepage link/articles/unescape-html-code.html</guid>
-            <author>jl_lsj@outlook.com Dino Liu</author>
+            <author>jl_lsj#outlook.com Dino Liu</author>
             <pubDate>Fri, 17 Jul 2015 00:00:00 +0800</pubDate>
             <description>&lt;h1 id=&quot;the-tips-of-js-development&quot;&gt;The tips of js development&lt;/h1&gt;
 &lt;p&gt;In some case there is html code to display in textbox or label, it&#39;s not human world, so that&#39;s need unescape the html code,
@@ -720,7 +867,7 @@ and some JS libraries are include this function, such as string.js and underscor
             <title>How to set checkbox in header column of grid panel</title>
             <link>Homepage link/articles/extjs-gridpanel-checkbox-checkall.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
             <guid>Homepage link/articles/extjs-gridpanel-checkbox-checkall.html</guid>
-            <author>jl_lsj@outlook.com Dino Liu</author>
+            <author>jl_lsj#outlook.com Dino Liu</author>
             <pubDate>Fri, 03 Jul 2015 00:00:00 +0800</pubDate>
             <description>&lt;p&gt;The tips of how to set checkbox value in header of gridPanel&lt;/p&gt;
 &lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
@@ -775,7 +922,7 @@ the reference link is &lt;a href=&quot;http://stackoverflow.com/questions/796960
             <title>How to filter data for comboBox in extjs</title>
             <link>Homepage link/articles/set-filter-data-for-combo-in-extjs.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
             <guid>Homepage link/articles/set-filter-data-for-combo-in-extjs.html</guid>
-            <author>jl_lsj@outlook.com Dino Liu</author>
+            <author>jl_lsj#outlook.com Dino Liu</author>
             <pubDate>Mon, 25 May 2015 00:00:00 +0800</pubDate>
             <description>&lt;h3 id=&quot;backgournd&quot;&gt;Backgournd&lt;/h3&gt;
 &lt;p&gt;Here is a common function that in the maintenance from which has a comboBox field and a data grid, once add a new record and pick up a value from

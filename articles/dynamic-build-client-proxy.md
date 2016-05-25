@@ -22,9 +22,12 @@ create demo project, add console project and wcf project
 
 2 in console project add below code to test
 
+3 The third way is using service hosting 
+
 
 > ServiceDescription extenstion class
-```csharp
+
+````csharp
 using System;
 using System.Net;
 using System.Web.Services.Description;
@@ -99,7 +102,8 @@ public static class ServiceDescriptionExt
 
 ````
 
-> the methods for generate proxy
+ the methods for generate proxy
+
 ````csharp
 
         private static void GenerateAssemblyForASMX()
@@ -265,6 +269,112 @@ public static class ServiceDescriptionExt
             }
         }
 ````
+
+>Using self-service hosting way to deply WCF
+
+````csharp
+using System;
+using System.Runtime.Serialization;
+using System.ServiceModel;
+using System.ServiceModel.Description;
+using System.ServiceModel.Web;
+
+
+public static class HostService
+{
+
+    [ServiceContract(Namespace = "WCFServiceHost")]
+    public interface ICalculator
+    {
+        [WebInvoke(ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped)]
+        MathResult DoMathJson(double n1, double n2);
+
+        [WebInvoke(ResponseFormat = WebMessageFormat.Xml, BodyStyle = WebMessageBodyStyle.Wrapped)]
+        MathResult DoMathXml(double n1, double n2);
+
+    }
+
+    public class CalculatorService : ICalculator
+    {
+
+        public MathResult DoMathJson(double n1, double n2)
+        {
+            return DoMath(n1, n2);
+        }
+
+        public MathResult DoMathXml(double n1, double n2)
+        {
+            return DoMath(n1, n2);
+        }
+
+        private MathResult DoMath(double n1, double n2)
+        {
+            MathResult mr = new MathResult();
+            mr.sum = n1 + n2;
+            mr.difference = n1 - n2;
+            mr.product = n1 * n2;
+            mr.quotient = n1 / n2;
+            return mr;
+        }
+    }
+
+    [DataContract]
+    public class MathResult
+    {
+        [DataMember]
+        public double sum;
+
+        [DataMember]
+        public double difference;
+
+        [DataMember]
+        public double product;
+
+        [DataMember]
+        public double quotient;
+    }
+
+    public static void Host()
+    {
+        var adrs = new Uri[1];
+        adrs[0] = new Uri("http://localhost:3980/service");
+        using (ServiceHost serviceHost = new ServiceHost(typeof(CalculatorService), adrs))
+        {
+            try
+            {
+
+                ServiceMetadataBehavior smb = new ServiceMetadataBehavior();
+                smb.HttpGetEnabled = true;
+                smb.MetadataExporter.PolicyVersion = PolicyVersion.Policy15;
+                serviceHost.Description.Behaviors.Add(smb);
+
+                // Open the ServiceHost to start listening for messages.
+                serviceHost.Open();
+
+                // The service can now be accessed.
+                Console.WriteLine("The service is ready.");
+                Console.WriteLine("Press <ENTER> to terminate service.");
+                Console.ReadLine();
+
+                // Close the ServiceHost.
+                serviceHost.Close();
+            }
+            catch (TimeoutException timeProblem)
+            {
+                Console.WriteLine(timeProblem.Message);
+                Console.ReadLine();
+            }
+            catch (CommunicationException commProblem)
+            {
+                Console.WriteLine(commProblem.Message);
+                Console.ReadLine();
+            }
+        }
+    }
+}
+
+````
+
 Once we generated assembly, then we can use that to call service
 
 ````csharp

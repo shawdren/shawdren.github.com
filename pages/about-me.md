@@ -8,5 +8,5 @@
 * I am not a perfect one, but always pursuing to be perfect. 
 Contact
 =======
-* Email: jl_lsj@outlook.com
+* Email: jl_lsj#outlook.com
 * Skype: shawdren

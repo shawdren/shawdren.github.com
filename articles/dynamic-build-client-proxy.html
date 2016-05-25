@@ -6,9 +6,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="description" content="The technonlogy blog of Dino L (Shawdren)"/>
         <meta name="keywords" content="C#, ASP.NET, ASP.NET MVC, Javascript, SQL Server, HTML, CSS.,English"/>
-        <meta name="author" content="Dino Liu (Shawdren) &lt;jl_lsj@outlook.com&gt;"/>
+        <meta name="author" content="Dino Liu (Shawdren) &lt;jl_lsj#outlook.com&gt;"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-        <title>Dino L. - Build dynamic client proxy for WCF and WebService
+        <title>Dino L - Build dynamic client proxy for WCF and WebService
 </title>
         <link rel="stylesheet" href="/assets/vendor/normalize.css"/>
         <link rel="stylesheet" href="/assets/vendor/prettify-night.css"/>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="put-right">
                     <div id="title">
-                        <a href="/">Dino L.</a>
+                        <a href="/">Dino L</a>
                     </div>
                     <div id="subtitle">Rome was not built in a day</div>
                 </div>
@@ -86,82 +86,84 @@ in our code only support for webservice to create proxy dynamically. In order to
 <p>create demo project, add console project and wcf project</p>
 <p>1 In wcf project add asmx and svc files</p>
 <p>2 in console project add below code to test</p>
+<p>3 The third way is using service hosting </p>
 <blockquote>
-<p>ServiceDescription extenstion class
-```csharp
-using System;
+<p>ServiceDescription extenstion class</p>
+</blockquote>
+<pre class="prettyprint linenums lang-csharp">using System;
 using System.Net;
 using System.Web.Services.Description;
-using System.Xml;</p>
-</blockquote>
-<p>public static class ServiceDescriptionExt
-{</p>
-<pre>public static ServiceDescription ReadEx(string wsdlUrl, NetworkCredential credential)
+using System.Xml;
+
+
+public static class ServiceDescriptionExt
 {
-    XmlTextReader reader = GetXmlTextReader(wsdlUrl, credential);
 
-    if (!ServiceDescription.CanRead(reader))
+    public static ServiceDescription ReadEx(string wsdlUrl, NetworkCredential credential)
     {
+        XmlTextReader reader = GetXmlTextReader(wsdlUrl, credential);
 
+        if (!ServiceDescription.CanRead(reader))
+        {
+
+        }
+
+        ServiceDescription wsdl = ServiceDescription.Read(reader);
+
+        return wsdl;
     }
 
-    ServiceDescription wsdl = ServiceDescription.Read(reader);
-
-    return wsdl;
-}
-
-public static System.ServiceModel.Description.WsdlImporter GetWsdlImporter(string wsdlUrl)
-{
-    var mexMode = System.ServiceModel.Description.MetadataExchangeClientMode.HttpGet;
-    var wsdlUri = new Uri(wsdlUrl);
-    var mexClient = new System.ServiceModel.Description.MetadataExchangeClient(wsdlUri, mexMode);
-    //mexClient.HttpCredentials = credential;
-    mexClient.ResolveMetadataReferences = true;
-    var metaDocs = mexClient.GetMetadata();
-    return new System.ServiceModel.Description.WsdlImporter(metaDocs);
-}
-
-public static XmlTextReader GetXmlTextReader(string wsdlUrl, NetworkCredential credential)
-{
-    Uri uri;
-    Uri.TryCreate(wsdlUrl, UriKind.Absolute, out uri);
-
-    XmlTextReader reader;
-    if (((uri == null) || (uri.Scheme != &quot;https&quot;)) &amp;&amp; (credential == null))
+    public static System.ServiceModel.Description.WsdlImporter GetWsdlImporter(string wsdlUrl)
     {
-        reader = new XmlTextReader(wsdlUrl);
-    }
-    else
-    {
-        var request = WebRequest.Create(wsdlUrl);
-        request.Credentials = credential;
-
-        if ((uri != null) &amp;&amp; (uri.Scheme == &quot;https&quot;) &amp;&amp; request is HttpWebRequest)
-            ((HttpWebRequest)request).ServerCertificateValidationCallback += RemoteCertificateValidationCallback;
-
-        WebResponse response = request.GetResponse();
-        reader = new XmlTextReader(response.GetResponseStream());
+        var mexMode = System.ServiceModel.Description.MetadataExchangeClientMode.HttpGet;
+        var wsdlUri = new Uri(wsdlUrl);
+        var mexClient = new System.ServiceModel.Description.MetadataExchangeClient(wsdlUri, mexMode);
+        //mexClient.HttpCredentials = credential;
+        mexClient.ResolveMetadataReferences = true;
+        var metaDocs = mexClient.GetMetadata();
+        return new System.ServiceModel.Description.WsdlImporter(metaDocs);
     }
 
-    return reader;
-}
+    public static XmlTextReader GetXmlTextReader(string wsdlUrl, NetworkCredential credential)
+    {
+        Uri uri;
+        Uri.TryCreate(wsdlUrl, UriKind.Absolute, out uri);
 
-private static bool RemoteCertificateValidationCallback(object sender, System.Security.Cryptography.X509Certificates.X509Certificate certificate, System.Security.Cryptography.X509Certificates.X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors)
-{
-    if (sslPolicyErrors == System.Net.Security.SslPolicyErrors.None)
+        XmlTextReader reader;
+        if (((uri == null) || (uri.Scheme != &quot;https&quot;)) &amp;&amp; (credential == null))
+        {
+            reader = new XmlTextReader(wsdlUrl);
+        }
+        else
+        {
+            var request = WebRequest.Create(wsdlUrl);
+            request.Credentials = credential;
+
+            if ((uri != null) &amp;&amp; (uri.Scheme == &quot;https&quot;) &amp;&amp; request is HttpWebRequest)
+                ((HttpWebRequest)request).ServerCertificateValidationCallback += RemoteCertificateValidationCallback;
+
+            WebResponse response = request.GetResponse();
+            reader = new XmlTextReader(response.GetResponseStream());
+        }
+
+        return reader;
+    }
+
+    private static bool RemoteCertificateValidationCallback(object sender, System.Security.Cryptography.X509Certificates.X509Certificate certificate, System.Security.Cryptography.X509Certificates.X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors)
+    {
+        if (sslPolicyErrors == System.Net.Security.SslPolicyErrors.None)
+            return true;
+        else if (sslPolicyErrors == System.Net.Security.SslPolicyErrors.RemoteCertificateNotAvailable)
+            return false;
+        else if (sslPolicyErrors == System.Net.Security.SslPolicyErrors.RemoteCertificateNameMismatch)
+            return true;
         return true;
-    else if (sslPolicyErrors == System.Net.Security.SslPolicyErrors.RemoteCertificateNotAvailable)
-        return false;
-    else if (sslPolicyErrors == System.Net.Security.SslPolicyErrors.RemoteCertificateNameMismatch)
-        return true;
-    return true;
 
+    }
 }
-</pre><p>}</p>
-<pre>
-&gt; the methods for generate proxy
-````csharp
-
+</pre>
+<p> the methods for generate proxy</p>
+<pre class="prettyprint linenums lang-csharp">
         private static void GenerateAssemblyForASMX()
         {
             var codeNamespace = new CodeNamespace();
@@ -324,7 +326,111 @@ private static bool RemoteCertificateValidationCallback(object sender, System.Se
                 throw new Exception(&quot;Compiler Errors - unable to build Web Service Assembly&quot;);
             }
         }
-</pre><p>Once we generated assembly, then we can use that to call service</p>
+</pre>
+<blockquote>
+<p>Using self-service hosting way to deply WCF</p>
+</blockquote>
+<pre class="prettyprint linenums lang-csharp">using System;
+using System.Runtime.Serialization;
+using System.ServiceModel;
+using System.ServiceModel.Description;
+using System.ServiceModel.Web;
+
+
+public static class HostService
+{
+
+    [ServiceContract(Namespace = &quot;WCFServiceHost&quot;)]
+    public interface ICalculator
+    {
+        [WebInvoke(ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped)]
+        MathResult DoMathJson(double n1, double n2);
+
+        [WebInvoke(ResponseFormat = WebMessageFormat.Xml, BodyStyle = WebMessageBodyStyle.Wrapped)]
+        MathResult DoMathXml(double n1, double n2);
+
+    }
+
+    public class CalculatorService : ICalculator
+    {
+
+        public MathResult DoMathJson(double n1, double n2)
+        {
+            return DoMath(n1, n2);
+        }
+
+        public MathResult DoMathXml(double n1, double n2)
+        {
+            return DoMath(n1, n2);
+        }
+
+        private MathResult DoMath(double n1, double n2)
+        {
+            MathResult mr = new MathResult();
+            mr.sum = n1 + n2;
+            mr.difference = n1 - n2;
+            mr.product = n1 * n2;
+            mr.quotient = n1 / n2;
+            return mr;
+        }
+    }
+
+    [DataContract]
+    public class MathResult
+    {
+        [DataMember]
+        public double sum;
+
+        [DataMember]
+        public double difference;
+
+        [DataMember]
+        public double product;
+
+        [DataMember]
+        public double quotient;
+    }
+
+    public static void Host()
+    {
+        var adrs = new Uri[1];
+        adrs[0] = new Uri(&quot;http://localhost:3980/service&quot;);
+        using (ServiceHost serviceHost = new ServiceHost(typeof(CalculatorService), adrs))
+        {
+            try
+            {
+
+                ServiceMetadataBehavior smb = new ServiceMetadataBehavior();
+                smb.HttpGetEnabled = true;
+                smb.MetadataExporter.PolicyVersion = PolicyVersion.Policy15;
+                serviceHost.Description.Behaviors.Add(smb);
+
+                // Open the ServiceHost to start listening for messages.
+                serviceHost.Open();
+
+                // The service can now be accessed.
+                Console.WriteLine(&quot;The service is ready.&quot;);
+                Console.WriteLine(&quot;Press &lt;ENTER&gt; to terminate service.&quot;);
+                Console.ReadLine();
+
+                // Close the ServiceHost.
+                serviceHost.Close();
+            }
+            catch (TimeoutException timeProblem)
+            {
+                Console.WriteLine(timeProblem.Message);
+                Console.ReadLine();
+            }
+            catch (CommunicationException commProblem)
+            {
+                Console.WriteLine(commProblem.Message);
+                Console.ReadLine();
+            }
+        }
+    }
+}
+</pre>
+<p>Once we generated assembly, then we can use that to call service</p>
 <pre class="prettyprint linenums lang-csharp">
         private static void Execute(string wsdlUrl)
         {
@@ -387,7 +493,7 @@ private static bool RemoteCertificateValidationCallback(object sender, System.Se
 </div>
         <div id="footer">
             <div id="footer-inner">
-                <p id="copyright">Copyright (c) 2014-2015 Dino L.</p>
+                <p id="copyright">Copyright (c) 2014-2016 Dino L.</p>
             </div>
         </div>
         <script type="text/x-mathjax-config">
