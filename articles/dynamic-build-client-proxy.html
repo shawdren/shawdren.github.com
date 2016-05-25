@@ -324,7 +324,48 @@ private static bool RemoteCertificateValidationCallback(object sender, System.Se
                 throw new Exception(&quot;Compiler Errors - unable to build Web Service Assembly&quot;);
             }
         }
+</pre><p>Once we generated assembly, then we can use that to call service</p>
+<pre class="prettyprint linenums lang-csharp">
+        private static void Execute(string wsdlUrl)
+        {
+            var clientProxyType = asm.GetTypes().First(
+                t =&gt; t.IsClass &amp;&amp; t.Name == &quot;Calculator&quot; + &quot;Client&quot; &amp;&amp;
+                     t.GetInterface(typeof(ICommunicationObject).Name) != null);
+
+            var interfaces = clientProxyType.GetInterfaces();
+            var currentServiceEndpoint = (from itm in interfaces select allEndpoints).FirstOrDefault();
+
+            if (currentServiceEndpoint == null)
+            {
+                throw new Exception(&quot;No endpoint found&quot;);
+            }
+
+            var endpoint = currentServiceEndpoint.FirstOrDefault(itm =&gt; wsdlUrl.Contains(itm.Address.ToString()));
+            if (endpoint == null)
+            {
+                throw new Exception(&quot;No binding found&quot;);
+            }
+
+            object obj = asm.CreateInstance(
+               clientProxyType.Name,
+               false,
+               BindingFlags.CreateInstance,
+               null,
+               new object[] { endpoint.Binding, endpoint.Address },
+               CultureInfo.CurrentCulture,
+               null);
+            Type type = obj.GetType();
+            List&lt;object&gt; args = new List&lt;object&gt;();
+            var methodName = &quot;DoMathXml&quot;;
+
+            var memInfo = type.GetMethod(methodName);
+            var memParams = memInfo.GetParameters();
+            args.Add(2);
+            args.Add(2);
+            var result = type.InvokeMember(&quot;DoMathXml&quot;, BindingFlags.InvokeMethod, null, obj, args.ToArray());
+        }
 </pre>
+
         </div>
         <div id="disqus_thread"></div>
         <script type="text/javascript">

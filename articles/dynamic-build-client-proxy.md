@@ -265,4 +265,48 @@ public static class ServiceDescriptionExt
             }
         }
 ````
+Once we generated assembly, then we can use that to call service
+
+````csharp
+
+        private static void Execute(string wsdlUrl)
+        {
+            var clientProxyType = asm.GetTypes().First(
+                t => t.IsClass && t.Name == "Calculator" + "Client" &&
+                     t.GetInterface(typeof(ICommunicationObject).Name) != null);
+
+            var interfaces = clientProxyType.GetInterfaces();
+            var currentServiceEndpoint = (from itm in interfaces select allEndpoints).FirstOrDefault();
+
+            if (currentServiceEndpoint == null)
+            {
+                throw new Exception("No endpoint found");
+            }
+
+            var endpoint = currentServiceEndpoint.FirstOrDefault(itm => wsdlUrl.Contains(itm.Address.ToString()));
+            if (endpoint == null)
+            {
+                throw new Exception("No binding found");
+            }
+
+            object obj = asm.CreateInstance(
+               clientProxyType.Name,
+               false,
+               BindingFlags.CreateInstance,
+               null,
+               new object[] { endpoint.Binding, endpoint.Address },
+               CultureInfo.CurrentCulture,
+               null);
+            Type type = obj.GetType();
+            List<object> args = new List<object>();
+            var methodName = "DoMathXml";
+
+            var memInfo = type.GetMethod(methodName);
+            var memParams = memInfo.GetParameters();
+            args.Add(2);
+            args.Add(2);
+            var result = type.InvokeMember("DoMathXml", BindingFlags.InvokeMethod, null, obj, args.ToArray());
+        }
+
+````
  
