@@ -1,3 +1,10 @@
+- id: setup-email-server-win
+  title: Setup email server in windows
+  postedOn: !!str 2016-12-13
+  author: Dino
+  tags:
+    - email
+  abstract:  Setup email server in windows
 - id: dynamic-build-client-proxy
   title: Build dynamic client proxy for WCF and WebService
   postedOn: !!str 2016-5-24

@@ -4,8 +4,40 @@
         <title>RSS feed title</title>
         <link>Homepage link</link>
         <description>RSS feed description</description>
-        <lastBuildDate>Wed, 25 May 2016 17:36:37 +0800</lastBuildDate>
+        <lastBuildDate>Tue, 13 Dec 2016 16:24:54 +0800</lastBuildDate>
         <language>en</language>
+        
+        <item>
+            <title>Setup email server in windows</title>
+            <link>Homepage link/articles/setup-email-server-win.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/setup-email-server-win.html</guid>
+            <author>jl_lsj#outlook.com Dino Liu</author>
+            <pubDate>Tue, 13 Dec 2016 00:00:00 +0800</pubDate>
+            <description>&lt;h1 id=&quot;setup-the-mail-server-on-windows&quot;&gt;Setup the mail server on windows&lt;/h1&gt;
+&lt;p&gt;The eamil function is part of application, which can be send email automatically, or recevid mail from pop server.&lt;/p&gt;
+&lt;p&gt;For test purpose, to record the setup steps.
+The mail server software is hMailServer.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;following the &lt;a href=&quot;http://peterkellner.net/2012/03/11/how-to-setup-your-own-pop3imap-email-server-for-local-development-testing/&quot;&gt;install steps&lt;/a&gt; to in install hMailServer&lt;/li&gt;
+&lt;li&gt;config SSL certificate&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;download &lt;a href=&quot;http://slproweb.com/products/Win32OpenSSL.html&quot;&gt;openssl&lt;/a&gt; run following command to generate new .cer file.&lt;/p&gt;
+&lt;p&gt;into the openssl install folder/bin&lt;/p&gt;
+&lt;pre&gt;openssl genrsa –out private-rsa.key 1024
+&lt;/pre&gt;&lt;p&gt;generate no key file&lt;/p&gt;
+&lt;pre&gt;openssl req –new –x509 –key private-rsa.key –days 750 –outpublic-rsa.cer
+&lt;/pre&gt;&lt;h2 id=&quot;configuring-hmailserver-to-use-the-ssl-certificate&quot;&gt;Configuring hMailServer to use the SSL certificate&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Start hMailServer Administrator&lt;/li&gt;
+&lt;li&gt;Navigate to Settings-&gt;Advanced-&gt;TCP/IP ports&lt;/li&gt;
+&lt;li&gt;Select a port &lt;/li&gt;
+&lt;li&gt;Select &quot;Use SSL&quot; and the certificate.&lt;/li&gt;
+&lt;li&gt;Save the changes&lt;/li&gt;
+&lt;li&gt;Restart hMailServer&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Then test it in the application.&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>Build dynamic client proxy for WCF and WebService</title>
@@ -915,60 +947,6 @@ as below code&lt;/p&gt;
 &lt;/pre&gt;
 &lt;p&gt;It could be solve my issue perfectly. 
 the reference link is &lt;a href=&quot;http://stackoverflow.com/questions/7969607/extjs-checkboxselection-header-not-updating&quot;&gt;http://stackoverflow.com/questions/7969607/extjs-checkboxselection-header-not-updating&lt;/a&gt;&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>How to filter data for comboBox in extjs</title>
-            <link>Homepage link/articles/set-filter-data-for-combo-in-extjs.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
-            <guid>Homepage link/articles/set-filter-data-for-combo-in-extjs.html</guid>
-            <author>jl_lsj#outlook.com Dino Liu</author>
-            <pubDate>Mon, 25 May 2015 00:00:00 +0800</pubDate>
-            <description>&lt;h3 id=&quot;backgournd&quot;&gt;Backgournd&lt;/h3&gt;
-&lt;p&gt;Here is a common function that in the maintenance from which has a comboBox field and a data grid, once add a new record and pick up a value from
-comboBox to the grid, then the data of comboBox should be changed that the selected one should be removed out from comboBox.&lt;/p&gt;
-&lt;h3 id=&quot;what-39-s-issue&quot;&gt;What&#39;s issue&lt;/h3&gt;
-&lt;p&gt;if I would be use the filter by function of comboBox in extjs, that could be only filter data for initial time, once I try to add some new records, 
-the filter by function didn&#39;t work, because it&#39;s load data from cache data. &lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums lang-javascript&quot;&gt;var comboStore = new Ext.data.ArrayStore({
-    fields: [&#39;value&#39;],
-    data : filterValidateFiled()
-});
-
-comboStore.filterBy(function(record){
-    console.log(record.get(&#39;value&#39;));
-    var isTrue= true;
-    if(record.get(&#39;value&#39;) === d.fieldName || record.data.value === d.subFieldName){
-        isTrue = false;
-    }
-    return isTrue;
-}, this);
-&lt;/pre&gt;
-&lt;p&gt;I was use another way to filter data, that was maintain a data source on the form, if the comboBox items did changed, then reload the comboBox again, 
-It has encounter issue which the data structure is complex, that is not easy to do filter data.&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums lang-javascript&quot;&gt;//the filed name and sub filed name are all from one comboBox
-var gridStore = new Ext.data.ArrayStore({
-    data:[],
-    fields: [
-       { name: &#39;fieldName&#39;, mapping: &#39;fieldName&#39; },
-       { name: &#39;subFieldName&#39;, mapping: &#39;subFieldName&#39; }
-    ]
-});
-&lt;/pre&gt;
-&lt;p&gt;At last I did use recursive way to filter data, once do add, edit or delete operation.&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums lang-javascript&quot;&gt;function deleteDuplicationItems(filterData){
-     Ext.each(filterData, function(d){
-     var index = arguments[1];
-     Ext.each(data, function(item){ 
-              if(d &amp;&amp; (d[0] === item.fieldName || d[0] === item.subFieldName)){
-                  filterData.splice(index,1);
-                  deleteDuplicateItems(filterData);
-              } 
-         }, d);
-      });
-    return filterData;
-}
-&lt;/pre&gt;
 </description>
         </item>
         
