@@ -4,7 +4,7 @@
         <title>RSS feed title</title>
         <link>Homepage link</link>
         <description>RSS feed description</description>
-        <lastBuildDate>Tue, 13 Dec 2016 16:24:54 +0800</lastBuildDate>
+        <lastBuildDate>Sun, 17 Sep 2017 13:18:58 +0800</lastBuildDate>
         <language>en</language>
         
         <item>
@@ -45,7 +45,7 @@ The mail server software is hMailServer.&lt;/p&gt;
             <guid>Homepage link/articles/dynamic-build-client-proxy.html</guid>
             <author>jl_lsj#outlook.com Dino Liu</author>
             <pubDate>Tue, 24 May 2016 00:00:00 +0800</pubDate>
-            <description>&lt;h2 id=&quot;how-to-build-dynamic-proxy-for-wcf-and-webservice&quot;&gt;How to build dynamic proxy for WCF and WebService&lt;/h2&gt;
+            <description>&lt;p&gt;##How to build dynamic proxy for WCF and WebService&lt;/p&gt;
 &lt;p&gt;In my daily job recnetly I got a bug which cannot generate assembly for services, but we don&#39;t which is wcf or web service,
 in our code only support for webservice to create proxy dynamically. In order to memo the research result, show some snippet here.&lt;/p&gt;
 &lt;ul&gt;
@@ -647,28 +647,28 @@ Therefore I collected them on my blog to memo.&lt;/p&gt;
 &lt;img src=&quot;http://ww3.sinaimg.cn/bmiddle/a94a8951gw1exfh7xq78pj20c80y6wfi.jpg&quot; alt=&quot;ShiYangJin&quot;&gt;
 &lt;img src=&quot;http://ww3.sinaimg.cn/bmiddle/a94a8951gw1exfh7wy17qj20c80y6jsc.jpg&quot; alt=&quot;YinZhu&quot;&gt;&lt;/p&gt;
 &lt;p&gt;the rgb of them are:&lt;/p&gt;
-&lt;h3 id=&quot;yuanqing-rgb-62-60-61-&quot;&gt;YuanQing:      rgb(62,60,61)&lt;/h3&gt;
-&lt;h3 id=&quot;hongzao-rgb-79-83-85-&quot;&gt;HongZao:       rgb(79,83,85)&lt;/h3&gt;
-&lt;h3 id=&quot;shenyan-rgb-90-76-76-&quot;&gt;ShenYan:       rgb(90,76,76)&lt;/h3&gt;
-&lt;h3 id=&quot;xiangsihui-rgb-98-92-82-&quot;&gt;XiangSiHui:    rgb(98,92,82)&lt;/h3&gt;
-&lt;h3 id=&quot;xuanjin-rgb-121-111-84-&quot;&gt;XuanJin:       rgb(121,111,84)&lt;/h3&gt;
-&lt;h3 id=&quot;dailan-rgb-48-71-88-&quot;&gt;DaiLan:        rgb(48,71,88)&lt;/h3&gt;
-&lt;h3 id=&quot;quehui-rgb-69-86-103-&quot;&gt;QueHui:        rgb(69,86,103)&lt;/h3&gt;
-&lt;h3 id=&quot;huaqing-rgb-84-107-131-&quot;&gt;HuaQing:       rgb(84,107,131)&lt;/h3&gt;
-&lt;h3 id=&quot;shenzhuyue-rgb-37-120-181-&quot;&gt;ShenZhuYue:    rgb(37,120,181)&lt;/h3&gt;
-&lt;h3 id=&quot;dianlan-rgb-27-84-242-&quot;&gt;DianLan: rgb(27,84,242)&lt;/h3&gt;
-&lt;h3 id=&quot;biyushi-rgb-86-149-151-&quot;&gt;BiYuShi: rgb(86,149,151)&lt;/h3&gt;
-&lt;h3 id=&quot;chunlan-rgb-123-161-168-&quot;&gt;ChunLan: rgb(123,161,168)&lt;/h3&gt;
-&lt;h3 id=&quot;tianqing-rgb-46-195-231-&quot;&gt;TianQing: rgb(46,195,231)&lt;/h3&gt;
-&lt;h3 id=&quot;canglv-rgb-78-95-69-&quot;&gt;CangLv: rgb(78,95,69)&lt;/h3&gt;
-&lt;h3 id=&quot;kulv-rgb-183-178-120-&quot;&gt;KuLv: rgb(183,178,120)&lt;/h3&gt;
-&lt;h3 id=&quot;chunlv-rgb-227-239-209-&quot;&gt;ChunLv: rgb(227,239,209)&lt;/h3&gt;
-&lt;h3 id=&quot;jiangzi-rgb-112-77-78-&quot;&gt;JiangZi: rgb(112,77,78)&lt;/h3&gt;
-&lt;h3 id=&quot;zishuijing-rgb-195-166-203-&quot;&gt;ZiShuiJing: rgb(195,166,203)&lt;/h3&gt;
-&lt;h3 id=&quot;feihong-rgb-195-86-85-&quot;&gt;FeiHong: rgb(195,86,85)&lt;/h3&gt;
-&lt;h3 id=&quot;shiyangjin-rgb-252-177-170-&quot;&gt;ShiYangJin: rgb(252,177,170)&lt;/h3&gt;
-&lt;h3 id=&quot;chensha-rgb-175-94-83-&quot;&gt;ChenSHa: rgb(175,94,83)&lt;/h3&gt;
-&lt;h3 id=&quot;yinzhu-rgb-221-59-68-&quot;&gt;YinZhu: rgb(221,59,68)&lt;/h3&gt;
+&lt;p&gt;###YuanQing:      rgb(62,60,61)&lt;/p&gt;
+&lt;p&gt;###HongZao:       rgb(79,83,85)&lt;/p&gt;
+&lt;p&gt;###ShenYan:       rgb(90,76,76)&lt;/p&gt;
+&lt;p&gt;###XiangSiHui:    rgb(98,92,82)&lt;/p&gt;
+&lt;p&gt;###XuanJin:       rgb(121,111,84)&lt;/p&gt;
+&lt;p&gt;###DaiLan:        rgb(48,71,88)&lt;/p&gt;
+&lt;p&gt;###QueHui:        rgb(69,86,103)&lt;/p&gt;
+&lt;p&gt;###HuaQing:       rgb(84,107,131)&lt;/p&gt;
+&lt;p&gt;###ShenZhuYue:    rgb(37,120,181)&lt;/p&gt;
+&lt;p&gt;###DianLan: rgb(27,84,242)&lt;/p&gt;
+&lt;p&gt;###BiYuShi: rgb(86,149,151)&lt;/p&gt;
+&lt;p&gt;###ChunLan: rgb(123,161,168)&lt;/p&gt;
+&lt;p&gt;###TianQing: rgb(46,195,231)&lt;/p&gt;
+&lt;p&gt;###CangLv: rgb(78,95,69)&lt;/p&gt;
+&lt;p&gt;###KuLv: rgb(183,178,120)&lt;/p&gt;
+&lt;p&gt;###ChunLv: rgb(227,239,209)&lt;/p&gt;
+&lt;p&gt;###JiangZi: rgb(112,77,78)&lt;/p&gt;
+&lt;p&gt;###ZiShuiJing: rgb(195,166,203)&lt;/p&gt;
+&lt;p&gt;###FeiHong: rgb(195,86,85)&lt;/p&gt;
+&lt;p&gt;###ShiYangJin: rgb(252,177,170)&lt;/p&gt;
+&lt;p&gt;###ChenSHa: rgb(175,94,83)&lt;/p&gt;
+&lt;p&gt;###YinZhu: rgb(221,59,68)&lt;/p&gt;
 </description>
         </item>
         
@@ -864,7 +864,7 @@ here, we could be create a bat file&lt;/p&gt;
             <guid>Homepage link/articles/unescape-html-code.html</guid>
             <author>jl_lsj#outlook.com Dino Liu</author>
             <pubDate>Fri, 17 Jul 2015 00:00:00 +0800</pubDate>
-            <description>&lt;h1 id=&quot;the-tips-of-js-development&quot;&gt;The tips of js development&lt;/h1&gt;
+            <description>&lt;p&gt;#The tips of js development&lt;/p&gt;
 &lt;p&gt;In some case there is html code to display in textbox or label, it&#39;s not human world, so that&#39;s need unescape the html code,
 and some JS libraries are include this function, such as string.js and underscore.js.&lt;/p&gt;
 &lt;pre class=&quot;prettyprint linenums lang-javascript&quot;&gt;this.unescapeHTML = function(str) {
