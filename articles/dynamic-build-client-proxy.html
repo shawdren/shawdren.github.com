@@ -79,7 +79,11 @@ in our code only support for webservice to create proxy dynamically. In order to
 <p>the difference for those classes refer from stackoverflow</p>
 <blockquote>
 <p>ServiceDescriptionImporter is the class that is used by the &quot;Add Web Reference&quot; dialog in VS and the &quot;wsdl.exe&quot; tool in the SDK to generate &quot;asmx&quot;-style client web service proxies. ServiceContractGenerator is the WCF equivalent, for the &quot;Add Service Reference&quot; dialog in VS and the &quot;svcutil.exe&quot; &gt;tool in the SDK. The former uses the asmx client infrastructure (System.Web.Services.Protocols.SoapHttpClientProtocol and friends) and the latter uses the WCF client infrastructure (System.ServiceModel.ClientBase and friends).</p>
+</blockquote>
+<blockquote>
 <p>Either will be able to talk to most services -- that is, it is intended for both the WCF and asmx client infrastructures to be broadly interoperable with a range of web services standards. A WCF client can talk to an asmx server (as well as servers from other vendors) and vice versa.</p>
+</blockquote>
+<blockquote>
 <p>That said, WCF is newer, richer, better supported, and supports more WS standards than does asmx. You will certainly not be locked into only supporting WCF services<br><a href="http://stackoverflow.com/a/1772461/3986569">ServiceContractGenerator vs ServiceDescriptionImporter</a></p>
 </blockquote>
 <h3 id="create-demo-project">Create demo project</h3>
@@ -161,6 +165,7 @@ public static class ServiceDescriptionExt
 
     }
 }
+
 </pre>
 <p> the methods for generate proxy</p>
 <pre class="prettyprint linenums lang-csharp">
@@ -429,6 +434,7 @@ public static class HostService
         }
     }
 }
+
 </pre>
 <p>Once we generated assembly, then we can use that to call service</p>
 <pre class="prettyprint linenums lang-csharp">
@@ -470,6 +476,7 @@ public static class HostService
             args.Add(2);
             var result = type.InvokeMember(&quot;DoMathXml&quot;, BindingFlags.InvokeMethod, null, obj, args.ToArray());
         }
+
 </pre>
 
         </div>
@@ -493,7 +500,7 @@ public static class HostService
 </div>
         <div id="footer">
             <div id="footer-inner">
-                <p id="copyright">Copyright (c) 2014-2016 Dino L.</p>
+                <p id="copyright">Copyright (c) 2014-2018 Dino L.</p>
             </div>
         </div>
         <script type="text/x-mathjax-config">

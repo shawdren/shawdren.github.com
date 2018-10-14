@@ -96,7 +96,7 @@ var gridStore = new Ext.data.ArrayStore({
        { name: &#39;fieldName&#39;, mapping: &#39;fieldName&#39; },
        { name: &#39;subFieldName&#39;, mapping: &#39;subFieldName&#39; }
     ]
-});
+});  
 </pre>
 <p>At last I did use recursive way to filter data, once do add, edit or delete operation.</p>
 <pre class="prettyprint linenums lang-javascript">function deleteDuplicationItems(filterData){
@@ -111,6 +111,7 @@ var gridStore = new Ext.data.ArrayStore({
       });
     return filterData;
 }
+
 </pre>
 
         </div>
@@ -134,7 +135,7 @@ var gridStore = new Ext.data.ArrayStore({
 </div>
         <div id="footer">
             <div id="footer-inner">
-                <p id="copyright">Copyright (c) 2014-2016 Dino L.</p>
+                <p id="copyright">Copyright (c) 2014-2018 Dino L.</p>
             </div>
         </div>
         <script type="text/x-mathjax-config">

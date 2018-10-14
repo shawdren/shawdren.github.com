@@ -4,7 +4,7 @@
         <title>RSS feed title</title>
         <link>Homepage link</link>
         <description>RSS feed description</description>
-        <lastBuildDate>Sun, 17 Sep 2017 13:18:58 +0800</lastBuildDate>
+        <lastBuildDate>Sun, 14 Oct 2018 23:44:19 +0800</lastBuildDate>
         <language>en</language>
         
         <item>
@@ -55,7 +55,11 @@ in our code only support for webservice to create proxy dynamically. In order to
 &lt;p&gt;the difference for those classes refer from stackoverflow&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;ServiceDescriptionImporter is the class that is used by the &quot;Add Web Reference&quot; dialog in VS and the &quot;wsdl.exe&quot; tool in the SDK to generate &quot;asmx&quot;-style client web service proxies. ServiceContractGenerator is the WCF equivalent, for the &quot;Add Service Reference&quot; dialog in VS and the &quot;svcutil.exe&quot; &gt;tool in the SDK. The former uses the asmx client infrastructure (System.Web.Services.Protocols.SoapHttpClientProtocol and friends) and the latter uses the WCF client infrastructure (System.ServiceModel.ClientBase and friends).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
 &lt;p&gt;Either will be able to talk to most services -- that is, it is intended for both the WCF and asmx client infrastructures to be broadly interoperable with a range of web services standards. A WCF client can talk to an asmx server (as well as servers from other vendors) and vice versa.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
 &lt;p&gt;That said, WCF is newer, richer, better supported, and supports more WS standards than does asmx. You will certainly not be locked into only supporting WCF services&lt;br&gt;&lt;a href=&quot;http://stackoverflow.com/a/1772461/3986569&quot;&gt;ServiceContractGenerator vs ServiceDescriptionImporter&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&quot;create-demo-project&quot;&gt;Create demo project&lt;/h3&gt;
@@ -137,6 +141,7 @@ public static class ServiceDescriptionExt
 
     }
 }
+
 &lt;/pre&gt;
 &lt;p&gt; the methods for generate proxy&lt;/p&gt;
 &lt;pre class=&quot;prettyprint linenums lang-csharp&quot;&gt;
@@ -405,6 +410,7 @@ public static class HostService
         }
     }
 }
+
 &lt;/pre&gt;
 &lt;p&gt;Once we generated assembly, then we can use that to call service&lt;/p&gt;
 &lt;pre class=&quot;prettyprint linenums lang-csharp&quot;&gt;
@@ -446,6 +452,7 @@ public static class HostService
             args.Add(2);
             var result = type.InvokeMember(&quot;DoMathXml&quot;, BindingFlags.InvokeMethod, null, obj, args.ToArray());
         }
+
 &lt;/pre&gt;
 </description>
         </item>
@@ -625,6 +632,7 @@ db.categories.find({ancestors: 34), this way Im searching for all categories tha
 Denormalization Summary:
 
 1:1 -&gt; Embed 1: Many -&gt; Embed putting the many inside the One Many: Many -&gt; Link and use multi key Indexes
+
 &lt;/pre&gt;</description>
         </item>
         
@@ -714,6 +722,7 @@ how to install gac use comand line? I found a solution for it then memo it.&lt;/
   30:      
   31:      $publish.GacInstall( $assembly )
   32:  }
+
 &lt;/pre&gt;
 &lt;p&gt;the reference: &lt;a href=&quot;http://weblogs.asp.net/adweigert/powershell-install-gac-gacutil-for-powershell&quot;&gt;PowerShell: Install-Gac (GACUTIL for PowerShell)&lt;/a&gt;&lt;/p&gt;
 </description>
@@ -890,6 +899,7 @@ and some JS libraries are include this function, such as string.js and underscor
 &lt;p&gt;some test code&lt;/p&gt;
 &lt;pre class=&quot;prettyprint linenums lang-javascript&quot;&gt;console.log(this.unescapeHTML(&#39;&amp;amp&#39;));
 =&gt; &amp;
+
 &lt;/pre&gt;
 &lt;p&gt;Its reference from stackoverflow: &lt;a href=&quot;http://stackoverflow.com/questions/17678694/replace-html-entities-e-g-8217-with-character-equivalents-when-parsing-an&quot;&gt;http://stackoverflow.com/questions/17678694/replace-html-entities-e-g-8217-with-character-equivalents-when-parsing-an&lt;/a&gt;&lt;/p&gt;
 </description>

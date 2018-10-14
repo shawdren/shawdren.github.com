@@ -1,7 +1,7 @@
 /* 基础而通用的样式 */
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "WenQuanYi Micro Hei", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
-    background: rgb(123, 161, 168);
+    background: #1d1f21;
 }
 a {
     text-decoration: none;
@@ -34,9 +34,13 @@ pre.prettyprint ol {
     margin: 0;
 }
 
+pre {
+    color: #2bbc8a;
+}
+
 /* 页面头部 */
 div#header {
-        background-color:rgb(86,149,151);
+        background-color:#1d1f21;
     height: 80px;
 }
 div#header-inner {
@@ -105,7 +109,7 @@ div#subtitle {
 /* 页面底部 */
 div#footer-inner {
     border-top: 1px solid #5a5a5a;
-    background-color:rgb(86,149,151);
+    background-color:#1d1f21;
     width: 90%;
     max-width: 1024px;
     margin: 20px auto 0;
@@ -162,8 +166,8 @@ div.article-block p.meta {
 }
 div.article-block a.tag {
     margin-right: 6px;
-    background-color: rgb(227, 239, 209);
-    color: rgba(0,0,0,.5);
+    background-color: #666;
+    color: #c9cacc;
     padding: 3px;
     font-size: 14px;
     -moz-border-radius: 5px; 
@@ -187,7 +191,7 @@ div#rss {
 div#tag-cloud {
     border: 1px dashed #ccc;
     margin: 20px 0;
-    background-color: rgb(227, 239, 209);
+    background-color: #666;
     -webkit-box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.25);
     -moz-box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.25);
     box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.25);
@@ -199,7 +203,6 @@ div#tag-cloud a {
     margin: 6px;
     display: block;
     float: left;
-    background-color: rgb(37, 120, 181);
     color: #fff;
     padding: 3px;
     font-size: 14px;
@@ -221,8 +224,7 @@ div#article-tags {
 }
 div#article-tags a.tag {
     margin-right: 6px;
-    background-color: rgb(227, 239, 209);
-    color: rgba(0,0,0,.5);
+    background-color: #666;
     padding: 3px;
     font-size: 14px;
     -moz-border-radius: 5px; 

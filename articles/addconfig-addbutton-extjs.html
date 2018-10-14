@@ -70,7 +70,7 @@
         </div>
         <div id="article-content">
             <h2 id="a-way-to-set-config-for-addbutton-of-panel-in-extjs">A way to set config for addbutton of Panel in Extjs</h2>
-<p>Via read source code of addButton(<a href="http://docs.sencha.com/extjs/3.4.0/source/Panel.html#Ext-Panel-method-addButton">http://docs.sencha.com/extjs/3.4.0/source/Panel.html#Ext-Panel-method-addButton</a>), we can found out that there is a 
+<p>Via read source code of addButton(<a href="http://docs.sencha.com/extjs/3.4.0/source/Panel.html#Ext-Panel-method-addButton)">http://docs.sencha.com/extjs/3.4.0/source/Panel.html#Ext-Panel-method-addButton)</a>, we can found out that there is a 
 handler parameter could be passed by outside or in the config itself.</p>
 <pre class="prettyprint linenums lang-javascript">    addButton : function(config, handler, scope){
         if(!this.fbar){
@@ -87,6 +87,7 @@ handler parameter could be passed by outside or in the config itself.</p>
         }
         return this.fbar.add(config);
     },
+
 </pre>
 <p>so there are 2 ways to set the handler for buttons on the pannel.
 one is just add handler in the config</p>
@@ -109,6 +110,7 @@ one is just add handler in the config</p>
 onButtonClick:function(){
     fireEvent(&#39;still needs fire Event for trigger click event&#39;);
 }
+
 </pre>
 
         </div>
@@ -132,7 +134,7 @@ onButtonClick:function(){
 </div>
         <div id="footer">
             <div id="footer-inner">
-                <p id="copyright">Copyright (c) 2014-2016 Dino L.</p>
+                <p id="copyright">Copyright (c) 2014-2018 Dino L.</p>
             </div>
         </div>
         <script type="text/x-mathjax-config">
