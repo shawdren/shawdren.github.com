@@ -115,13 +115,13 @@ ToConstant method:</p>
 <pre class="prettyprint linenums lang-c">[Test]
 public void ReturnsTheSameInstancesInOneThread()
 {
-   using (var kernel = new StandardKernel())
-   {
-        kernel.Bind&lt;object&gt;().ToSelf().InThreadScope();
-    var instance1 = kernel.Get&lt;object&gt;();
-    var instance2 = kernel.Get&lt;object&gt;();
-    Assert.AreEqual(instance1, instance2);
-    }
+using (var kernel = new StandardKernel())
+{
+kernel.Bind&lt;object&gt;().ToSelf().InThreadScope();
+var instance1 = kernel.Get&lt;object&gt;();
+var instance2 = kernel.Get&lt;object&gt;();
+Assert.AreEqual(instance1, instance2);
+}
 }
 </pre>
 <ul>
@@ -175,7 +175,7 @@ kernel.Release(myObject);
 </div>
         <div id="footer">
             <div id="footer-inner">
-                <p id="copyright">Copyright (c) 2014-2016 Dino L.</p>
+                <p id="copyright">Copyright (c) 2014-2018 Dino L.</p>
             </div>
         </div>
         <script type="text/x-mathjax-config">
