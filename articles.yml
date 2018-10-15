@@ -1,3 +1,10 @@
+- id: surfing-the-internet-on-the-science-way
+  title: Surfing the internet on the science way
+  postedOn: !!str 2018-10-15
+  author: Dino
+  tags:
+    - Technology
+  abstract:  using the correct way to surfing on the internet
 - id: setup-email-server-win
   title: Setup email server in windows
   postedOn: !!str 2016-12-13

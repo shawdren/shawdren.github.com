@@ -4,8 +4,45 @@
         <title>RSS feed title</title>
         <link>Homepage link</link>
         <description>RSS feed description</description>
-        <lastBuildDate>Mon, 15 Oct 2018 20:09:52 +0800</lastBuildDate>
+        <lastBuildDate>Mon, 15 Oct 2018 20:33:11 +0800</lastBuildDate>
         <language>en</language>
+        
+        <item>
+            <title>Surfing the internet on the science way</title>
+            <link>Homepage link/articles/surfing-the-internet-on-the-science-way.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/surfing-the-internet-on-the-science-way.html</guid>
+            <author>jl_lsj#outlook.com Dino Liu</author>
+            <pubDate>Mon, 15 Oct 2018 00:00:00 +0800</pubDate>
+            <description>&lt;h1 id=&quot;surfing-the-internet-on-the-science-way&quot;&gt;Surfing the internet on the science way&lt;/h1&gt;
+&lt;p&gt;On the Ubuntu is much easy to install ss, only below 3 steps&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-javascript&quot;&gt;apt-get update
+apt-get install python-pip
+pip install s-h-a-d-o-w-s-o-c-k-s
+&lt;/pre&gt;
+&lt;p&gt;pip is installation tool for python, like apt-get&lt;/p&gt;
+&lt;p&gt;if installed sucessful and no error, the s-s should be instal completely. the next is deploy thing.&lt;/p&gt;
+&lt;p&gt;write a config file and save as etc/s-h-a-d-o-w-s-o-c-k-s.json, as following&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-{&quot;&gt;    &quot;server&quot;:&quot;my_server_ip&quot;,
+    &quot;server_port&quot;:8388,
+    &quot;local_address&quot;: &quot;127.0.0.1&quot;,
+    &quot;local_port&quot;:1080,
+    &quot;password&quot;:&quot;mypassword&quot;,
+    &quot;timeout&quot;:300,
+    &quot;method&quot;:&quot;aes-256-cfb&quot;,
+    &quot;fast_open&quot;: false
+}
+&lt;/pre&gt;
+&lt;p&gt;server, server_port, password these are parameters, change it by yourself.
+the config file is ok, then try to run it.&lt;/p&gt;
+&lt;pre&gt;ssserver -c /etc/s-h-a-d-o-w-s-o-c-k-s.json -d start
+&lt;/pre&gt;&lt;p&gt;of cause, we don&#39;t want to setup every time on start server. 
+then put the start command copy into below file. &lt;/p&gt;
+&lt;pre&gt;/etc/rc.d/rc.local
+&lt;/pre&gt;&lt;p&gt;That&#39;s ok, then open the client, hooray!!!&lt;/p&gt;
+&lt;p&gt;android client download path:　&lt;a href=&quot;http://s-h-a-d-o-w-s-o-c-k-s.en.uptodown.com/android/download&quot;&gt;http://s-h-a-d-o-w-s-o-c-k-s.en.uptodown.com/android/download&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Note: the last thing is replace the hyphen with empty space. &lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>Setup email server in windows</title>
@@ -902,61 +939,6 @@ and some JS libraries are include this function, such as string.js and underscor
 
 &lt;/pre&gt;
 &lt;p&gt;Its reference from stackoverflow: &lt;a href=&quot;http://stackoverflow.com/questions/17678694/replace-html-entities-e-g-8217-with-character-equivalents-when-parsing-an&quot;&gt;http://stackoverflow.com/questions/17678694/replace-html-entities-e-g-8217-with-character-equivalents-when-parsing-an&lt;/a&gt;&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>How to set checkbox in header column of grid panel</title>
-            <link>Homepage link/articles/extjs-gridpanel-checkbox-checkall.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
-            <guid>Homepage link/articles/extjs-gridpanel-checkbox-checkall.html</guid>
-            <author>jl_lsj#outlook.com Dino Liu</author>
-            <pubDate>Fri, 03 Jul 2015 00:00:00 +0800</pubDate>
-            <description>&lt;p&gt;The tips of how to set checkbox value in header of gridPanel&lt;/p&gt;
-&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
-&lt;p&gt;In the grid panel, its has two columns, one is checkbox column and another one is something like name column. There is a 
-requirement which need checked all rows when grid does load end data, but in the gridPanel cannot be checked checkbox in header.
-It&#39;s very weird issue, I cannot find a solution from API documents, through debugging source code, I found that there is
-an event called onHdMouseDown, when click checkbox in header it could be select all rows, and it just add css on that cell,
-the implements code like this &lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums lang-javascript&quot;&gt;onHdMouseDown :function(e, t){
-    if(t.className ==&#39;x-grid3-hd-checker&#39;){
-        e.stopEvent();var hd =Ext.fly(t.parentNode);
-        var isChecked = hd.hasClass(&#39;x-grid3-hd-checker-on&#39;);
-        if(isChecked){                
-            hd.removeClass(&#39;x-grid3-hd-checker-on&#39;);
-            this.clearSelections();
-        }else{ 
-             hd.addClass(&#39;x-grid3-hd-checker-on&#39;);
-            this.selectAll();
-        }
-    }
-}
-&lt;/pre&gt;
-&lt;p&gt;So I could be use the same way to solve my issue, at the end I found a solution on stackoverflow, the background method 
-as below code&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums lang-javascript&quot;&gt;var sm = new Ext.grid.CheckboxSelectionModel({
-    listeners : {
-            selectionchange : function(){
-                var recLen = Ext.getCmp(&#39;grid&#39;).store.getRange().length;
-                var selectedLen = this.selections.items.length;
-                var view   = Ext.getCmp(&#39;grid&#39;).getView();
-                var chkdiv = Ext.fly(view.innerHd).child(&quot;.x-grid3-hd-checker&quot;)
-                if(selectedLen == recLen){
-                    chkdiv.addClass(&quot;x-grid3-hd-checker-on&quot;);
-                } else {
-                    chkdiv.removeClass(&quot;x-grid3-hd-checker-on&quot;);
-                }
-            }
-            ,rowdeselect : function ( sm ,rowIndex ,record) {
-                var view   = Ext.getCmp(&#39;grid&#39;).getView();
-                var chkdiv = Ext.fly(view.innerHd).child(&quot;.x-grid3-hd-checker&quot;)
-                chkdiv.removeClass(&#39;x-grid3-hd-checker-on&#39;);
-            }
-    }
- });
-&lt;/pre&gt;
-&lt;p&gt;It could be solve my issue perfectly. 
-the reference link is &lt;a href=&quot;http://stackoverflow.com/questions/7969607/extjs-checkboxselection-header-not-updating&quot;&gt;http://stackoverflow.com/questions/7969607/extjs-checkboxselection-header-not-updating&lt;/a&gt;&lt;/p&gt;
 </description>
         </item>
         
