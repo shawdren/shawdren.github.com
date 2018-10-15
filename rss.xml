@@ -4,7 +4,7 @@
         <title>RSS feed title</title>
         <link>Homepage link</link>
         <description>RSS feed description</description>
-        <lastBuildDate>Mon, 15 Oct 2018 20:35:01 +0800</lastBuildDate>
+        <lastBuildDate>Mon, 15 Oct 2018 20:37:22 +0800</lastBuildDate>
         <language>en</language>
         
         <item>
@@ -22,7 +22,8 @@ pip install s-h-a-d-o-w-s-o-c-k-s
 &lt;p&gt;pip is installation tool for python, like apt-get&lt;/p&gt;
 &lt;p&gt;if installed sucessful and no error, the s-s should be instal completely. the next is deploy thing.&lt;/p&gt;
 &lt;p&gt;write a config file and save as etc/s-h-a-d-o-w-s-o-c-k-s.json, as following&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums lang-{&quot;&gt;    &quot;server&quot;:&quot;my_server_ip&quot;,
+&lt;pre&gt;{
+    &quot;server&quot;:&quot;my_server_ip&quot;,
     &quot;server_port&quot;:8388,
     &quot;local_address&quot;: &quot;127.0.0.1&quot;,
     &quot;local_port&quot;:1080,
@@ -31,8 +32,7 @@ pip install s-h-a-d-o-w-s-o-c-k-s
     &quot;method&quot;:&quot;aes-256-cfb&quot;,
     &quot;fast_open&quot;: false
 }
-&lt;/pre&gt;
-&lt;p&gt;server, server_port, password these are parameters, change it by yourself.
+&lt;/pre&gt;&lt;p&gt;server, server_port, password these are parameters, change it by yourself.
 the config file is ok, then try to run it.&lt;/p&gt;
 &lt;pre&gt;ssserver -c /etc/s-h-a-d-o-w-s-o-c-k-s.json -d start
 &lt;/pre&gt;&lt;p&gt;of cause, we don&#39;t want to setup every time on start server. 

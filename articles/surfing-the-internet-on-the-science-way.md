@@ -12,7 +12,8 @@ pip is installation tool for python, like apt-get
 if installed sucessful and no error, the s-s should be instal completely. the next is deploy thing.
 
 write a config file and save as etc/s-h-a-d-o-w-s-o-c-k-s.json, as following
-````{
+````
+{
     "server":"my_server_ip",
     "server_port":8388,
     "local_address": "127.0.0.1",

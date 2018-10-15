@@ -76,7 +76,8 @@ pip install s-h-a-d-o-w-s-o-c-k-s
 <p>pip is installation tool for python, like apt-get</p>
 <p>if installed sucessful and no error, the s-s should be instal completely. the next is deploy thing.</p>
 <p>write a config file and save as etc/s-h-a-d-o-w-s-o-c-k-s.json, as following</p>
-<pre class="prettyprint linenums lang-{">    &quot;server&quot;:&quot;my_server_ip&quot;,
+<pre>{
+    &quot;server&quot;:&quot;my_server_ip&quot;,
     &quot;server_port&quot;:8388,
     &quot;local_address&quot;: &quot;127.0.0.1&quot;,
     &quot;local_port&quot;:1080,
@@ -85,8 +86,7 @@ pip install s-h-a-d-o-w-s-o-c-k-s
     &quot;method&quot;:&quot;aes-256-cfb&quot;,
     &quot;fast_open&quot;: false
 }
-</pre>
-<p>server, server_port, password these are parameters, change it by yourself.
+</pre><p>server, server_port, password these are parameters, change it by yourself.
 the config file is ok, then try to run it.</p>
 <pre>ssserver -c /etc/s-h-a-d-o-w-s-o-c-k-s.json -d start
 </pre><p>of cause, we don&#39;t want to setup every time on start server. 
